@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+html, body, .wrapper{
+    height: 100%;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0 24px;
+    background-image: url(../imagens/login.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: black;
+    animation: rotate 6s infinite alternate linear;
+}
+
+.login-card{
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    margin: 0 20px;
+    padding: 30px 30px 30px;
+    border-radius: 1.25rem;
+    background: white;
+    text-align: center;
+}
+
+.login-card > h2#gravy{
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: hotpink;
+}
+
+.login-card > h2#baby{
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: #3cb2f6;
+}
+
+.login-card > h3{
+    color: rgba(0, 0, 0, 0.38);
+    margin: 0 0 30px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.login-icons > h3{
+    color: rgba(0, 0, 0, 0.38);
+    margin: 0 30 0px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.login-form{
+    width: 100%;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.login-form > input, .login-form > button{
+    width: 100%;
+    height: 50px;
+}
+
+.login-form > input{
+    border: 2px solid #ebebeb;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    transition: all 0.5s;
+}
+
+.login-form > input#n_user:hover, .login-form > input#n_user:focus, .login-form > input#nome:hover, .login-form > input#nome:focus{
+    border: 2px solid #3cb2f6;
+}
+
+.login-form > input#password:hover, .login-form > input#password:focus, .login-form > input#email:hover, .login-form > input#email:focus{
+    border: 2px solid #f35396;
+}
+
+.login-form > button{
+    cursor: pointer;
+    width: 100%;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    background: linear-gradient(#3cb2f6,#f35396);
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: 0.375s;
+}
+
+.login-form > button:hover{
+    border: 1px solid;
+    background: linear-gradient(#2d759f,#a93a68) ;
+}
+
+.login-form a{
+    color: #4d5050;
+    font-size: 0.9rem;
+    text-align: left;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: all 0.375s;
+    cursor: pointer;
+}
+
+.login-icons > ul{
+    display: flex;
+    list-style: none;
+}
+
+.login-icons > ul > li{
+    width: calc(100% / 4);
+}
+
+.login-icons > ul > li > a{
+    color: #f35396;
+    font-size: 3rem;
+    text-align: left;
+    text-decoration: none;
+    transition: all 0.375s;
+    cursor: pointer;
+    display: flex;
+}
+
+.login-form > a:hover, .login-icons > ul > li > a:hover{
+    color: #3cb2f6;
+}
+
+@keyframes rotate{
+    100%{
+        background-position: 15% 50%;
+    }
+}
+
+@media (width >= 500px){
+    body{
+        padding: 0;
+    }
+
+    .login-card{
+        margin: 0;
+        width: 400px;
+    }
+}
