@@ -8,7 +8,7 @@ html, body, .wrapper{
     height: 100%;
 }
 
-body{
+bodyss{
     display: grid;
     place-items: center;
     margin: 0;
@@ -18,7 +18,22 @@ body{
     background-size: cover;
     font-family: "Ubuntu";
     color: black;
-    animation: rotate 6s infinite alternate linear;
+}
+
+body{
+    font-family: "Ubuntu";
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    padding: 0%;
+    background: linear-gradient(-45deg,#3cb2f6,hotpink,#2d759f,#a93a68);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
 }
 
 .login-card{
@@ -148,6 +163,19 @@ body{
         background-position: 15% 50%;
     }
 }
+
+@keyframes gradient {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
 
 @media (width >= 500px){
     body{
