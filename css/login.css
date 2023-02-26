@@ -101,11 +101,11 @@ body{
     transition: all 0.5s;
 }
 
-.login-form > div > input#n_user:hover, .login-form > div > input#n_user:focus, .login-form > div > input#nome:hover, .login-form > div > input#nome:focus{
+.login-form > div > input#n_user:hover, .login-form > div > input#n_user:focus, .login-form > div > input#nome:hover, .login-form > div > input#nome:focus, #n_user_reg:hover, #n_user_reg:focus {
     border: 2px solid #3cb2f6;
 }
 
-.login-form > div > input#password:hover, .login-form > div > input#password:focus, .login-form > div > input#email:hover, .login-form > div > input#email:focus{
+.login-form > div > input#password:hover, .login-form > div > input#password:focus, .login-form > div > input#email_reg:hover, .login-form > div > input#email:focus, #password_reg:hover, #password_reg:focus{
     border: 2px solid #f35396;
 }
 
