@@ -34,6 +34,10 @@ body{
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
+    background-repeat: no-repeat;
+    
+    place-items: center;
+    padding: 0 24px;
 }
 
 .login-card{
@@ -185,5 +189,39 @@ body{
     .login-card{
         margin: 0;
         width: 400px;
+    }
+}
+
+@media (width < 500px){
+    body{
+        padding: 10;
+    }
+
+    .login-card{
+        margin: 0;
+        width: 300px;
+    }
+
+    .login-card > h2#gravy{
+        font-size: 25px;
+        font-weight: 600;
+        margin: 0 0 12px;
+        color: hotpink;
+    }
+    
+    .login-card > h2#baby{
+        font-size: 25px;
+        font-weight: 600;
+        margin: 0 0 12px;
+        color: #3cb2f6;
+    }
+
+    .login-icons > ul{
+        margin: 0px 0px 0px 15px;
+        padding: 0%;
+    }
+
+    .login-icons > ul > li{
+        width: calc((100% / 4));
     }
 }
