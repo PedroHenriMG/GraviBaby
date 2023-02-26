@@ -12,14 +12,14 @@
         <h2 id="gravy">Gravi&#10084;</h2><h2 id="baby">Baby</h2>
         <h3>Coloque suas credenciais</h3>
 
-        <form class="login-form">
+        <form method="post" class="login-form" action="../controller/salvarUsu.php">
             <div>
-                <input id="nome" type="text" placeholder="Nome">
-                <input id="n_user_reg" type="text" placeholder="Nome de usuário">
+                <input id="nome" type="text" placeholder="Nome Completo" name="nome_completo">
+                <input id="n_user_reg" type="text" placeholder="Nome de usuário" name="n_usuario">
             </div>
             <div>
-                <input id="email_reg" type="email" placeholder="Email">
-                <input id="password_reg" type="password" placeholder="Senha">
+                <input id="email_reg" type="email" placeholder="Email" name="email_usuario">
+                <input id="password_reg" type="password" placeholder="Senha" name="senha_usuario">
             </div>
             <button type="submit">REGISTRAR-SE</button>
         </form>

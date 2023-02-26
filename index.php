@@ -1,3 +1,9 @@
+<?php
+session_start();
+ob_start();
+include_once './config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +18,17 @@
     <div class="login-card">
         <h2 id="gravy">Gravi&#10084;</h2><h2 id="baby">Baby</h2>
         <h3>Coloque suas credenciais</h3>
-
-        <form class="login-form">
+        <form method="POST" class="login-form" action="./controller/testar_login.php">
             <div class="credenciais">
-                <input id="n_user" type="text" placeholder="Nome de usuário">
-                <input id="password" type="password" placeholder="Senha">
+                <input id="n_user" type="text" placeholder="Nome de usuário" name="n_userlog">
+                <input id="password" type="password" placeholder="Senha" name="senhalog">
             </div>
             <div class="links">
                 <a id="esc_senha" href="#">Esqueceu a sua senha?</a>
                 <a id="resgister" href="view/registrar.html">Registre-se</a>
             </div>
-            <button type="submit">LOGIN</button>
+            <button type="submit" name="enviar">LOGIN</button>
         </form>
-
         <div class="login-icons">
             <h3>Entrar com:</h3>
             <ul>
