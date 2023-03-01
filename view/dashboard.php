@@ -12,6 +12,19 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+
+<?php
+session_start();
+ob_start();
+
+
+if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
+    header('Location: ../index.php');
+    $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +70,7 @@
           <div class="d-md-flex align-items-center mb-3 mx-2">
             <div class="mb-md-0 mb-3">
               <h3 class="font-weight-bold mb-0">GraviBaby</h3>
-              <p class="mb-0">Apps you might like!</p>
+              <p class="mb-0 text-dark">Apps you might like!</p>
             </div>
             <button type="button" class="btn btn-sm btn-white btn-icon d-flex align-items-center mb-0 ms-md-auto mb-sm-0 mb-2 me-2">
               <span class="btn-inner--icon">

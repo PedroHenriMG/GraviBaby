@@ -22,7 +22,7 @@ include_once '../config.php';
                 $_SESSION['id'] = $linhalog['idT_usuario'];
                 $_SESSION['nome'] = $linhalog['nomeCompleto_usuario'];
                 echo $_SESSION['nome'];
-                header("Location: http://localhost/GraviBaby/view/paginateste.php");
+                header("Location: http://localhost/GraviBaby/view/dashboard.php");
 
             }else{
                 $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
