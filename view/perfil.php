@@ -72,24 +72,58 @@ Perfil
 
 <section class="body_perfil">
     <section class="main_perfil">
+
         <div class="section_infos_perfil">
             <div class="foto_perfil">
-                
+                <img src="../imagens/fotoperfil.png" alt="">
             </div>
             <div class="infos_perfil">
                 <div class="topo_infos_perfil">
                     <h3>PedroLucas@f.com</h3>
                     <button class="btn_editar_perfil">Editar perfil</button>
                     <i>Configurações</i>
-                    
                 </div>
+
+                <div class="infos_gerais_perfil">
+                    <h5 class="gerais">6 publicações</h5>
+                    <h5 class="gerais">3553 seguidores</h5>
+                    <h5 class="gerais">545 seguindo</h5>
+                </div>
+
+                <div class="bio_perfil">
+                <h5 class="infos_bio_perfil">Pedro Lucas Freitas Sousa</h5>
+                <h5 class="infos_bio_perfil">Programador Web</h5>
+                <h5 class="infos_bio_perfil">Bom Jesus PI</h5>
+                <h5 class="infos_bio_perfil">18 anos</h5>
+            </div>
+            </div>
+            
+        </div>
+
+        <hr>
+
+        <div class="atividades">
+            <div class="atividade_perfil">
+                <i></i>
+                <span>PUBLICAÇÕES</span>
+            </div>
+            <div class="atividade_perfil">
+            <i></i>
+                <span>SALVOS</span>
+            </div>
+            <div class="atividade_perfil">
+            <i></i>
+                <span>MARCADOS</span>
             </div>
         </div>
-        <div class="atividades">
 
-        </div>
-        <div class="posts">
-
+        <div class="posts_perfil">
+            <div class="post"><img src="" alt=""></div>
+            <div class="post"><img src="" alt=""></div>
+            <div class="post"><img src="" alt=""></div>
+            <div class="post"><img src="" alt=""></div>
+            <div class="post"><img src="" alt=""></div>
+            <div class="post"><img src="" alt=""></div>
         </div>
     </section>
 </section>

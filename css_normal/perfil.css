@@ -1,7 +1,5 @@
 .body_perfil{
-    
     height: 120vh;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,4 +11,62 @@
     width: 95%;
     height: 90%;
     background-color: aliceblue;
+    padding: 20px;
+}
+
+.section_infos_perfil{
+    display: flex;
+    justify-content: center;
+}
+
+.foto_perfil{
+    border-radius: 50%;
+    margin-right: 30px;
+    align-self: center;
+    
+}
+
+.infos_perfil{
+    display: flex;
+    flex-direction: column;
+}
+
+.topo_infos_perfil{
+    display: flex;
+}
+
+.btn_editar_perfil{
+
+}
+
+.infos_gerais_perfil{
+
+}
+
+.gerais{
+
+}
+
+.bio_perfil{
+
+}
+
+.infos_bio_perfil{
+
+}
+
+.atividades{
+
+}
+
+.atividade_perfil{
+
+}
+
+.posts_perfil{
+
+}
+
+.post{
+
 }
