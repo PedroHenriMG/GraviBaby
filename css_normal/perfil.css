@@ -1,0 +1,16 @@
+.body_perfil{
+    
+    height: 120vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_perfil{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 90%;
+    background-color: aliceblue;
+}

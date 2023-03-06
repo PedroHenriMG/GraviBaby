@@ -32,6 +32,7 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
+<link rel="stylesheet" href="../css_normal/perfil.css">
 </head>
 
 <body class="g-sidenav-show" style="background-color: #D64AF7;">
@@ -64,19 +65,42 @@ Perfil
     </div>
     <hr class="my-0">
 
-    <!-- Main do perfil -->
-
     
-
-    <!-- Fim do Main do perfil -->
-    
-    <!-- Footer -->
-
-    <?php include_once("../view_padrao/footer.php") ?>
-
-    <!-- End Footer -->
     
 </div>
+<!-- Main do perfil -->
+
+<section class="body_perfil">
+    <section class="main_perfil">
+        <div class="section_infos_perfil">
+            <div class="foto_perfil">
+                
+            </div>
+            <div class="infos_perfil">
+                <div class="topo_infos_perfil">
+                    <h3>PedroLucas@f.com</h3>
+                    <button class="btn_editar_perfil">Editar perfil</button>
+                    <i>Configurações</i>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="atividades">
+
+        </div>
+        <div class="posts">
+
+        </div>
+    </section>
+</section>
+
+<!-- Fim do Main do perfil -->
+
+<!-- Footer -->
+
+<?php include_once("../view_padrao/footer.php") ?>
+
+<!-- End Footer -->
 </main>
 <div class="fixed-plugin">
 <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

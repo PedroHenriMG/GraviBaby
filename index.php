@@ -12,6 +12,7 @@ include_once './config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="fonts/css/all.min.css">
+    <link rel="stylesheet" href="./css_normal/login.css">
     <title>login</title>
 </head>
 <body>
