@@ -32,10 +32,14 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/perfil.css">
+<link rel="stylesheet" href="../css_normal/styleperfil.css">
+
+<!-- Icone de config  -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<!-- Icone de config  -->
 </head>
 
-<body class="g-sidenav-show" style="background-color: #D64AF7;">
+<body class="g-sidenav-show" style="background-color: #F28DB2;">
 
 <!-- Menu -->
 
@@ -81,7 +85,7 @@ Perfil
                 <div class="topo_infos_perfil">
                     <h3>PedroLucas@f.com</h3>
                     <button class="btn_editar_perfil">Editar perfil</button>
-                    <i>Configurações</i>
+                    <span id="icon_config" class="material-symbols-outlined">settings</span>
                 </div>
 
                 <div class="infos_gerais_perfil">
@@ -118,12 +122,15 @@ Perfil
         </div>
 
         <div class="posts_perfil">
-            <div class="post"><img src="" alt=""></div>
-            <div class="post"><img src="" alt=""></div>
-            <div class="post"><img src="" alt=""></div>
-            <div class="post"><img src="" alt=""></div>
-            <div class="post"><img src="" alt=""></div>
-            <div class="post"><img src="" alt=""></div>
+            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
+            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
         </div>
     </section>
 </section>
