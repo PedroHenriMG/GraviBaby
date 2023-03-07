@@ -21,7 +21,6 @@ include_once '../config.php';
             if($senhalog == $linhalog['senha']){
                 $_SESSION['id'] = $linhalog['idT_usuario'];
                 $_SESSION['nome'] = $linhalog['nomeCompleto_usuario'];
-                echo $_SESSION['nome'];
                 header("Location: http://localhost/GraviBaby/view/dashboard.php");
 
             }else{

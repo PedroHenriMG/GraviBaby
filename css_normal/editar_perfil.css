@@ -89,6 +89,22 @@
     background-color: rgb(212, 212, 212);
 }
 
+.salvar_editar_perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.salvar_editar_perfil > input{
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(37, 102, 224);
+    color: white;
+}
+
 .main_perfil > hr{
     height: 2px;
     background-color: black;

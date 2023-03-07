@@ -88,7 +88,7 @@ Perfil
                         <img src="../imagens/fotoperfil.png" alt="">
                     </div>
                 </div>
-                <form action="">
+                <form method="post" action="../controller/editar_perfil.php">
 
                     <div class="label_editar_perfil">
                         <label for="n_usuario"><h5>Nome de Usuário:</h5></label>
@@ -100,14 +100,33 @@ Perfil
                         <label for="bio3"><h5>Bio3:</h5></label>
                     </div>
 
+                    <?php 
+                        include_once("../config.php");
+                        $id = $_SESSION['id'];
+
+                        $query = "SELECT nomeCompleto_usuario,n_usuario,email,senha,publicacoes,seguidores,seguindo,bio1,bio2,bio3 FROM T_usuario WHERE idT_usuario = $id";
+                        $resultado = $dbh -> prepare($query);
+                        $resultado->execute();
+                        
+                        while ($linha = $resultado->fetch(PDO::FETCH_ASSOC)){                         
+                            
+                    ?>
+
                     <div class="input_editar_perfil">
-                        <input name="n_usuario" type="text" value="PedroLucas@f.com">
-                        <input name="email" type="text" value="sessão['email']">
-                        <input name="senha" type="text" value="sessão['senha']">
-                        <input name="nome_completo" type="text" value="Pedro Lucas Freitas Sousa">
-                        <input name="bio1" type="text" value="Programador Web">
-                        <input name="bio2" type="text" value="Bom Jesus PI">
-                        <input name="bio3" type="text" value="18 anos">
+                        <input name="n_usuario" type="text" value="<?php echo $linha['n_usuario'] ?>">
+                        <input name="email" type="text" value="<?php echo $linha['email'] ?>">
+                        <input name="senha" type="text" value="<?php echo $linha['senha'] ?>">
+                        <input name="nome_completo" type="text" value="<?php echo $linha['nomeCompleto_usuario'] ?>">
+                        <input name="bio1" type="text" value="<?php echo $linha['bio1'] ?>">
+                        <input name="bio2" type="text" value="<?php echo $linha['bio2'] ?>">
+                        <input name="bio3" type="text" value="<?php echo $linha['bio3'] ?>">
+                        <input name="id" value="<?php echo $id; ?>" style="display: none;">
+                    </div>
+
+                    <?php } ?>
+
+                    <div class="salvar_editar_perfil">
+                        <input type="submit" value="Salvar">
                     </div>
 
                 </form>

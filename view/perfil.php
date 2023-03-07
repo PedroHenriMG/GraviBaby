@@ -32,7 +32,7 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/styleperfil.css">
+<link rel="stylesheet" href="../css_normal/tela_perfil.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -83,25 +83,58 @@ Perfil
             </div>
             <div class="infos_perfil">
                 <div class="topo_infos_perfil">
-                    <h3>PedroLucas@f.com</h3>
+
+                <?php 
+                include_once("../config.php");
+                        $id = $_SESSION['id'];
+
+                        $query = "SELECT nomeCompleto_usuario,n_usuario,email,senha,publicacoes,seguidores,seguindo,bio1,bio2,bio3 FROM T_usuario WHERE idT_usuario = $id";
+                        $resultado = $dbh -> prepare($query);
+                        $resultado->execute();
+                        
+                        while ($linha = $resultado->fetch(PDO::FETCH_ASSOC)){
+                            if($linha['publicacoes']==null){
+                                $linha['publicacoes'] = 0;
+                            }
+                            if($linha['seguidores']==null){
+                                $linha['seguidores'] = 0;
+                            }
+                            if($linha['seguindo']==null){
+                                $linha['seguindo'] = 0;
+                            }
+                            
+                    ?>
+
+                    <h3><?php echo $linha['n_usuario'] ?></h3>
                     <button class="btn_editar_perfil" onclick="irEditarPerfil()">Editar perfil</button>
                     <span id="icon_config" class="material-symbols-outlined">settings</span>
                 </div>
 
                 <div class="infos_gerais_perfil">
-                    <h5 class="gerais">6 publicações</h5>
-                    <h5 class="gerais">3553 seguidores</h5>
-                    <h5 class="gerais">545 seguindo</h5>
+                    <h5 class="gerais"><?php echo $linha['publicacoes'] ?> publicações</h5>
+                    <h5 class="gerais"><?php echo $linha['seguidores'] ?> seguidores</h5>
+                    <h5 class="gerais"><?php echo $linha['seguindo'] ?>seguindo</h5>
                 </div>
 
                 <div class="bio_perfil">
-                <h5 class="infos_bio_perfil">Pedro Lucas Freitas Sousa</h5>
-                <h5 class="infos_bio_perfil">Programador Web</h5>
-                <h5 class="infos_bio_perfil">Bom Jesus PI</h5>
-                <h5 class="infos_bio_perfil">18 anos</h5>
+                <h5 class="infos_bio_perfil"><?php echo $linha['nomeCompleto_usuario'] ?></h5>
+                <h5 class="infos_bio_perfil">
+                    <?php
+                
+                        if ($linha['bio1'] == null){
+                            echo "Edite seu perfil e coloque uma biografía ";
+                        }else{
+                            echo $linha['bio1'];
+                            }
+                    ?>
+                </h5>
+                <h5 class="infos_bio_perfil"><?php echo $linha['bio2'] ?></h5>
+                <h5 class="infos_bio_perfil"><?php echo $linha['bio3'] ?></h5>
             </div>
             </div>
             
+            <?php } ?>
+
         </div>
 
         <hr>
