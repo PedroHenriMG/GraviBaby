@@ -1,0 +1,95 @@
+.body_perfil{
+    height: 180vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    height: 90%;
+    background-color: #FFABDD;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.main_perfil > h2{
+    text-align: center;
+    color: rgb(77, 74, 74);
+}
+
+.section_infos_perfil{
+    display: flex;
+    justify-content: center;
+}
+
+.editar_foto_perfil{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nome_infos_perfil{
+    margin-right: 10%;
+}
+
+.nomes_editar{
+    margin: 19% 0px;
+}
+
+#nome_editar_foto{
+    margin: 80% 0px;
+}
+
+.foto_perfil{
+    border-radius: 50%;
+    margin-right: 50px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto_perfil > img{
+    width: 200px;
+}
+
+.infos_perfil{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.infos_perfil > form{
+    display: flex;
+    margin-top: 10%;
+}
+
+.label_editar_perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 40px;
+}
+
+.input_editar_perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input_editar_perfil > input{
+    padding: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: none;
+    background-color: rgb(212, 212, 212);
+}
+
+.main_perfil > hr{
+    height: 2px;
+    background-color: black;
+}

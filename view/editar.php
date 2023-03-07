@@ -32,7 +32,7 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/styleperfil.css">
+<link rel="stylesheet" href="../css_normal/editar_perfil.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -76,62 +76,47 @@ Perfil
 
 <section class="body_perfil">
     <section class="main_perfil">
-
+        <h2>Editar Perfil</h2>
         <div class="section_infos_perfil">
-            <div class="foto_perfil">
-                <img src="../imagens/fotoperfil.png" alt="">
-            </div>
+            
             <div class="infos_perfil">
-                <div class="topo_infos_perfil">
-                    <h3>PedroLucas@f.com</h3>
-                    <button class="btn_editar_perfil" onclick="irEditarPerfil()">Editar perfil</button>
-                    <span id="icon_config" class="material-symbols-outlined">settings</span>
+                <div class="editar_foto_perfil">
+                    <div class="nome_infos_perfil">
+                        <h5 id="nome_editar_foto" class="nomes_editar">Foto:</h5>
+                    </div>
+                    <div class="foto_perfil">
+                        <img src="../imagens/fotoperfil.png" alt="">
+                    </div>
                 </div>
+                <form action="">
 
-                <div class="infos_gerais_perfil">
-                    <h5 class="gerais">6 publicações</h5>
-                    <h5 class="gerais">3553 seguidores</h5>
-                    <h5 class="gerais">545 seguindo</h5>
-                </div>
+                    <div class="label_editar_perfil">
+                        <label for="n_usuario"><h5>Nome de Usuário:</h5></label>
+                        <label for="email"><h5>Email:</h5></label>
+                        <label for="senha"><h5>Senha:</h5></label>
+                        <label for="nome_completo"><h5>Nome Completo:</h5></label>
+                        <label for="bio1"><h5>Bio1:</h5></label>
+                        <label for="bio2"><h5>Bio2:</h5></label>
+                        <label for="bio3"><h5>Bio3:</h5></label>
+                    </div>
 
-                <div class="bio_perfil">
-                <h5 class="infos_bio_perfil">Pedro Lucas Freitas Sousa</h5>
-                <h5 class="infos_bio_perfil">Programador Web</h5>
-                <h5 class="infos_bio_perfil">Bom Jesus PI</h5>
-                <h5 class="infos_bio_perfil">18 anos</h5>
+                    <div class="input_editar_perfil">
+                        <input name="n_usuario" type="text" value="PedroLucas@f.com">
+                        <input name="email" type="text" value="sessão['email']">
+                        <input name="senha" type="text" value="sessão['senha']">
+                        <input name="nome_completo" type="text" value="Pedro Lucas Freitas Sousa">
+                        <input name="bio1" type="text" value="Programador Web">
+                        <input name="bio2" type="text" value="Bom Jesus PI">
+                        <input name="bio3" type="text" value="18 anos">
+                    </div>
+
+                </form>
             </div>
             </div>
             
         </div>
 
         <hr>
-
-        <div class="atividades">
-            <div class="atividade_perfil">
-                <i></i>
-                <span>PUBLICAÇÕES</span>
-            </div>
-            <div class="atividade_perfil">
-            <i></i>
-                <span>SALVOS</span>
-            </div>
-            <div class="atividade_perfil">
-            <i></i>
-                <span>MARCADOS</span>
-            </div>
-        </div>
-
-        <div class="posts_perfil">
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-        </div>
     </section>
 </section>
 
@@ -474,11 +459,7 @@ if (win && document.querySelector('#sidenav-scrollbar')) {
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Corporate UI Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/corporate-ui-dashboard.min.js?v=1.0.0"></script>
-<script>
-    const irEditarPerfil=()=>{
-        window.location.href = "./editar.php"
-    }
-</script>
+
 </body>
 
 </html>
