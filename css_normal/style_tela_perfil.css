@@ -136,3 +136,42 @@
     height: 245px;
     margin: 10px;
 }
+
+/* Responsividade */
+
+@media (width < 760px){
+    .post{
+        width: 90%;
+        height: 50%;
+    }
+
+    .post>img{
+        width: 100%;
+        height: 90%;
+        margin: 10px;
+    }
+}
+
+@media (width < 696px){
+    .section_infos_perfil{
+        flex-direction: column;
+    }
+    
+    .foto_perfil{
+        margin: 0px;
+    }
+
+}
+
+@media (width < 450px){
+    .btn_editar_perfil{
+        font-size: 0.8rem;
+    }
+
+}
+
+@media (width < 385px){
+    .btn_editar_perfil{
+        font-size: 0.5rem;
+    }
+}

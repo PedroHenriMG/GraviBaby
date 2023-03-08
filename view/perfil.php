@@ -32,7 +32,7 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/tela_perfil.css">
+<link rel="stylesheet" href="../css_normal/style_tela_perfil">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -49,14 +49,14 @@ Perfil
 
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
-<div class="container-fluid py-4 px-5">
+<div id="contaner_topo" class="container-fluid py-4 px-5">
     <div class="row">
     <div class="col-md-12">
         <div class="d-md-flex align-items-center mb-3 mx-2">
         <div class="mb-md-0 mb-3">
             <h3 class="font-weight-bold mb-0">GraviBaby</h3>
         </div>
-        <button type="button" class="btn btn-sm btn-white btn-icon d-flex align-items-center mb-0 ms-md-auto mb-sm-0 mb-2 me-2">
+        <button type="button" id="btn_mensagens" class="btn btn-sm btn-white btn-icon d-flex align-items-center mb-0 ms-md-auto mb-sm-0 mb-2 me-2">
             <span class="btn-inner--icon">
             <span class="p-1 bg-success rounded-circle d-flex ms-auto me-2">
                 <span class="visually-hidden">New</span>
@@ -113,7 +113,7 @@ Perfil
                 <div class="infos_gerais_perfil">
                     <h5 class="gerais"><?php echo $linha['publicacoes'] ?> publicações</h5>
                     <h5 class="gerais"><?php echo $linha['seguidores'] ?> seguidores</h5>
-                    <h5 class="gerais"><?php echo $linha['seguindo'] ?>seguindo</h5>
+                    <h5 class="gerais"><?php echo $linha['seguindo'] ?> seguindo</h5>
                 </div>
 
                 <div class="bio_perfil">

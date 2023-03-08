@@ -109,3 +109,33 @@
     height: 2px;
     background-color: black;
 }
+
+/* Responsividade */
+
+@media (width < 635px){
+    .editar_foto_perfil{
+        flex-direction: column;
+    }
+
+    .nome_infos_perfil{
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+    }
+    
+    .foto_perfil{
+        margin: 10px 0px 0px 0px;
+    }
+
+    .infos_perfil > form {
+        flex-wrap: wrap;
+    }
+
+    .salvar_editar_perfil{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+}
