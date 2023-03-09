@@ -32,7 +32,7 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/style_editar_tela_perfil.css">
+<link rel="stylesheet" href="../css_normal/editar.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -90,16 +90,6 @@ Perfil
                 </div>
                 <form method="post" action="../controller/editar_perfil.php">
 
-                    <div class="label_editar_perfil">
-                        <label for="n_usuario"><h5>Nome de Usuário:</h5></label>
-                        <label for="email"><h5>Email:</h5></label>
-                        <label for="senha"><h5>Senha:</h5></label>
-                        <label for="nome_completo"><h5>Nome Completo:</h5></label>
-                        <label for="bio1"><h5>Bio1:</h5></label>
-                        <label for="bio2"><h5>Bio2:</h5></label>
-                        <label for="bio3"><h5>Bio3:</h5></label>
-                    </div>
-
                     <?php 
                         include_once("../config.php");
                         $id = $_SESSION['id'];
@@ -113,13 +103,34 @@ Perfil
                     ?>
 
                     <div class="input_editar_perfil">
+                        <label for="n_usuario"><h5>Nome de Usuário:</h5></label>
+
                         <input name="n_usuario" type="text" value="<?php echo $linha['n_usuario'] ?>">
+
+                        <label for="email"><h5>Email:</h5></label>
+
                         <input name="email" type="text" value="<?php echo $linha['email'] ?>">
+
+                        <label for="senha"><h5>Senha:</h5></label>
+
                         <input name="senha" type="text" value="<?php echo $linha['senha'] ?>">
+
+                        <label for="nome_completo"><h5>Nome Completo:</h5></label>
+
                         <input name="nome_completo" type="text" value="<?php echo $linha['nomeCompleto_usuario'] ?>">
+
+                        <label for="bio1"><h5>Bio1:</h5></label>
+
                         <input name="bio1" type="text" value="<?php echo $linha['bio1'] ?>">
+
+                        <label for="bio2"><h5>Bio2:</h5></label>
+
                         <input name="bio2" type="text" value="<?php echo $linha['bio2'] ?>">
+
+                        <label for="bio3"><h5>Bio3:</h5></label>
+
                         <input name="bio3" type="text" value="<?php echo $linha['bio3'] ?>">
+
                         <input name="id" value="<?php echo $id; ?>" style="display: none;">
                     </div>
 

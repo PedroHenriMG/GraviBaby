@@ -80,14 +80,6 @@
     margin-right: 10px;
 }
 
-.bio_perfil{
-
-}
-
-.infos_bio_perfil{
-
-}
-
 .main_perfil > hr{
     height: 2px;
     background-color: black;
@@ -119,6 +111,8 @@
     flex-wrap: wrap;
     margin: auto;
     overflow-y: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .posts_perfil::-webkit-scrollbar{
@@ -132,14 +126,50 @@
   }
 
 .post>img{
-    width: 245px;
-    height: 245px;
+    min-width: 256px;
+    min-height: 256px;
+    width: 15vw;
+    height: 15vw;
     margin: 10px;
 }
 
 /* Responsividade */
 
-@media (width < 760px){
+/* Desktops */
+
+@media (width > 1200px){
+    .section_infos_perfil{
+        justify-content: space-evenly;
+    }
+
+    .foto_perfil{
+        width: 400px;
+        margin: 0px;
+    }
+
+    .foto_perfil > img{
+        width: 80%;
+    }
+
+    h3, h5{
+        font-size: 30px;
+    }
+
+    .btn_editar_perfil{
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .atividade_perfil{
+        font-size: 30px;
+    }
+
+}
+
+/* Teablets */
+
+@media (width < 764px){
     .post{
         width: 90%;
         height: 50%;
@@ -152,6 +182,8 @@
     }
 }
 
+/* Celulares */
+
 @media (width < 696px){
     .section_infos_perfil{
         flex-direction: column;
@@ -162,6 +194,8 @@
     }
 
 }
+
+/* Telas pequenas */
 
 @media (width < 450px){
     .btn_editar_perfil{

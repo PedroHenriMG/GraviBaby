@@ -1,8 +1,7 @@
 .body_perfil{
-    height: 180vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .main_perfil{
@@ -10,15 +9,16 @@
     flex-direction: column;
     justify-content: center;
     width: 95%;
-    height: 90%;
     background-color: #FFABDD;
     border-radius: 10px;
+    margin: 20px 20px 40px 20px;
     padding: 20px;
 }
 
 .main_perfil > h2{
     text-align: center;
     color: rgb(77, 74, 74);
+    font-size: 4vw;
 }
 
 .section_infos_perfil{
@@ -31,16 +31,9 @@
     justify-content: space-evenly;
 }
 
-.nome_infos_perfil{
-    margin-right: 10%;
-}
-
-.nomes_editar{
-    margin: 19% 0px;
-}
-
 #nome_editar_foto{
     margin: 80% 0px;
+    font-size: 2vw;
 }
 
 .foto_perfil{
@@ -61,18 +54,16 @@
     flex-direction: column;
     margin-top: 20px;
     justify-content: center;
+    width: 70%;
 }
 
 .infos_perfil > form{
     display: flex;
+    flex-direction: column;
     margin-top: 10%;
 }
-
-.label_editar_perfil{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-right: 40px;
+.infos_perfil > form > .input_editar_perfil > label > h5{
+    font-size: 2vw;
 }
 
 .input_editar_perfil{
@@ -82,27 +73,35 @@
 }
 
 .input_editar_perfil > input{
+    width: 100%;
+    height: 5vw;
+    min-height: 40px;
     padding: 5px;
     border-radius: 5px;
     box-sizing: border-box;
     border: none;
     background-color: rgb(212, 212, 212);
+    margin: 5% 0px;
+    font-size: 2vw;
 }
 
 .salvar_editar_perfil{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 40px;
 }
 
 .salvar_editar_perfil > input{
-    width: 150px;
+    width: 20vw;
+    min-width: 150px;
+    min-height: 50px;
+    height: 4vw;
     padding: 10px;
     border-radius: 5px;
     border: none;
     background-color: rgb(37, 102, 224);
     color: white;
+    font-size: 1.5vw;
 }
 
 .salvar_editar_perfil > input:hover{
@@ -114,16 +113,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 40px;
 }
 
 .btn_deletar_conta > form > input{
-    width: 150px;
+    width: 20vw;
+    min-width: 150px;
+    min-height: 50px;
+    height: 4vw;
     padding: 10px;
     border-radius: 5px;
     border: none;
     background-color: rgb(199, 53, 53);
     color: white;
+    font-size: 1.5vw;
 }
 
 .btn_deletar_conta > form > input:hover{
@@ -137,6 +139,17 @@
 }
 
 /* Responsividade */
+
+@media (width > 1200px){
+    .foto_perfil{
+        width: 400px;
+        margin: 0px;
+    }
+
+    .foto_perfil > img{
+        width: 80%;
+    }
+}
 
 @media (width < 635px){
     .editar_foto_perfil{
@@ -165,3 +178,28 @@
     }
 
 }
+
+@media (width < 1100px){
+    .input_editar_perfil > input{
+        font-size: 20px;
+    }
+
+    #nome_editar_foto{
+        font-size: 20px;
+    }
+
+    .infos_perfil > form > .input_editar_perfil > label > h5{
+        font-size: 20px;
+    }
+
+    .main_perfil > h2{
+        font-size: 40px;
+    }
+
+    .salvar_editar_perfil > input, .btn_deletar_conta > form > input{
+        font-size: 20px;
+    }
+
+    
+}
+
