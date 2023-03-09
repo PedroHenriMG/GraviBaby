@@ -105,6 +105,32 @@
     color: white;
 }
 
+.salvar_editar_perfil > input:hover{
+    background-color: rgba(1, 89, 253, 0.986);
+    box-shadow: 5px 5px 5px rgba(1, 89, 253, 0.986);
+}
+
+.btn_deletar_conta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.btn_deletar_conta > form > input{
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(199, 53, 53);
+    color: white;
+}
+
+.btn_deletar_conta > form > input:hover{
+    background-color: rgb(255, 0, 0);
+    box-shadow: 5px 5px 5px rgb(199, 53, 53);
+}
+
 .main_perfil > hr{
     height: 2px;
     background-color: black;
