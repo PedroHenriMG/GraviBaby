@@ -48,19 +48,18 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
   <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show" style="background-color: #D64AF7;">
+<body class="g-sidenav-show" style="background-color: #FFF;">
 
    <!-- Menu -->
 
    <?php include_once("../view_padrao/menu.php") ?>
+   <?php include_once("../view_padrao/nav.php") ?>
 
     <!-- End Menu -->
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
     <!-- Navbar -->
-
-    <?php include_once("../view_padrao/nav.php") ?>
 
     <!-- End Navbar -->
 

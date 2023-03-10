@@ -1,0 +1,22 @@
+ul {
+    list-style: none;
+}
+
+nav{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 10px 40px -20px #000;
+}
+
+li{
+    position: inherit;
+}
+
+@media (width >= 1200px) {
+    nav{
+        width: calc(100% - 15.625rem);
+        margin-left:  15.625rem;;
+    }
+}
