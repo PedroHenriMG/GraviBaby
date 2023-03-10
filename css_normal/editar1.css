@@ -37,16 +37,19 @@
 }
 
 .foto_perfil{
+    width: 25vw;
+    height: 25vw;
+    min-width: 200px;
+    min-height: 200px;
+
     border-radius: 50%;
-    margin-right: 50px;
     align-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.foto_perfil > img{
-    width: 200px;
+    background-image: url("../imagens/fotoperfil.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .infos_perfil{
@@ -139,17 +142,6 @@
 }
 
 /* Responsividade */
-
-@media (width > 1200px){
-    .foto_perfil{
-        width: 400px;
-        margin: 0px;
-    }
-
-    .foto_perfil > img{
-        width: 80%;
-    }
-}
 
 @media (width < 635px){
     .editar_foto_perfil{

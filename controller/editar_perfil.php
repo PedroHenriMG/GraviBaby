@@ -2,6 +2,7 @@
 
 include_once("../config.php");
 
+
 $id_usuario = $_POST['id'];
 $n_usuario = $_POST['n_usuario'];
 $email = $_POST['email'];

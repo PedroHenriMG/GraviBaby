@@ -8,6 +8,37 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
 header('Location: ../index.php');
 $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
 }
+
+
+if(isset($_FILES['arquivo'])){
+
+    $arquivo = $_FILES['arquivo'];
+
+    $pasta = "fotos_perfil/";
+
+    if($arquivo['error']){
+        die();
+    }
+
+    $arquivo = $_FILES['arquivo'];
+    if($arquivo['size']>2097000){
+        die("arquivo muito grande max 2mb");
+    }
+    $nomeArquivo = $arquivo['name'];
+
+    $novoNomeArquivo = uniqid();
+
+    $extensao = strtolower(pathinfo($nomeArquivo,PATHINFO_EXTENSION));
+
+    if($extensao != "jpg" && $extensao != "png"){
+        die();
+    }
+
+    $deu_certo = move_uploaded_file($arquivo["tmp_name"], $pasta . $novoNomeArquivo . "." . $extensao);
+
+   
+}
+
 ?>
 
 
@@ -32,7 +63,7 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/editar.css">
+<link rel="stylesheet" href="../css_normal/editar1.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -85,7 +116,14 @@ Perfil
                         <h5 id="nome_editar_foto" class="nomes_editar">Foto:</h5>
                     </div>
                     <div class="foto_perfil">
-                        <img src="../imagens/fotoperfil.png" alt="">
+
+                        <form method="post" enctype="multipart/form-data" action="">
+                            <input name="arquivo" type="file">
+                            <div class="salvar_editar_perfil">
+                        <input type="submit" value="Salvar">
+                    </div>
+                        </form>
+
                     </div>
                 </div>
                 <form method="post" action="../controller/editar_perfil.php">
