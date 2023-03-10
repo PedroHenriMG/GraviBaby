@@ -74,12 +74,32 @@ Perfil
 </div>
 <!-- Main do perfil -->
 
+<?php 
+    include_once("../config.php");
+    $id = $_SESSION['id'];
+?>
+
 <section class="body_perfil">
     <section class="main_perfil">
 
         <div class="section_infos_perfil">
             <div class="foto_perfil">
-                <img src="../imagens/fotoperfil.png" alt="">
+            <?php 
+
+                $query = "SELECT img FROM T_post WHERE T_usuario_idT_usuario = $id";
+                $prepare5 = $dbh -> prepare($query);
+                $resultado = $prepare5->execute();
+
+                $res5 =  $prepare5->fetch();                       
+                    
+            ?>
+                <img src="<?php 
+                    
+                    if($res5['img'] != ""){
+                        echo $res5['img'];
+                    }
+                    
+                     ?>" alt="">
             </div>
             <div class="infos_perfil">
                 <div class="topo_infos_perfil">

@@ -51,6 +51,10 @@
     background-position: center;
 }
 
+#trocar_foto_perfil{
+    position: absolute;
+}
+
 .infos_perfil{
     display: flex;
     flex-direction: column;

@@ -2,6 +2,8 @@
 
 include_once("../config.php");
 
+$id_usuario = $_POST['id'];
+
 if(isset($_FILES['arquivo'])){
 
     $arquivo = $_FILES['arquivo'];
@@ -26,12 +28,18 @@ if(isset($_FILES['arquivo'])){
         die();
     }
 
-    $deu_certo = move_uploaded_file($arquivo["tmp_name"], $pasta . $novoNomeArquivo . "." . $extensao);
+    $path = $pasta . $novoNomeArquivo . "." . $extensao;
+
+    $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path );
+
+    if($deu_certo){
+        $dbh->query("UPDATE T_post SET titulo_post = '$nomeArquivo', img = '$path' WHERE T_usuario_idT_usuario = $id_usuario");
+    }
 
 }
 
 
-$id_usuario = $_POST['id'];
+
 $n_usuario = $_POST['n_usuario'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];

@@ -33,7 +33,8 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/editar.css">
+
+<link rel="stylesheet" href="../css_normal/editar1.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -73,6 +74,11 @@ Perfil
 </div>
 <!-- Main do perfil -->
 
+<?php 
+    include_once("../config.php");
+    $id = $_SESSION['id'];
+?>
+
 <section class="body_perfil">
     <section class="main_perfil">
         <h2>Editar Perfil</h2>
@@ -87,13 +93,29 @@ Perfil
                 </div>
                 <form enctype="multipart/form-data"  method="post" action="../controller/editar_perfil.php">
 
+                <?php 
+
+                    $query = "SELECT img FROM T_post WHERE T_usuario_idT_usuario = $id";
+                    $prepare5 = $dbh -> prepare($query);
+                    $resultado = $prepare5->execute();
+                    
+                    $res5 =  $prepare5->fetch();                       
+                            
+                ?>
+
                 <div class="foto_perfil">
-                    <input name="arquivo" type="file">
+                    <img id="img_perfil" src=" <?php 
+                    
+                    if($res5['img'] != ""){
+                        echo $res5['img'];
+                    }
+                    
+                     ?>" alt="">
+                    <input id="trocar_foto_perfil" name="arquivo" type="file">
                 </div>
 
+                    
                     <?php 
-                        include_once("../config.php");
-                        $id = $_SESSION['id'];
 
                         $query = "SELECT nomeCompleto_usuario,n_usuario,email,senha,publicacoes,seguidores,seguindo,bio1,bio2,bio3 FROM T_usuario WHERE idT_usuario = $id";
                         $resultado = $dbh -> prepare($query);
