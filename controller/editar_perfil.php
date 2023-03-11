@@ -33,11 +33,10 @@ if(isset($_FILES['arquivo'])){
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path );
 
     if($deu_certo){
-        $dbh->query("UPDATE T_post SET titulo_post = '$nomeArquivo', img = '$path' WHERE T_usuario_idT_usuario = $id_usuario");
+        $dbh->query("UPDATE T_foto_perfil SET titulo_foto_perfil = '$nomeArquivo', img = '$path' WHERE T_usuario_idT_usuario = $id_usuario");
     }
 
 }
-
 
 
 $n_usuario = $_POST['n_usuario'];

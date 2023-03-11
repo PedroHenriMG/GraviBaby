@@ -24,7 +24,7 @@ if(($reslog) && $reslog->rowCount() != 0){
 
         $id_usu_poste = $_SESSION['id'];
 
-        $sql4 = "SELECT * FROM T_post WHERE T_usuario_idT_usuario = $id_usu_poste";
+        $sql4 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id_usu_poste";
         $prepare4 = $dbh->prepare($sql4);
 
         $res4 = $prepare4->execute();
@@ -33,7 +33,7 @@ if(($reslog) && $reslog->rowCount() != 0){
         if($count4 > 1){
             header("Location: http://localhost/GraviBaby/");
         }else if($count4 == 0){
-            $stmt = $dbh->prepare("INSERT INTO T_post (idT_post,titulo_post,img,T_usuario_idT_usuario)" . "VALUES(null,'','','$id_usu_poste')");
+            $stmt = $dbh->prepare("INSERT INTO T_foto_perfil (idT_foto_perfil,titulo_foto_perfil,img,T_usuario_idT_usuario)" . "VALUES(null,'','','$id_usu_poste')");
             $stmt->execute();
             header("Location: http://localhost/GraviBaby/view/dashboard.php");
 

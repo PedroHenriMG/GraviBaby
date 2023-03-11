@@ -40,15 +40,23 @@
     height: 25vw;
     min-width: 200px;
     min-height: 200px;
+    margin-bottom: 20px;
 
     border-radius: 50%;
     align-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../imagens/fotoperfil.png");
-    background-size: cover;
-    background-position: center;
+}
+
+.foto_perfil > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.foto_perfil >input{
+    width: 20vw;
 }
 
 #trocar_foto_perfil{
@@ -194,7 +202,6 @@
     .salvar_editar_perfil > input, .btn_deletar_conta > form > input{
         font-size: 20px;
     }
-
     
 }
 

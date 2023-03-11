@@ -34,7 +34,7 @@ Perfil
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
 
-<link rel="stylesheet" href="../css_normal/editar1.css">
+<link rel="stylesheet" href="../css_normal/editar.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -95,7 +95,7 @@ Perfil
 
                 <?php 
 
-                    $query = "SELECT img FROM T_post WHERE T_usuario_idT_usuario = $id";
+                    $query = "SELECT img FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id";
                     $prepare5 = $dbh -> prepare($query);
                     $resultado = $prepare5->execute();
                     

@@ -32,7 +32,8 @@ Perfil
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link rel="stylesheet" href="../css_normal/perfil.css">
+
+<link rel="stylesheet" href="../css_normal/perfil1.css">
 
 <!-- Icone de config  -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -86,14 +87,14 @@ Perfil
             <div class="foto_perfil">
             <?php 
 
-                $query = "SELECT img FROM T_post WHERE T_usuario_idT_usuario = $id";
+                $query = "SELECT img FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id";
                 $prepare5 = $dbh -> prepare($query);
                 $resultado = $prepare5->execute();
 
                 $res5 =  $prepare5->fetch();                       
                     
             ?>
-                <img src="<?php 
+                <img id="img_perfil" src="<?php 
                     
                     if($res5['img'] != ""){
                         echo $res5['img'];
