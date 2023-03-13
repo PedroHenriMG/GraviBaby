@@ -37,3 +37,5 @@ $res = $stmt2->rowCount();
 //Voltando a página de login
 
 header("Location: ../index.php");
+
+?>

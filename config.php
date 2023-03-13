@@ -1,9 +1,9 @@
 <?php
 
 $servidor = "localhost";
-$banco = "prot_gravi";
+$banco = "Banco";
 $userbanco ="root";
-$Senha = "root";
+$Senha = 20032005;
 
 
 try {
@@ -12,3 +12,5 @@ try {
 } catch (Exception $ex) {
     printf("Erro de Conexão:", $ex->getMessage());
 }
+
+?>
