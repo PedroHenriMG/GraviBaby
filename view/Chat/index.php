@@ -1,3 +1,16 @@
+<?php
+session_start();
+ob_start();
+
+
+if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
+header('Location: ../index.php');
+$_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
+}
+?>
+
+
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,6 +29,10 @@
 	</head>
     
 	<body>
+
+		<?php include_once("../../controller/util_php/infos_usuario_chat.php") ?>
+
+
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
@@ -33,12 +50,18 @@
 						<li class="active">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="" class="rounded-circle user_img">
+									<img src="<?php 
+                    
+										if($img != ""){
+											echo $img;
+										}?>"
+
+										class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>Pedro Lucas</span>
-									<p>Pedro Lucas Online</p>
+									<span><?php echo $n_usuario ?></span>
+									<p><?php echo $n_usuario ?> Online</p>
 								</div>
 							</div>
 						</li>
@@ -51,11 +74,17 @@
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="" class="rounded-circle user_img">
+									<img src="<?php 
+                    
+										if($img != ""){
+											echo $img;
+										}?>"
+
+										class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>Pedro Lucas</span>
+									<span><?php echo $n_usuario ?></span>
 									<p>57 Mensagens</p>
 								</div>
 								<div class="video_cam">
@@ -79,7 +108,11 @@
 
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
-									<img src="" class="rounded-circle user_img_msg">
+									<img src="<?php 
+                    
+										if($img != ""){
+											echo $img;
+										}?>" class="rounded-circle user_img_msg">
 								</div>
 								<div class="msg_cotainer">
 									Oi, Já fez as telas Carlos?
@@ -97,7 +130,13 @@
 							</div>
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
-									<img src="" class="rounded-circle user_img_msg">
+									<img src="<?php 
+
+									if($img != ""){
+										echo $img;
+									}?>	
+                    
+								" class="rounded-circle user_img_msg">
 								</div>
 								<div class="msg_cotainer">
 									Faça e manda no gitHub ainda hoje!
@@ -115,7 +154,11 @@
 							</div>
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
-									<img src="" class="rounded-circle user_img_msg">
+									<img src="<?php 
+
+									if($img != ""){
+										echo $img;
+									}?>	" class="rounded-circle user_img_msg">
 								</div>
 								<div class="msg_cotainer">
 									Mandou?
@@ -133,7 +176,11 @@
 							</div>
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
-									<img src="" class="rounded-circle user_img_msg">
+									<img src="<?php 
+
+									if($img != ""){
+										echo $img;
+									}?>	" class="rounded-circle user_img_msg">
 								</div>
 								<div class="msg_cotainer">
 									Ok, Até Quarta

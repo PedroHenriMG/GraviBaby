@@ -1,9 +1,9 @@
 <?php
 
 $servidor = "localhost";
-$banco = "Banco";
+$banco = "prot_gravi";
 $userbanco ="root";
-$Senha = 20032005;
+$Senha = "root";
 
 
 try {

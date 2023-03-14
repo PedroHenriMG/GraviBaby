@@ -95,19 +95,15 @@ Perfil
 
                 <?php 
 
-                    $query = "SELECT img FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id";
-                    $prepare5 = $dbh -> prepare($query);
-                    $resultado = $prepare5->execute();
-                    
-                    $res5 =  $prepare5->fetch();                       
+                    include_once("../controller/util_php/infos_usuario.php");                     
                             
                 ?>
 
                 <div class="foto_perfil">
                     <img id="img_perfil" src=" <?php 
                     
-                    if($res5['img'] != ""){
-                        echo $res5['img'];
+                    if($img != ""){
+                        echo $img;
                     }
                     
                      ?>" alt="">
