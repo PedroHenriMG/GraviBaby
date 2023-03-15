@@ -4,12 +4,12 @@ ob_start();
 include_once '../config.php';
 
 
-$n_userlog = $_POST['n_userlog'];
+$email = $_POST['email'];
 $senhalog = $_POST['senhalog'];
 
-$query_usuario = "SELECT *FROM T_usuario WHERE n_usuario = :n_userlog";
+$query_usuario = "SELECT * FROM T_usuario WHERE email = :email";
 $reslog = $dbh->prepare($query_usuario);
-$reslog->bindParam(':n_userlog', $n_userlog, PDO::PARAM_STR);
+$reslog->bindParam(':email', $email, PDO::PARAM_STR);
 
 
 $reslog->execute();

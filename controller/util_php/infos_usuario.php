@@ -33,7 +33,7 @@
     
 
      $idT_foto_perfil = $res5['idT_foto_perfil'];
-     $titulo_foto_perfil = ['titulo_foto_perfil'];
+     $titulo_foto_perfil = $res5['titulo_foto_perfil'];
      $img = $res5['img'];
      $T_usuario_idT_usuario = $res5['T_usuario_idT_usuario'];
     

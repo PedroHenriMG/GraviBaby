@@ -21,7 +21,7 @@ include_once './config.php';
         <h3>Coloque suas credenciais</h3>
         <form method="POST" class="login-form" action="./controller/testar_login.php">
             <div class="credenciais">
-                <input id="n_user" type="text" placeholder="Nome de usuário" name="n_userlog">
+                <input id="n_user" type="text" placeholder="Email" name="email">
                 <input id="password" type="password" placeholder="Senha" name="senhalog">
             </div>
             <div class="links">
