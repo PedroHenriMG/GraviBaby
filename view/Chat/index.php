@@ -12,8 +12,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
@@ -22,9 +21,9 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		<title>Chat</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+		
         <link rel="stylesheet" href="style.css">
 	</head>
     
@@ -106,7 +105,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 
                             <!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
 
-							<div class="d-flex justify-content-start mb-4">
+							<!-- <div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
 									<img src="<?php 
                     
@@ -197,13 +196,14 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 								<div class="img_cont_msg">
 						<img src="" class="rounded-circle user_img_msg">
 								</div>
-							</div>
+							</div> -->
 						</div>
 
 						<!-- Input da Mensagem -->
 
 						<div class="card-footer">
-							<form action="">
+							<form method="post" action="../../controller/enviar_msg.php">
+								<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
 								<div class="input-group">
 									<div class="input-group-append">
 										<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
@@ -212,7 +212,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 									<input id="input_msg" type="text" name="msg_usuario" class="form-control type_msg" placeholder="Escreva sua mensagem..."></input type="text">
 
 									<div class="input-group-append">
-										<button id="btn_msg" type="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+										<button onclick="msg()" id="btn_msg" type="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
 									</div>
 								</div>
 							</form>
@@ -222,6 +222,67 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 			</div>
 		</div>
 
+		<?php
+		
+		$idChat = $_SESSION['id'];
+		$idAmigo = 2;
+		
+		$query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR $idAmigo";
+		$prepare9 = $dbh -> prepare($query9);
+		$resultado9 = $prepare9->execute();
+	
+		$res9 =  $prepare9->fetch();
+
+		$count9 = $prepare9->rowCount();
+
+		$query10 = "SELECT * FROM T_chat WHERE idT_chat = $count9";
+		$prepare10 = $dbh -> prepare($query10);
+		$resultado10 = $prepare10->execute();
+	
+		$res10 =  $prepare10->fetch();
+
+		?>
+
+		<span id="span_msg"> <?php echo $res10['mensagem'] ?></span>
+
+		<?php
+		
+		$lugarMsg;
+		$imgPerfilMsg = "";
+		
+		if($res10['T_usuario_idT_usuario'] ==  $idChat){
+			$lugarMsg = 0;
+
+			$query11 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
+			$prepare11 = $dbh -> prepare($query11);
+			$resultado11 = $prepare11->execute();
+
+			$res11 =  $prepare11->fetch();
+
+			$imgPerfilMsg = $res11['img'];
+
+		}else{
+			$lugarMsg = 1;
+
+			$query12 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
+			$prepare12 = $dbh -> prepare($query12);
+			$resultado12 = $prepare12->execute();
+
+			$res12 =  $prepare12->fetch();
+
+			$imgPerfilMsg = $res12['img'];
+		}
+		
+		?>
+
+		<span id="lugarMsg"> <?php echo $lugarMsg ?></span>
+
+		<span id="lugarImgMsg"> <?php echo $imgPerfilMsg ?></span>
+
 		<script src="../../js_normal/chat.js"></script>
+
+		<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	</body>
 </html>
