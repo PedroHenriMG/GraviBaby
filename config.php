@@ -3,7 +3,7 @@
 $servidor = "localhost";
 $banco = "prot_gravi";
 $userbanco ="root";
-$Senha = "";
+$Senha = "root";
 
 
 try {
