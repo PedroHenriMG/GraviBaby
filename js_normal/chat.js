@@ -6,16 +6,16 @@
 
 
 
-export function criarMsg (span_msg){
+export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
 
     const card_body = document.querySelector("#card_body");
     // const span_msg = document.querySelector("#span_msg");
-    const lugarMsg = document.querySelector("#lugarMsg");
-    const lugarImgMsg = document.querySelector("#lugarImgMsg");
+    // const lugarMsg = document.querySelector("#lugarMsg");
+    // const lugarImgMsg = document.querySelector("#lugarImgMsg");
     
     const msg_usuario = span_msg;
-    const foto_usuario = lugarImgMsg.innerText;
-    const direcao = lugarMsg.innerText;
+    const foto_usuario = lugarImgMsg;
+    const direcao = lugarMsg;
     
     let data =  new Date();
     
@@ -60,7 +60,7 @@ export function criarMsg (span_msg){
 
     horaMsg.classList.add("msg_time");
 
-    horaMsg.innerText = `${ data.getHours()}`;
+    horaMsg.innerText = `${ data.getHours()} : ${data.getMinutes()}`;
 
     divMsg.appendChild(horaMsg);
     divEsqMsg.appendChild(divMsg);

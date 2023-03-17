@@ -295,8 +295,10 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		echo "<script type='module'>import {criarMsg} from '../../js_normal/chat.js'; 
 
 		let msg = '$msg2';
+		let lugarMsg = '$lugarMsg';
+		let imgPerfilMsg = '$imgPerfilMsg';
 
-		criarMsg(msg);
+		criarMsg(msg,lugarMsg,imgPerfilMsg);
 	  </script>";
 		
 	  $i++;
