@@ -6,14 +6,14 @@
 
 
 
-const criarMsg = ()=>{
+export function criarMsg (span_msg){
 
     const card_body = document.querySelector("#card_body");
-    const span_msg = document.querySelector("#span_msg");
+    // const span_msg = document.querySelector("#span_msg");
     const lugarMsg = document.querySelector("#lugarMsg");
     const lugarImgMsg = document.querySelector("#lugarImgMsg");
     
-    const msg_usuario = span_msg.innerText;
+    const msg_usuario = span_msg;
     const foto_usuario = lugarImgMsg.innerText;
     const direcao = lugarMsg.innerText;
     
@@ -118,7 +118,9 @@ const criarMsg = ()=>{
     // window.location.href = "http://localhost/GraviBaby/view/Chat/index.php";
 }
 
-criarMsg();
+
+
+
 
 
 

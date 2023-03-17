@@ -227,59 +227,198 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		$idChat = $_SESSION['id'];
 		$idAmigo = 2;
 		
-		$query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR $idAmigo";
+		$query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo";
 		$prepare9 = $dbh -> prepare($query9);
 		$resultado9 = $prepare9->execute();
 	
-		$res9 =  $prepare9->fetch();
-
+		$res9 =  $prepare9->fetchAll(PDO::FETCH_ASSOC);
 		$count9 = $prepare9->rowCount();
 
-		$query10 = "SELECT * FROM T_chat WHERE idT_chat = $count9";
-		$prepare10 = $dbh -> prepare($query10);
-		$resultado10 = $prepare10->execute();
+		
+
+		$i =0;
+
+		while($i<$count9){
+			echo $res9[$i]['mensagem'];
+
+			for($e=0;$e<10000;$e++){
+				
+			}
+			
+			$lugarMsg;
+			$imgPerfilMsg = "";
+			
+			if($res9[$i]['T_usuario_idT_usuario'] ==  $idChat){
+				$lugarMsg = 0;
+
+				$query11 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
+				$prepare11 = $dbh -> prepare($query11);
+				$resultado11 = $prepare11->execute();
+
+				$res11 =  $prepare11->fetch();
+
+				$imgPerfilMsg = $res11['img'];
+
+			}else{
+				$lugarMsg = 1;
+
+				$query12 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idAmigo";
+				$prepare12 = $dbh -> prepare($query12);
+				$resultado12 = $prepare12->execute();
+
+				$res12 =  $prepare12->fetch();
+
+				$imgPerfilMsg = $res12['img'];
+			}
+
+			
+			
+			?>
+
+		<!-- // $query10 = "SELECT * FROM T_chat WHERE idT_chat = $count9";
+		// $prepare10 = $dbh -> prepare($query10);
+		// $resultado10 = $prepare10->execute();
 	
-		$res10 =  $prepare10->fetch();
+		// $res10 =  $prepare10->fetch(); -->
 
-		?>
-
-		<span id="span_msg"> <?php echo $res10['mensagem'] ?></span>
-
-		<?php
 		
-		$lugarMsg;
-		$imgPerfilMsg = "";
-		
-		if($res10['T_usuario_idT_usuario'] ==  $idChat){
-			$lugarMsg = 0;
-
-			$query11 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
-			$prepare11 = $dbh -> prepare($query11);
-			$resultado11 = $prepare11->execute();
-
-			$res11 =  $prepare11->fetch();
-
-			$imgPerfilMsg = $res11['img'];
-
-		}else{
-			$lugarMsg = 1;
-
-			$query12 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
-			$prepare12 = $dbh -> prepare($query12);
-			$resultado12 = $prepare12->execute();
-
-			$res12 =  $prepare12->fetch();
-
-			$imgPerfilMsg = $res12['img'];
-		}
-		
-		?>
+		<span id="span_msg"> <?php echo $res9[$i]['mensagem'] ?></span>
 
 		<span id="lugarMsg"> <?php echo $lugarMsg ?></span>
 
 		<span id="lugarImgMsg"> <?php echo $imgPerfilMsg ?></span>
 
-		<script src="../../js_normal/chat.js"></script>
+		<?php
+
+		$msg2 = $res9[$i]["mensagem"];
+
+		echo "<script type='module'>import {criarMsg} from '../../js_normal/chat.js'; 
+
+		let msg = '$msg2';
+
+		criarMsg(msg);
+	  </script>";
+		
+	  $i++;
+		}
+		
+		?>
+
+<script></script>
+		
+		<!-- <script>
+			const criarMsg = ()=>{
+
+const card_body = document.querySelector("#card_body");
+const span_msg = document.querySelector("#span_msg");
+const lugarMsg = document.querySelector("#lugarMsg");
+const lugarImgMsg = document.querySelector("#lugarImgMsg");
+
+const msg_usuario = span_msg.innerText;
+const foto_usuario = lugarImgMsg.innerText;
+const direcao = lugarMsg.innerText;
+
+let data =  new Date();
+
+console.log(msg_usuario);
+console.log(foto_usuario);
+console.log(data.getHours());
+console.log(direcao);
+console.log(card_body);
+
+
+// Mensagem da esquerda
+
+if(direcao == 1){
+
+const divEsqMsg = document.createElement('div');
+
+divEsqMsg.classList.add("d-flex");
+divEsqMsg.classList.add("justify-content-start");
+divEsqMsg.classList.add("mb-4");
+
+const divImgEsqMsg = document.createElement('div');
+
+divImgEsqMsg.classList.add("img_cont_msg");
+
+const imgEsqMsg = document.createElement('img');
+
+imgEsqMsg.classList.add("rounded-circle");
+imgEsqMsg.classList.add("user_img_msg");
+
+imgEsqMsg.src = `../${foto_usuario}`;
+
+divImgEsqMsg.appendChild(imgEsqMsg);
+divEsqMsg.appendChild(divImgEsqMsg);
+
+const divMsg = document.createElement('div');
+
+divMsg.classList.add("msg_cotainer");
+
+divMsg.innerText = msg_usuario;
+
+const horaMsg = document.createElement('span');
+
+horaMsg.classList.add("msg_time");
+
+horaMsg.innerText = `${ data.getHours()}`;
+
+divMsg.appendChild(horaMsg);
+divEsqMsg.appendChild(divMsg);
+
+card_body.appendChild(divEsqMsg);
+
+}
+
+// Mensagem da esquerda
+
+// Mensagem da direita
+
+ else if(direcao == 0){
+
+const divDirMsg = document.createElement('div');
+
+divDirMsg.classList.add("d-flex");
+divDirMsg.classList.add("justify-content-end");
+divDirMsg.classList.add("mb-4");
+
+const dirMsgSend = document.createElement('div');
+
+dirMsgSend.classList.add("msg_cotainer_send");
+
+dirMsgSend.innerText = msg_usuario;
+
+const horaDirMsg = document.createElement('span');
+
+horaDirMsg.classList.add("msg_time_send");
+
+horaDirMsg.innerText =`${ data.getHours()} : ${data.getMinutes()}`;
+
+dirMsgSend.appendChild(horaDirMsg);
+divDirMsg.appendChild(dirMsgSend);
+
+const divDirImg = document.createElement('div');
+
+divDirImg.classList.add("img_cont_msg");
+
+const imgDirMsg = document.createElement("img");
+
+imgDirMsg.classList.add("rounded-circle");
+imgDirMsg.classList.add("user_img_msg");
+
+imgDirMsg.src = `../${foto_usuario}`;
+
+divDirImg.appendChild(imgDirMsg);
+divDirMsg.appendChild(divDirImg);
+card_body.appendChild(divDirMsg);
+
+}
+
+// Mensagem da direita
+
+// window.location.href = "http://localhost/GraviBaby/view/Chat/index.php";
+}
+		</script> -->
 
 		<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
