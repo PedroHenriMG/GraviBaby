@@ -1,17 +1,8 @@
 
-
-
-// let msgGeralEsq = card_body.children[0].lastElementChild.firstChild.data;
-// console.log(msgGeral);
-
-
-
 export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
 
     const card_body = document.querySelector("#card_body");
-    // const span_msg = document.querySelector("#span_msg");
-    // const lugarMsg = document.querySelector("#lugarMsg");
-    // const lugarImgMsg = document.querySelector("#lugarImgMsg");
+    
     
     const msg_usuario = span_msg;
     const foto_usuario = lugarImgMsg;
@@ -19,13 +10,6 @@ export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
     
     let data =  new Date();
     
-    console.log(msg_usuario);
-    console.log(foto_usuario);
-    console.log(data.getHours());
-    console.log(direcao);
-    console.log(card_body);
-
-
     // Mensagem da esquerda
 
     if(direcao == 1){
@@ -115,7 +99,6 @@ export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
 
     // Mensagem da direita
 
-    // window.location.href = "http://localhost/GraviBaby/view/Chat/index.php";
 }
 
 

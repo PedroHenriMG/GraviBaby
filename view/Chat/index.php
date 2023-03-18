@@ -24,7 +24,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 		
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="chat.css">
 	</head>
     
 	<body>
@@ -105,98 +105,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 
                             <!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
 
-							<!-- <div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="<?php 
-                    
-										if($img != ""){
-											echo $img;
-										}?>" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Oi, Já fez as telas Carlos?
-									<span class="msg_time">8:40 AM, Today</span>
-								</div>
-							</div>
-
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Opa Pedro, Fazer Agora!
-									<span class="msg_time_send">8:55 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="<?php 
-
-									if($img != ""){
-										echo $img;
-									}?>	
-                    
-								" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Faça e manda no gitHub ainda hoje!
-									<span class="msg_time">9:00 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Pode deixar patrão!
-									<span class="msg_time_send">9:05 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-							<img src="" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="<?php 
-
-									if($img != ""){
-										echo $img;
-									}?>	" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Mandou?
-									<span class="msg_time">11:07 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Acabei de mandar
-									<span class="msg_time_send">11:10 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-						<img src="" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="<?php 
-
-									if($img != ""){
-										echo $img;
-									}?>	" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Ok, Até Quarta
-									<span class="msg_time">11:12 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Até Pedro!
-									<span class="msg_time_send">11:15 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-						<img src="" class="rounded-circle user_img_msg">
-								</div>
-							</div> -->
+							
 						</div>
 
 						<!-- Input da Mensagem -->
@@ -212,7 +121,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 									<input id="input_msg" type="text" name="msg_usuario" class="form-control type_msg" placeholder="Escreva sua mensagem..."></input type="text">
 
 									<div class="input-group-append">
-										<button onclick="msg()" id="btn_msg" type="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+										<button id="btn_msg" type="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
 									</div>
 								</div>
 							</form>
@@ -225,7 +134,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		<?php
 		
 		$idChat = $_SESSION['id'];
-		$idAmigo = 2;
+		$idAmigo = 1;
 		
 		$query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo";
 		$prepare9 = $dbh -> prepare($query9);
@@ -239,7 +148,6 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		$i =0;
 
 		while($i<$count9){
-			echo $res9[$i]['mensagem'];
 
 			for($e=0;$e<10000;$e++){
 				
@@ -271,18 +179,9 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 				$imgPerfilMsg = $res12['img'];
 			}
 
-			
-			
 			?>
 
-		<!-- // $query10 = "SELECT * FROM T_chat WHERE idT_chat = $count9";
-		// $prepare10 = $dbh -> prepare($query10);
-		// $resultado10 = $prepare10->execute();
-	
-		// $res10 =  $prepare10->fetch(); -->
-
-		
-		<span id="span_msg"> <?php echo $res9[$i]['mensagem'] ?></span>
+		<span id="span_msg" > <?php echo $res9[$i]['mensagem'] ?></span>
 
 		<span id="lugarMsg"> <?php echo $lugarMsg ?></span>
 
@@ -306,124 +205,14 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		
 		?>
 
-<script></script>
+<script>
+
+	var card_body = document.getElementById("card_body");
+
+ 		const scroll = ()=>{	
+			card_body.scrollTop = card_body.scrollHeight - card_body.clientHeight;
+		}
 		
-		<!-- <script>
-			const criarMsg = ()=>{
-
-const card_body = document.querySelector("#card_body");
-const span_msg = document.querySelector("#span_msg");
-const lugarMsg = document.querySelector("#lugarMsg");
-const lugarImgMsg = document.querySelector("#lugarImgMsg");
-
-const msg_usuario = span_msg.innerText;
-const foto_usuario = lugarImgMsg.innerText;
-const direcao = lugarMsg.innerText;
-
-let data =  new Date();
-
-console.log(msg_usuario);
-console.log(foto_usuario);
-console.log(data.getHours());
-console.log(direcao);
-console.log(card_body);
-
-
-// Mensagem da esquerda
-
-if(direcao == 1){
-
-const divEsqMsg = document.createElement('div');
-
-divEsqMsg.classList.add("d-flex");
-divEsqMsg.classList.add("justify-content-start");
-divEsqMsg.classList.add("mb-4");
-
-const divImgEsqMsg = document.createElement('div');
-
-divImgEsqMsg.classList.add("img_cont_msg");
-
-const imgEsqMsg = document.createElement('img');
-
-imgEsqMsg.classList.add("rounded-circle");
-imgEsqMsg.classList.add("user_img_msg");
-
-imgEsqMsg.src = `../${foto_usuario}`;
-
-divImgEsqMsg.appendChild(imgEsqMsg);
-divEsqMsg.appendChild(divImgEsqMsg);
-
-const divMsg = document.createElement('div');
-
-divMsg.classList.add("msg_cotainer");
-
-divMsg.innerText = msg_usuario;
-
-const horaMsg = document.createElement('span');
-
-horaMsg.classList.add("msg_time");
-
-horaMsg.innerText = `${ data.getHours()}`;
-
-divMsg.appendChild(horaMsg);
-divEsqMsg.appendChild(divMsg);
-
-card_body.appendChild(divEsqMsg);
-
-}
-
-// Mensagem da esquerda
-
-// Mensagem da direita
-
- else if(direcao == 0){
-
-const divDirMsg = document.createElement('div');
-
-divDirMsg.classList.add("d-flex");
-divDirMsg.classList.add("justify-content-end");
-divDirMsg.classList.add("mb-4");
-
-const dirMsgSend = document.createElement('div');
-
-dirMsgSend.classList.add("msg_cotainer_send");
-
-dirMsgSend.innerText = msg_usuario;
-
-const horaDirMsg = document.createElement('span');
-
-horaDirMsg.classList.add("msg_time_send");
-
-horaDirMsg.innerText =`${ data.getHours()} : ${data.getMinutes()}`;
-
-dirMsgSend.appendChild(horaDirMsg);
-divDirMsg.appendChild(dirMsgSend);
-
-const divDirImg = document.createElement('div');
-
-divDirImg.classList.add("img_cont_msg");
-
-const imgDirMsg = document.createElement("img");
-
-imgDirMsg.classList.add("rounded-circle");
-imgDirMsg.classList.add("user_img_msg");
-
-imgDirMsg.src = `../${foto_usuario}`;
-
-divDirImg.appendChild(imgDirMsg);
-divDirMsg.appendChild(divDirImg);
-card_body.appendChild(divDirMsg);
-
-}
-
-// Mensagem da direita
-
-// window.location.href = "http://localhost/GraviBaby/view/Chat/index.php";
-}
-		</script> -->
-
-		<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		setTimeout(scroll,500)</script>
 	</body>
 </html>
