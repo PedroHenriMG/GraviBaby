@@ -19,8 +19,12 @@ if(($reslog) && $reslog->rowCount() != 0){
     
 
     if($senhalog == $linhalog['senha']){
+        $id_temporario = $linhalog['idT_usuario'];
         $_SESSION['id'] = $linhalog['idT_usuario'];
         $_SESSION['nome'] = $linhalog['nomeCompleto_usuario'];
+
+        $status_usu = $dbh->query("UPDATE T_usuario SET status_usu = 1 WHERE idT_usuario = $id_temporario");
+        $status_usu->execute();
 
         $id_usu_poste = $_SESSION['id'];
 

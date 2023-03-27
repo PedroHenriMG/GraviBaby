@@ -101,6 +101,31 @@ export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
 
 }
 
+export function criarAmigos(){
+    const tabela_amigos = document.querySelector(".active");
+
+    const card_amigo = document.createElement('div');
+    card_amigo.classList.add('d-flex');
+    card_amigo.classList.add('bd-highlight');
+
+    const img_amg = document.createElement('div');
+    img_amg.classList.add('img_cont');
+
+    const img = document.createElement('img');
+
+}
+
+
+
+const chamarMsg =()=>{
+    const spanMsg = document.createElement('span');
+    spanMsg.innerHTML = "<?php include_once('../../controller/loop_msg/parte1_loop.php') ?>";
+    const local_msg = document.querySelector("#local_msg");
+    local_msg.appendChild(spanMsg);
+}
+
+chamarMsg();
+
 
 
 

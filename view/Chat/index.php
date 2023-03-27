@@ -8,9 +8,6 @@ header('Location: ../index.php');
 $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
 }
 ?>
-
-
-
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <!------ Include the above in your HEAD tag ---------->
@@ -48,22 +45,68 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						<ui class="contacts">
                             <!-- Fazer um loop aqui com os dados do banco de dados -->
 						<li class="active">
+
+						<?php
+
+						$msg_mandadas = 0;
+
+						include_once("../../config.php");
+
+						$idChat = $_SESSION['id'];
+						
+						
+						$sql11 = "SELECT * FROM T_amigos WHERE T_usuario_idT_usuario = $idChat";
+
+						$prepare11 = $dbh->prepare($sql11);
+						$prepare11->execute();
+
+						while($linha11 = $prepare11->fetch(PDO::FETCH_ASSOC)){
+
+							$id_do_amigo = $linha11['id_do_amigo'];
+
+							$sql12 = "SELECT * FROM T_usuario WHERE idT_usuario = '$id_do_amigo' ";
+
+							$prepare12 = $dbh->prepare($sql12);
+							$prepare12->execute();
+
+							while($linha12 = $prepare12->fetch(PDO::FETCH_ASSOC)){
+
+								$id_usu_amigo = $linha12['idT_usuario'];
+
+								$sql13 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id_usu_amigo";
+
+								$prepare13 = $dbh->prepare($sql13);
+								$prepare13->execute();
+
+								$linha13 = $prepare13->fetch();
+						
+						?>
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
+									
 									<img src="<?php 
                     
-										if($img != ""){
-											echo $img;
+										if($linha13['img'] != ""){
+											echo "../". $linha13['img'];
 										}?>"
 
 										class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span><?php echo $n_usuario ?></span>
-									<p><?php echo $n_usuario ?> Online</p>
+									<span><?php echo $linha12['n_usuario'] ?></span>
+									<p>
+										<?php echo $linha12['n_usuario'] ?> <?php if($linha12['status_usu'] != 1){
+										echo "Offiline";
+										}else{
+											echo "Online";
+										} ?> 
+										</p>
 								</div>
 							</div>
+
+							<?php } } ?>
+							
 						</li>
 						</ui>
 					</div>
@@ -132,81 +175,18 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 			</div>
 		</div>
 
-		<?php
-		
-		$idChat = $_SESSION['id'];
-		$idAmigo = 1;
-		
-		$query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo";
-		$prepare9 = $dbh -> prepare($query9);
-		$resultado9 = $prepare9->execute();
-	
-		$res9 =  $prepare9->fetchAll(PDO::FETCH_ASSOC);
-		$count9 = $prepare9->rowCount();
+		<p id="local_msg"></p>
 
 		
 
-		$i =0;
-
-		while($i<$count9){
-
-			for($e=0;$e<10000;$e++){
-				
-			}
-			
-			$lugarMsg;
-			$imgPerfilMsg = "";
-			
-			if($res9[$i]['T_usuario_idT_usuario'] ==  $idChat){
-				$lugarMsg = 0;
-
-				$query11 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
-				$prepare11 = $dbh -> prepare($query11);
-				$resultado11 = $prepare11->execute();
-
-				$res11 =  $prepare11->fetch();
-
-				$imgPerfilMsg = $res11['img'];
-
-			}else{
-				$lugarMsg = 1;
-
-				$query12 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idAmigo";
-				$prepare12 = $dbh -> prepare($query12);
-				$resultado12 = $prepare12->execute();
-
-				$res12 =  $prepare12->fetch();
-
-				$imgPerfilMsg = $res12['img'];
-			}
-
-			?>
-
-		<span id="span_msg" > <?php echo $res9[$i]['mensagem'] ?></span>
-
-		<span id="lugarMsg"> <?php echo $lugarMsg ?></span>
-
-		<span id="lugarImgMsg"> <?php echo $imgPerfilMsg ?></span>
-
-		<?php
-
-		$msg2 = $res9[$i]["mensagem"];
-
-		echo "<script type='module'>import {criarMsg} from '../../js_normal/chat.js'; 
-
-		let msg = '$msg2';
-		let lugarMsg = '$lugarMsg';
-		let imgPerfilMsg = '$imgPerfilMsg';
-
-		criarMsg(msg,lugarMsg,imgPerfilMsg);
-	  </script>";
 		
-	  $i++;
-		}
+
 		
-		?>
+
 
 <script>
+
+	
 
 	var card_body = document.getElementById("card_body");
 
@@ -216,4 +196,12 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		
 		setTimeout(scroll,500)</script>
 	</body>
+
+	<script>
+		const gerar = ()=>{
+			<?php include_once("../../controller/loop_msg/parte1_loop.php"); ?>
+		}
+
+		setInterval(gerar,2000);
+		</script>
 </html>
