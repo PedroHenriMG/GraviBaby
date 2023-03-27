@@ -31,24 +31,24 @@ if(($reslog) && $reslog->rowCount() != 0){
         $count4 = $prepare4->rowCount();        
         
         if($count4 > 1){
-            header("Location: http://localhost/GraviBaby/");
+            header("Location: ../index.php");
         }else if($count4 == 0){
             $stmt = $dbh->prepare("INSERT INTO T_foto_perfil (idT_foto_perfil,titulo_foto_perfil,img,T_usuario_idT_usuario)" . "VALUES(null,'','','$id_usu_poste')");
             $stmt->execute();
-            header("Location: http://localhost/GraviBaby/view/dashboard.php");
+            header("Location: ../view/dashboard.php");
 
         }else if($count4 == 1){
-            header("Location: http://localhost/GraviBaby/view/dashboard.php");
+            header("Location: ../view/dashboard.php");
         }
 
     }else{
         $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
-        header("Location: http://localhost/GraviBaby/");
+        header("Location: ../index.php");
     }
 
 }else{
     $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
-    header("Location: http://localhost/GraviBaby/");
+    header("Location: ../index.php");
 }
 
 if(isset($_SESSION['msg'])){

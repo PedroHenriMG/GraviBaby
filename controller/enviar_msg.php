@@ -11,4 +11,4 @@ $sql8->execute(Array(
     ':idUsu' => $idUsu,
 ));
 
-header("Location: http://localhost/GraviBaby/view/Chat/index.php");
+header("Location: ../view/chat/index.php");

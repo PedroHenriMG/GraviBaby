@@ -35,9 +35,9 @@ Perfil
 
 <link rel="stylesheet" href="../css_normal/perfil1.css">
 
-<!-- Icone de config  -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-<!-- Icone de config  -->
+<!-- Icone de direct  -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!-- Icone de direct  -->
 </head>
 
 <body class="g-sidenav-show" style="background-color: #F28DB2;">
@@ -123,7 +123,8 @@ Perfil
 
                     <h3><?php echo $linha['n_usuario'] ?></h3>
                     <button class="btn_editar_perfil" onclick="irEditarPerfil()">Editar perfil</button>
-                    <span id="icon_config" class="material-symbols-outlined">settings</span>
+                    <span id="icon_config" class="material-symbols-outlined" onclick="irChat()">near_me</span>
+                    <span id="icon_config" class="material-symbols-outlined" onclick="sairSessao()">close</span>
                 </div>
 
                 <div class="infos_gerais_perfil">
@@ -525,7 +526,15 @@ if (win && document.querySelector('#sidenav-scrollbar')) {
 <script src="../assets/js/corporate-ui-dashboard.min.js?v=1.0.0"></script>
 <script>
     const irEditarPerfil=()=>{
-        window.location.href = "./editar.php"
+        window.location.href = "./editar.php";
+    }
+
+    const irChat = ()=>{
+        window.location.href = "./chat/index.php";
+    }
+
+    const sairSessao=()=>{
+        window.location.href = "../controller/sair_sessao.php";
     }
 </script>
 </body>
