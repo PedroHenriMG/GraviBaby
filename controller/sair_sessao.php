@@ -3,6 +3,8 @@
 session_start();
 ob_start();
 
+include_once("../config.php");
+
 $id_temporario = $_SESSION['id'];
 
 $sql14 = "SELECT * FROM T_usuario WHERE idT_usuario = $id_temporario";

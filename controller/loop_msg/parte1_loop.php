@@ -1,8 +1,11 @@
 <?php
-
-echo "<p> oi </p>";
     
-    $idAmigo = 2;
+    if($id==1){
+        $idAmigo = 2;
+    }else{
+        $idAmigo = 1;
+    }
+    
     $loopMsg = $dbh->query("SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo");
     $loopMsg->execute();
 
@@ -60,26 +63,28 @@ echo "<p> oi </p>";
             $imgPerfilMsg = $res12['img'];
         }
 
+        
+
         ?>
 
-    <span id="span_msg" > <?php echo $res9[$i]['mensagem'] ?></span>
-
-    <span id="lugarMsg"> <?php echo $lugarMsg ?></span>
-
-    <span id="lugarImgMsg"> <?php echo $imgPerfilMsg ?></span>
-
-    <?php
+        <span id="span_msg" > <?php echo $res9[$i]['mensagem'] ?></span>
+    
+        <span id="lugarMsg"> <?php echo $lugarMsg ?></span>
+    
+        <span id="lugarImgMsg"> <?php echo $imgPerfilMsg ?></span>
+    
+        <?php
 
     $msg2 = $res9[$i]["mensagem"];
 
-    echo "<script type='module'>import {criarMsg} from '../../js_normal/chat.js'; 
+    echo '<script type='module'>import {criarMsg} from '../../js_normal/chat.js'; 
 
     let msg = '$msg2';
     let lugarMsg = '$lugarMsg';
     let imgPerfilMsg = '$imgPerfilMsg';
 
     criarMsg(msg,lugarMsg,imgPerfilMsg);
-    </script>";
+    </script>';
     
     $i++;
     }

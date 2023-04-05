@@ -21,7 +21,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 		
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 		
-        <link rel="stylesheet" href="chat.css">
+        <link rel="stylesheet" href="style_chat.css">
 	</head>
     
 	<body>
@@ -34,7 +34,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
 					<div class="card-header">
 						<div class="input-group">
-							<a href="../perfil.php">Voltar</a>
+							<div class="btn_voltar"><a href="../perfil.php">Voltar</a></div>
 							<input type="text" placeholder="Search..." name="" class="form-control search">
 							<div class="input-group-prepend">
 								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
@@ -47,8 +47,6 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						<li class="active">
 
 						<?php
-
-						$msg_mandadas = 0;
 
 						include_once("../../config.php");
 
@@ -148,8 +146,103 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						<div id="card_body" class="card-body msg_card_body">
 
                             <!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
+							<?php
 
-							
+include_once("../../config.php");
+
+
+	$id = $_SESSION['id'];
+									
+	if($id==1){
+	$idAmigo = 2;
+	}else{
+	$idAmigo = 1;
+	}
+
+	$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo");
+		$loopMsg->execute();
+
+		$count10 = $loopMsg->rowCount();
+
+		$msg_mandadas = $count10;
+
+
+    $idChat = $_SESSION['id'];
+								
+    if($idChat==1){
+    $idAmigo = 2;
+    }else{
+    $idAmigo = 1;
+    }
+
+    if($count10 == $msg_mandadas){
+
+
+    $msg_mandadas = $count10;
+
+    $query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo";
+    $prepare9 = $dbh -> prepare($query9);
+    $resultado9 = $prepare9->execute();
+
+    $res9 =  $prepare9->fetchAll(PDO::FETCH_ASSOC);
+    $count9 = $prepare9->rowCount();
+
+    $i =0;
+
+    while($i<$count9){
+
+    $lugarMsg;
+    $imgPerfilMsg = "";
+
+    if($res9[$i]['T_usuario_idT_usuario'] ==  $idChat){
+    $lugarMsg = 0;
+
+    $query11 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
+    $prepare11 = $dbh -> prepare($query11);
+    $resultado11 = $prepare11->execute();
+
+    $res11 =  $prepare11->fetch();
+
+    $imgPerfilMsg = $res11['img'];
+
+    ?>
+    <div class="d-flex justify-content-end mb-4">
+        <div class="img_cont_msg">
+            <img src="<?php echo "../" . $imgPerfilMsg ?>" alt="" class="rounded-circle user_img_msg">
+        </div>
+        <div class="msg_cotainer msg_cotainer_send"><?php echo $res9[$i]['mensagem'] ?></div>
+    </div>
+
+    <?php 
+
+    }else{
+        $lugarMsg = 1;
+
+        $query12 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idAmigo";
+        $prepare12 = $dbh -> prepare($query12);
+        $resultado12 = $prepare12->execute();
+
+        $res12 =  $prepare12->fetch();
+
+        $imgPerfilMsg = $res12['img'];
+        ?>
+
+    <div class="d-flex justify-content-start mb-4">
+        <div class="img_cont_msg">
+            <img src="<?php echo "../" . $imgPerfilMsg ?>" alt="" class="rounded-circle user_img_msg">
+        </div>
+        <div class="msg_cotainer"><?php echo $res9[$i]['mensagem'] ?></div>
+    </div>
+
+    <?php } ?>
+
+    <?php
+
+    $i++;
+    }
+    }
+
+    ?>
 						</div>
 
 						<!-- Input da Mensagem -->
@@ -177,31 +270,33 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 
 		<p id="local_msg"></p>
 
-		
 
-		
+<script type = "module">
+	import {criarMsg} from '../../js_normal/chat.js';
 
-		
+	const card_body = document.getElementById("card_body");
 
 
-<script>
-
-	
-
-	var card_body = document.getElementById("card_body");
 
  		const scroll = ()=>{	
 			card_body.scrollTop = card_body.scrollHeight - card_body.clientHeight;
 		}
 		
-		setTimeout(scroll,500)</script>
-	</body>
+		setTimeout(scroll,500);
 
-	<script>
-		const gerar = ()=>{
-			<?php include_once("../../controller/loop_msg/parte1_loop.php"); ?>
+		let msg_mandadas;
+
+		const loopMsg=(e)=>{
+		
+			e.preventDefault();
+			
 		}
 
-		setInterval(gerar,2000);
-		</script>
+		setInterval(loopMg,5000);
+		
+	</script>
+
+	</body>
+
+	
 </html>

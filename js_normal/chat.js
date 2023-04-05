@@ -1,5 +1,5 @@
 
-export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
+ function criarMsg (span_msg,lugarMsg,lugarImgMsg){
 
     const card_body = document.querySelector("#card_body");
     
@@ -101,7 +101,7 @@ export function criarMsg (span_msg,lugarMsg,lugarImgMsg){
 
 }
 
-export function criarAmigos(){
+ function criarAmigos(){
     const tabela_amigos = document.querySelector(".active");
 
     const card_amigo = document.createElement('div');
@@ -113,18 +113,18 @@ export function criarAmigos(){
 
     const img = document.createElement('img');
 
+    const span_msg = document.createElement('span');
+    span_msg.classList.add('span_msg');
+    span_msg.innerHTML = '<?php echo $res9[$i][\'mensagem\'] ?>';
+    span_msg.style.display = 'none';
+    body.appendChild(span_msg);
 }
 
+export {criarMsg, criarAmigos}
 
 
-const chamarMsg =()=>{
-    const spanMsg = document.createElement('span');
-    spanMsg.innerHTML = "<?php include_once('../../controller/loop_msg/parte1_loop.php') ?>";
-    const local_msg = document.querySelector("#local_msg");
-    local_msg.appendChild(spanMsg);
-}
 
-chamarMsg();
+
 
 
 
