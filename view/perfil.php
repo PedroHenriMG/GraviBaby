@@ -48,6 +48,12 @@ Perfil
 
 <!-- End Menu -->
 
+<!-- Nav Bar -->
+
+<?php include_once("../view_padrao/nav.php") ?>
+
+<!-- End Nav Bar -->
+
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
 <div id="contaner_topo" class="container-fluid py-4 px-5">
