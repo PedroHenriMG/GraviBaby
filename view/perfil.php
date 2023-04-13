@@ -128,7 +128,7 @@ Perfil
                     ?>
 
                     <h3><?php echo $linha['n_usuario'] ?></h3>
-                    <button class="btn_editar_perfil" onclick="irEditarPerfil()">Editar perfil</button>
+                    <button class="btn_editar_perfil" onclick="irEditarPerfil()"><span id="titulo_btn_editar_perfil">Editar Perfil</span><span id="icon_editar_perfil" class="material-symbols-outlined">edit</span></button>
                     <span id="icon_config" class="material-symbols-outlined" onclick="irChat()">near_me</span>
                     <span id="icon_config" class="material-symbols-outlined" onclick="sairSessao()">close</span>
                 </div>
@@ -177,17 +177,36 @@ Perfil
             </div>
         </div>
 
+        <?php 
+        
+        include_once("../config.php");
+        $id = $_SESSION['id'];
+    
+    
+        $query16 = "SELECT img FROM T_postagens WHERE T_usuario_idT_usuario = $id";
+        $prepare16 = $dbh -> prepare($query16);
+        $resultado16 = $prepare16->execute();  
+        
+        $res16 = $prepare16->fetchAll();
+        
+        ?>
+
         <div class="posts_perfil">
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida1.jpg" alt=""></div>
-            <div class="post"><img src="../imagens/gravida2.jpg" alt=""></div>
+
+            <?php
+            
+            foreach($res16 as $linha16){
+            
+            ?>
+
+            <div class="post"><img src=" <?php echo $linha16['img'] ?>" alt=""></div>
+
+            <?php } ?>
+
         </div>
+
+           
+
     </section>
 </section>
 

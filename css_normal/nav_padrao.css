@@ -1,5 +1,5 @@
 nav{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -17,7 +17,15 @@ nav ul {
 
 nav ul li, nav ul li a{
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav_li_perfil{
+    display: flex;
+    flex-direction: row;
+    ali
 }
 
 .icon_perfil, .icon_perfil  img, .icon_perfil a{

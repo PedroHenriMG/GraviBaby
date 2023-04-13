@@ -53,7 +53,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						$idChat = $_SESSION['id'];
 						
 						
-						$sql11 = "SELECT * FROM T_amigos WHERE T_usuario_idT_usuario = $idChat";
+						$sql11 = "SELECT * FROM T_amigo WHERE T_usuario_idT_usuario = $idChat";
 
 						$prepare11 = $dbh->prepare($sql11);
 						$prepare11->execute();
