@@ -11,7 +11,7 @@
                 <li> Chat <a href="../view/chat/index.php"> <span class="material-symbols-outlined">chat</span> </a> </li>
                 <li> Home <a href="../view/dashboard.php"> <span class="material-symbols-outlined">home</span> </a> </li>     
                 <li> Fórum <a href="/"> <span class="material-symbols-outlined">groups</span> </a> </li>
-                <li> Adicionar Post<a href="/"> <span class="material-symbols-outlined">add</span> </a> </li>
+                <li> Adicionar Post<a href="../view/adicionar_post.php"> <span class="material-symbols-outlined">add</span> </a> </li>
                 <li id="nav_li_perfil"> 
                 <p style="text-align: center; padding-top: 10px; padding-right: 10px"><?php echo $res6['n_usuario']; ?></p>
                     <div class="icon_perfil">
