@@ -86,6 +86,7 @@ background-color: rgba(0,0,0,0.3) !important;
     align-items: center;
     border-radius: 20px;
     margin: 0px 10px;
+    cursor: pointer;
 }
 
 .btn_voltar a{

@@ -54,7 +54,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
           <div class="d-md-flex align-items-center mb-3 mx-2">
             <div class="mb-md-0 mb-3">
               <h3 class="font-weight-bold mb-0">GraviBaby</h3>
-              <p class="mb-0 text-dark">Apps you might like!</p>
+              <p class="mb-0 text-dark">A melhor rede social voltada completamente para futuras mães!</p>
             </div>
             <button type="button" class="btn btn-sm btn-white btn-icon d-flex align-items-center mb-0 ms-md-auto mb-sm-0 mb-2 me-2">
               <span class="btn-inner--icon">
