@@ -83,24 +83,6 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
 
       <!-- End Slides -->
       
-      <!-- Transações -->
-
-      <?php include_once("../view_padrao/transacoes.php") ?>
-
-      <!-- End Transações -->
-
-      <!-- Cards -->
-
-      <?php include_once("../view_padrao/cards.php") ?>
-
-      <!-- End Cards -->
-
-      <!-- Grafico -->
-
-      <?php include_once("../view_padrao/grafico.php") ?>
-
-      <!-- End Grafico -->
-      
       <!-- Footer -->
 
       <?php include_once("../view_padrao/footer.php") ?>

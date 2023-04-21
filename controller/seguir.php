@@ -6,7 +6,7 @@ $id_usuario_post = $_POST['id_usuario_post'];
 $id_usuario = $_POST['id_usuario'];
 
 
-$sql21 = $dbh->query("SELECT idT_amigo FROM T_amigo WHERE idT_amigo = '$id_usuario_post'");
+$sql21 = $dbh->query("SELECT * FROM T_amigo WHERE id_do_amigo = '$id_usuario_post' AND T_usuario_idT_usuario = '$id_usuario'");
 
 
 $res21 = $sql21->rowCount();

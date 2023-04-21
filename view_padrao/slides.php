@@ -5,7 +5,9 @@
 
                 <?php
 
-                $sql18 = "SELECT * FROM T_usuario";
+                $id_usuario = $_SESSION['id'];
+
+                $sql18 = "SELECT * FROM T_usuario WHERE idT_usuario";
 
                 $prepare18 = $dbh->prepare($sql18);
 
@@ -15,6 +17,21 @@
 
                 foreach ($res18 as $linha18) {
                     $id_usu_geral = $linha18["idT_usuario"];
+
+                    
+                // $sql23 = "SELECT * FROM T_amigo WHERE T_usuario_idT_usuario = '$id_usuario'";
+
+                // $prepare23 = $dbh->prepare($sql23);
+
+                // $prepare23->execute();
+
+                // $res23 = $prepare23->fetchAll();
+
+                // foreach($res23 as $linha23){
+                //     if($linha23['id_do_amigo'] != $id_usu_geral){
+                        
+                //     }
+                // }
 
                     $sql19 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id_usu_geral ";
 
@@ -62,7 +79,8 @@
                             </div>
                         </div>
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
 
             </div>
         </div>
