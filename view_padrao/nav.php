@@ -2,8 +2,6 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-<?php include_once('../controller/util_php/infos_usuario.php') ?>
-
 <body>
     <div>
         <nav>
@@ -13,10 +11,10 @@
                 <li> Fórum <a href="/"> <span class="material-symbols-outlined">groups</span> </a> </li>
                 <li> Adicionar Post<a href="../view/adicionar_post.php"> <span class="material-symbols-outlined">add</span> </a> </li>
                 <li id="nav_li_perfil"> 
-                <p style="text-align: center; padding-top: 10px; padding-right: 10px"><?php echo $res6['n_usuario']; ?></p>
+                <p style="text-align: center; padding-top: 10px; padding-right: 10px"><?php echo $_SESSION['n_usuario']; ?></p>
                     <div class="icon_perfil">
                         <a href="../view/perfil.php" >
-                            <img  src="<?php echo $img ?>" alt="">  
+                            <img  src="<?php echo $_SESSION['foto'] ?>" alt="">  
                         </a> 
                     </div>
                 </li>

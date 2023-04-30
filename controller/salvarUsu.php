@@ -2,37 +2,41 @@
 
 include_once '../config.php';
 
-// Credênciais do usuário
-
+// Credenciais do usuário
 $nome_completo = $_POST['nome_completo'];
 $n_usuario = $_POST['n_usuario'];
 $email_usuario = $_POST['email_usuario'];
 $senha_usuario = $_POST['senha_usuario'];
 
-//Verificando se a conta já existe
+// Valores padrão
+$status_usu = 0;
+$foto = "";
+$cidade = "";
+$estado = "";
+$verificado = 0;
 
-$stmt2 = $dbh->query("SELECT email FROM T_usuario WHERE email = '$email_usuario'");
-
-
-$res = $stmt2->rowCount();
-    if($res==null || $stmt2==null){
+$stmt2 = $dbh->prepare("SELECT email FROM T_usuario WHERE email = ?");
+$stmt2->execute([$email_usuario]);
+$usuario = $stmt2->fetch();
 
 // Inserindo informações no banco
+if(!$usuario) {
+    $stmt = $dbh->prepare("INSERT INTO T_usuario (nomecompleto_usuario, n_usuario, email, senha) VALUES (:nome_completo, :n_usuario, :email_usuario, :senha_usuario)");
+$stmt->execute(Array(
+    ':nome_completo' => $nome_completo,
+    ':n_usuario' => $n_usuario,
+    ':email_usuario' => $email_usuario,
+    ':senha_usuario' => $senha_usuario,
+));
 
-        $stmt = $dbh->prepare('INSERT INTO T_usuario (idT_usuario,nomeCompleto_usuario,n_usuario,email,senha)' . 'VALUES(null,:nome_completo,:n_usuario,:email_usuario,:senha_usuario)');
-        $stmt->execute(Array(
-        ':nome_completo' => $nome_completo,
-        ':n_usuario' => $n_usuario,
-        ':email_usuario' => $email_usuario,
-        ':senha_usuario' => $senha_usuario,
-        ));
-    }else{
-        header("Location: ../view/registrar.html");
-    }
+   
+} else {
+    echo "Conta já existe.";
+}
 
 
 //Voltando a página de login
 
-header("Location: ../index.php");
+
 
 ?>

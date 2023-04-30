@@ -5,6 +5,8 @@
 
                 <?php
 
+                include_once '../config.php';
+
                 $id_usuario = $_SESSION['id'];
 
                 $sql18 = "SELECT * FROM T_usuario WHERE idT_usuario";
@@ -18,35 +20,13 @@
                 foreach ($res18 as $linha18) {
                     $id_usu_geral = $linha18["idT_usuario"];
 
-                    
-                // $sql23 = "SELECT * FROM T_amigo WHERE T_usuario_idT_usuario = '$id_usuario'";
-
-                // $prepare23 = $dbh->prepare($sql23);
-
-                // $prepare23->execute();
-
-                // $res23 = $prepare23->fetchAll();
-
-                // foreach($res23 as $linha23){
-                //     if($linha23['id_do_amigo'] != $id_usu_geral){
-                        
-                //     }
-                // }
-
-                    $sql19 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id_usu_geral ";
-
-                    $prepare19 = $dbh->prepare($sql19);
-                    $prepare19->execute();
-
-                    $linha19 = $prepare19->fetch();
-
                     ?>
                     <div class="swiper-slide">
                         <div>
                             <div
                                 class="card card-background shadow-none border-radius-xl card-background-after-none align-items-start mb-0">
                                 <div class="full-background bg-cover"
-                                    style="background-image: url('<?php echo $linha19['img'] ?> ')"></div>
+                                    style="background-image: url('<?php echo $linha18['foto'] ?> ')"></div>
                                 <div class="card-body text-start px-3 py-0 w-100">
                                     <div class="row mt-12">
                                         <div class="col-sm-3 mt-auto">
@@ -61,7 +41,7 @@
                                         <div class="col-sm-3 ms-auto mt-auto">
                                             <p class="text-dark opacity-6 text-xs font-weight-bolder mb-0"></p>
                                             <h5 class="text-dark font-weight-bolder">
-                                                <?php if ($linha18['status_usu'] == 1) {
+                                                <?php if ($linha18['status'] == 1) {
                                                     echo 'online';
                                                 } else {
                                                     echo 'offline';

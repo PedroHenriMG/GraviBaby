@@ -26,7 +26,7 @@ include_once './config.php';
             </div>
             <div class="links">
                 <a id="esc_senha" href="#">Esqueceu a sua senha?</a>
-                <a id="resgister" href="view/registrar.html">Registre-se</a>
+                <a id="resgister" href="view/registrar.php">Registre-se</a>
             </div>
             <button type="submit" name="enviar">LOGIN</button>
         </form>

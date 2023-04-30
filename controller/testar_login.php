@@ -21,29 +21,14 @@ if(($reslog) && $reslog->rowCount() != 0){
     if($senhalog == $linhalog['senha']){
         $id_temporario = $linhalog['idT_usuario'];
         $_SESSION['id'] = $linhalog['idT_usuario'];
-        $_SESSION['nome'] = $linhalog['nomeCompleto_usuario'];
+        $_SESSION['nome'] = $linhalog['nomecompleto_usuario'];
+        $_SESSION['foto'] = $linhalog['foto'];
+        $_SESSION['n_usuario'] = $linhalog['n_usuario'];
 
-        $status_usu = $dbh->query("UPDATE T_usuario SET status_usu = 1 WHERE idT_usuario = $id_temporario");
+        $status_usu = $dbh->query("UPDATE T_usuario SET status = 1 WHERE idT_usuario = $id_temporario");
         $status_usu->execute();
 
-        $id_usu_poste = $_SESSION['id'];
-
-        $sql4 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id_usu_poste";
-        $prepare4 = $dbh->prepare($sql4);
-
-        $res4 = $prepare4->execute();
-        $count4 = $prepare4->rowCount();        
-        
-        if($count4 > 1){
-            header("Location: ../index.php");
-        }else if($count4 == 0){
-            $stmt = $dbh->prepare("INSERT INTO T_foto_perfil (idT_foto_perfil,titulo_foto_perfil,img,T_usuario_idT_usuario)" . "VALUES(null,'','','$id_usu_poste')");
-            $stmt->execute();
-            header("Location: ../view/dashboard.php");
-
-        }else if($count4 == 1){
-            header("Location: ../view/dashboard.php");
-        }
+        header("Location: ../view/dashboard.php");
 
     }else{
         $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
