@@ -49,7 +49,7 @@
                                                 ?>
                                             </h5>
                                             <form method="post" action="../controller/seguir.php">
-                                                <input type="text" name="id_usuario_post" style="display: none;" value="<?php echo $linha18['idT_usuario'] ?>">
+                                                <input type="text" name="id_amigo" style="display: none;" value="<?php echo $linha18['idT_usuario'] ?>">
                                                 <input type="text" name="id_usuario" style="display: none;" value="<?php echo $_SESSION['id'] ?>">
                                                 <button type="submit" style="background-color: #02ACEB; border:none" class="btn btn-primary">Seguir</button>
                                             </form>

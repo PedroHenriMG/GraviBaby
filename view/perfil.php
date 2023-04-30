@@ -97,8 +97,8 @@ Perfil
             ?>
                 <img id="img_perfil" src="<?php 
                     
-                    if($img != ""){
-                        echo $img;
+                    if($_SESSION['foto'] != ""){
+                        echo $_SESSION['foto'];
                     }
                     
                      ?>" alt="">
@@ -110,18 +110,18 @@ Perfil
                 include_once("../config.php");
                         $id = $_SESSION['id'];
 
-                        $query = "SELECT nomeCompleto_usuario,n_usuario,email,senha,publicacoes,seguidores,seguindo,bio1,bio2,bio3 FROM T_usuario WHERE idT_usuario = $id";
-                        $resultado = $dbh -> prepare($query);
+                        $sql1 = "SELECT nomecompleto_usuario,n_usuario,email,senha FROM T_usuario WHERE idT_usuario = $id";
+                        $resultado = $dbh -> prepare($sql1);
                         $resultado->execute();
                         
                         while ($linha = $resultado->fetch(PDO::FETCH_ASSOC)){
-                            if($linha['publicacoes']==null){
+                            if(null==null){
                                 $linha['publicacoes'] = 0;
                             }
-                            if($linha['seguidores']==null){
+                            if(null==null){
                                 $linha['seguidores'] = 0;
                             }
-                            if($linha['seguindo']==null){
+                            if(null==null){
                                 $linha['seguindo'] = 0;
                             }
                             
@@ -140,19 +140,12 @@ Perfil
                 </div>
 
                 <div class="bio_perfil">
-                <h5 class="infos_bio_perfil"><?php echo $linha['nomeCompleto_usuario'] ?></h5>
+                <h5 class="infos_bio_perfil"><?php echo $linha['nomecompleto_usuario'] ?></h5>
                 <h5 class="infos_bio_perfil">
-                    <?php
-                
-                        if ($linha['bio1'] == null){
-                            echo "Edite seu perfil e coloque uma biografía ";
-                        }else{
-                            echo $linha['bio1'];
-                            }
-                    ?>
+                    
                 </h5>
-                <h5 class="infos_bio_perfil"><?php echo $linha['bio2'] ?></h5>
-                <h5 class="infos_bio_perfil"><?php echo $linha['bio3'] ?></h5>
+                <h5 class="infos_bio_perfil"></h5>
+                <h5 class="infos_bio_perfil"></h5>
             </div>
             </div>
             
@@ -183,7 +176,7 @@ Perfil
         $id = $_SESSION['id'];
     
     
-        $query16 = "SELECT img FROM T_postagens WHERE T_usuario_idT_usuario = $id";
+        $query16 = "SELECT foto FROM T_publicacoes WHERE id_usuario= $id";
         $prepare16 = $dbh -> prepare($query16);
         $resultado16 = $prepare16->execute();  
         
@@ -199,7 +192,12 @@ Perfil
             
             ?>
 
-            <div class="post"><img src=" <?php echo $linha16['img'] ?>" alt=""></div>
+            <div class="post"><img src=" <?php  if ($linha16['foto'] == null){
+                echo "";
+            }else{
+                    echo $linha16['foto'];
+                }
+                     ?>" alt=""></div>
 
             <?php } ?>
 
