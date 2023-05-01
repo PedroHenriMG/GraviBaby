@@ -29,7 +29,7 @@ if(isset($_FILES['arquivo'])){
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path );
 
     if($deu_certo){
-        $dbh->query("UPDATE T_foto_perfil SET titulo_foto_perfil = '$nomeArquivo', img = '$path' WHERE T_usuario_idT_usuario = $id_usuario");
+        $dbh->query("UPDATE T_usuario SET foto = '$path' WHERE idT_usuario = $id_usuario");
     }
 
 }
@@ -39,10 +39,6 @@ $n_usuario = $_POST['n_usuario'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $nome_completo = $_POST['nome_completo'];
-$bio1 = $_POST['bio1'];
-$bio2 = $_POST['bio2'];
-$bio3 = $_POST['bio3'];
-
 $emailIguais = 0;
 
 $sql2 = "SELECT * FROM T_usuario";
@@ -67,7 +63,7 @@ foreach($res2 as $linha2){
             if($res3['email'] == $email){
                 echo $res3['email'] . $email;
 
-                $sql = "UPDATE T_usuario SET nomeCompleto_usuario = '$nome_completo', n_usuario = '$n_usuario', email = '$email', senha = '$senha', bio1 = '$bio1', bio2 = '$bio2', bio3 = '$bio3' WHERE idT_usuario = $id_usuario";
+                $sql = "UPDATE T_usuario SET nomecompleto_usuario = '$nome_completo', n_usuario = '$n_usuario', email = '$email', senha = '$senha' WHERE idT_usuario = $id_usuario";
 
                 $prepare = $dbh->prepare($sql);
                 $res = $prepare->execute();
@@ -80,7 +76,7 @@ foreach($res2 as $linha2){
         
             
     }else{
-        $sql = "UPDATE T_usuario SET nomeCompleto_usuario = '$nome_completo', n_usuario = '$n_usuario', email = '$email', senha = '$senha', bio1 = '$bio1', bio2 = '$bio2', bio3 = '$bio3' WHERE idT_usuario = $id_usuario";
+        $sql = "UPDATE T_usuario SET nomecompleto_usuario = '$nome_completo', n_usuario = '$n_usuario', email = '$email', senha = '$senha' WHERE idT_usuario = $id_usuario";
 
         $prepare = $dbh->prepare($sql);
         $res = $prepare->execute();
