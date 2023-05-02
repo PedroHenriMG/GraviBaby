@@ -12,7 +12,7 @@ $prepare14 = $dbh->prepare($sql14);
 $exec14 = $prepare14->execute();
 $res14 = $prepare14->fetch();
 
-$status_usu = $dbh->query("UPDATE T_usuario SET status_usu = 0 WHERE idT_usuario = $id_temporario");
+$status_usu = $dbh->query("UPDATE T_usuario SET status = 0 WHERE idT_usuario = $id_temporario");
 $status_usu->execute();
 
 unset($_SESSION['id'], $_SESSION['nome']);

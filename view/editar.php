@@ -49,6 +49,14 @@ Perfil
 
 <!-- End Menu -->
 
+<!-- Nav -->
+
+<?php include_once("../view_padrao/nav.php") ?>
+
+<!-- End Nav -->
+
+
+
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
 <div class="container-fluid py-4 px-5">
@@ -95,15 +103,18 @@ Perfil
 
                 <?php 
 
-                    include_once("../controller/util_php/infos_usuario.php");                     
+                    $sql24 = "SELECT foto FROM T_usuario WHERE idT_usuario = $id " ;
+                    $prepare24 = $dbh->prepare($sql24);
+                    $res24 = $prepare24->execute();
+                    $linha24 = $prepare24->fetch();                   
                             
                 ?>
 
                 <div class="foto_perfil">
                     <img id="img_perfil" src=" <?php 
                     
-                    if($_SESSION['foto'] != ""){
-                        echo $_SESSION['foto'];
+                    if($linha24['foto'] != ""){
+                        echo $linha24['foto'];
                     }
                     
                      ?>" alt="">

@@ -14,7 +14,17 @@
                 <p style="text-align: center; padding-top: 10px; padding-right: 10px"><?php echo $_SESSION['n_usuario']; ?></p>
                     <div class="icon_perfil">
                         <a href="../view/perfil.php" >
-                            <img  src="<?php echo $_SESSION['foto'] ?>" alt="">  
+                            <img  src="<?php 
+
+                            $id = $_SESSION['id'];
+
+                            include_once '../config.php';
+                            $sql24 = "SELECT foto FROM T_usuario WHERE idT_usuario = $id " ;
+                            $prepare24 = $dbh->prepare($sql24);
+                            $res24 = $prepare24->execute();
+                            $linha24 = $prepare24->fetch();  
+                            
+                            echo $linha24['foto'] ?>">  
                         </a> 
                     </div>
                 </li>
