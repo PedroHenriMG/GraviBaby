@@ -59,7 +59,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 
 							$id_amigo = $linha11['id_amigo'];
 
-							$sql19 = "SELECT * FROM T_usuario WHERE idT_usuario  = $id_amigo  ";
+							$sql19 = "SELECT * FROM T_usuario WHERE idT_usuario  = $id_amigo AND idT_usuario != $idChat ";
 
 							$prepare19 = $dbh->prepare($sql19);
 			
@@ -113,7 +113,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 
 									$id_usuario = $_SESSION['id'];
 
-									$sql20 = "SELECT * FROM T_usuario WHERE idT_usuario";
+									$sql20 = "SELECT * FROM T_usuario WHERE idT_usuario = $idChat";
 
 									$prepare20 = $dbh->prepare($sql20);
 
@@ -130,7 +130,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 									<img src="<?php 
                     
 										if($img != ""){
-											echo $img;
+											echo "../".$img;
 										}?>"
 
 										class="rounded-circle user_img">
@@ -171,7 +171,7 @@ include_once("../../config.php");
 	$idAmigo = 1;
 	}
 
-	$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo");
+	$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo OR remetente = $idAmigo AND destinatario = $id");
 		$loopMsg->execute();
 
 		$count10 = $loopMsg->rowCount();
@@ -185,22 +185,21 @@ include_once("../../config.php");
 
     $msg_mandadas = $count10;
 
-    $query9 = "SELECT * FROM T_chat WHERE remetente = $id OR destinatario = $idAmigo";
+    $query9 = "SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo OR remetente = $idAmigo AND destinatario = $id ORDER BY idT_chat";
     $prepare9 = $dbh -> prepare($query9);
     $resultado9 = $prepare9->execute();
 
     $res9 =  $prepare9->fetchAll(PDO::FETCH_ASSOC);
     $count9 = $prepare9->rowCount();
 
-    $i =0;
+    $i = 0;
 
-    while($i<$count9){
+    foreach($res9 as $linha9){
 
     $lugarMsg;
     $imgPerfilMsg = "";
 
-    if($res9[$i]['destinatario'] ==  $idChat){
-    $lugarMsg = 0;
+    if($linha9['remetente'] ==  $idChat){
 
 		include_once '../../config.php';
 
@@ -225,13 +224,12 @@ include_once("../../config.php");
         <div class="img_cont_msg">
             <img src="<?php echo "../" . $imgPerfilMsg ?>" alt="" class="rounded-circle user_img_msg">
         </div>
-        <div class="msg_cotainer msg_cotainer_send"><?php echo $res9[$i]['mensagem'] ?></div>
+        <div class="msg_cotainer msg_cotainer_send"><?php echo $linha9['mensagem'] ?></div>
     </div>
 
     <?php 
 
     }else{
-        $lugarMsg = 1;
 
         include_once '../../config.php';
 
@@ -256,14 +254,13 @@ include_once("../../config.php");
         <div class="img_cont_msg">
             <img src="<?php echo "../" . $imgPerfilMsg ?>" alt="" class="rounded-circle user_img_msg">
         </div>
-        <div class="msg_cotainer"><?php echo $res9[$i]['mensagem'] ?></div>
+        <div class="msg_cotainer"><?php echo $linha9['mensagem'] ?></div>
     </div>
 
     <?php } ?>
 
     <?php
 
-    $i++;
     }
     }
 
@@ -301,8 +298,6 @@ include_once("../../config.php");
 	import {criarMsg} from '../../js_normal/chat.js';
 
 	const card_body = document.getElementById("card_body");
-
-
 
  		const scroll = ()=>{	
 			card_body.scrollTop = card_body.scrollHeight - card_body.clientHeight;
