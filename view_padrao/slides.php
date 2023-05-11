@@ -26,7 +26,7 @@
                             <div
                                 class="card card-background shadow-none border-radius-xl card-background-after-none align-items-start mb-0">
                                 <div class="full-background bg-cover"
-                                    style="background-image: url('<?php echo $linha18['foto'] ?> ')"></div>
+                                    style="background-image: url('<?php echo $linha18['foto'] ?> ');  min-width: 100%x; max-height: 1000px; background-size: 60%; background-repeat: no-repeat"></div>
                                 <div class="card-body text-start px-3 py-0 w-100">
                                     <div class="row mt-12">
                                         <div class="col-sm-3 mt-auto">

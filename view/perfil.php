@@ -96,12 +96,16 @@ Perfil
                 include_once("../controller/util_php/infos_usuario.php");
             ?>
                 <img id="img_perfil" src="<?php 
-                    
-                    if($_SESSION['foto'] != ""){
-                        echo $_SESSION['foto'];
-                    }
-                    
-                     ?>" alt="">
+
+                    $id = $_SESSION['id'];
+
+                    include_once '../config.php';
+                    $sql24 = "SELECT foto FROM T_usuario WHERE idT_usuario = $id " ;
+                    $prepare24 = $dbh->prepare($sql24);
+                    $res24 = $prepare24->execute();
+                    $linha24 = $prepare24->fetch();  
+
+                    echo $linha24['foto'] ?>" alt="">
             </div>
             <div class="infos_perfil">
                 <div class="topo_infos_perfil">

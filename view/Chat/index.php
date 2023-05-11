@@ -26,9 +26,6 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
     
 	<body>
 
-		<?php include_once("../../controller/util_php/infos_usuario_chat.php") ?>
-
-
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
@@ -53,30 +50,25 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						$idChat = $_SESSION['id'];
 						
 						
-						$sql11 = "SELECT * FROM T_amigo WHERE T_usuario_idT_usuario = $idChat";
+						$sql11 = "SELECT * FROM T_amigos WHERE id_usuario = $idChat";
 
 						$prepare11 = $dbh->prepare($sql11);
 						$prepare11->execute();
 
 						while($linha11 = $prepare11->fetch(PDO::FETCH_ASSOC)){
 
-							$id_do_amigo = $linha11['id_do_amigo'];
+							$id_amigo = $linha11['id_amigo'];
 
-							$sql12 = "SELECT * FROM T_usuario WHERE idT_usuario = '$id_do_amigo' ";
+							$sql19 = "SELECT * FROM T_usuario WHERE idT_usuario  = $id_amigo  ";
 
-							$prepare12 = $dbh->prepare($sql12);
-							$prepare12->execute();
-
-							while($linha12 = $prepare12->fetch(PDO::FETCH_ASSOC)){
-
-								$id_usu_amigo = $linha12['idT_usuario'];
-
-								$sql13 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $id_usu_amigo";
-
-								$prepare13 = $dbh->prepare($sql13);
-								$prepare13->execute();
-
-								$linha13 = $prepare13->fetch();
+							$prepare19 = $dbh->prepare($sql19);
+			
+							$prepare19->execute();
+			
+							$res19 = $prepare19->fetchAll();
+			
+							foreach ($res19 as $linha19) {
+								$id_usu_geral = $linha19["idT_usuario"];
 						
 						?>
 							<div class="d-flex bd-highlight">
@@ -84,17 +76,17 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 									
 									<img src="<?php 
                     
-										if($linha13['img'] != ""){
-											echo "../". $linha13['img'];
+										if($linha19['foto'] != ""){
+											echo "../". $linha19['foto'];
 										}?>"
 
 										class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span><?php echo $linha12['n_usuario'] ?></span>
+									<span><?php echo $linha19['n_usuario'] ?></span>
 									<p>
-										<?php echo $linha12['n_usuario'] ?> <?php if($linha12['status_usu'] != 1){
+										<?php echo $linha19['n_usuario'] ?> <?php if($linha19['status'] != 1){
 										echo "Offiline";
 										}else{
 											echo "Online";
@@ -115,6 +107,26 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
+								<?php
+
+									include_once '../../config.php';
+
+									$id_usuario = $_SESSION['id'];
+
+									$sql20 = "SELECT * FROM T_usuario WHERE idT_usuario";
+
+									$prepare20 = $dbh->prepare($sql20);
+
+									$prepare20->execute();
+
+									$res20 = $prepare20->fetchAll();
+
+									foreach ($res20 as $linha20) {
+
+										$id_usu_geral = $linha20["idT_usuario"];
+										$n_usuario = $linha20['n_usuario'];
+										$img = $linha20['foto'];
+									}?>
 									<img src="<?php 
                     
 										if($img != ""){
@@ -146,7 +158,7 @@ $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>'
 						<div id="card_body" class="card-body msg_card_body">
 
                             <!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
-							<?php
+							<?php 
 
 include_once("../../config.php");
 
@@ -159,28 +171,21 @@ include_once("../../config.php");
 	$idAmigo = 1;
 	}
 
-	$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo");
+	$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo");
 		$loopMsg->execute();
 
 		$count10 = $loopMsg->rowCount();
 
 		$msg_mandadas = $count10;
 
-
     $idChat = $_SESSION['id'];
-								
-    if($idChat==1){
-    $idAmigo = 2;
-    }else{
-    $idAmigo = 1;
-    }
 
     if($count10 == $msg_mandadas){
 
 
     $msg_mandadas = $count10;
 
-    $query9 = "SELECT * FROM T_chat WHERE T_usuario_idT_usuario = $id OR T_usuario_idT_usuario = $idAmigo";
+    $query9 = "SELECT * FROM T_chat WHERE remetente = $id OR destinatario = $idAmigo";
     $prepare9 = $dbh -> prepare($query9);
     $resultado9 = $prepare9->execute();
 
@@ -194,16 +199,26 @@ include_once("../../config.php");
     $lugarMsg;
     $imgPerfilMsg = "";
 
-    if($res9[$i]['T_usuario_idT_usuario'] ==  $idChat){
+    if($res9[$i]['destinatario'] ==  $idChat){
     $lugarMsg = 0;
 
-    $query11 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idChat";
-    $prepare11 = $dbh -> prepare($query11);
-    $resultado11 = $prepare11->execute();
+		include_once '../../config.php';
 
-    $res11 =  $prepare11->fetch();
+		$id_usuario = $_SESSION['id'];
 
-    $imgPerfilMsg = $res11['img'];
+		$sql21 = "SELECT * FROM T_usuario WHERE idT_usuario = $id_usuario ";
+
+		$prepare21 = $dbh->prepare($sql21);
+
+		$prepare21->execute();
+
+		$res21 = $prepare21->fetchAll();
+
+		foreach ($res21 as $linha21) {
+			$id_usu_geral = $linha21["idT_usuario"];
+
+    $imgPerfilMsg = $linha21['foto'];
+		}
 
     ?>
     <div class="d-flex justify-content-end mb-4">
@@ -218,13 +233,23 @@ include_once("../../config.php");
     }else{
         $lugarMsg = 1;
 
-        $query12 = "SELECT * FROM T_foto_perfil WHERE T_usuario_idT_usuario = $idAmigo";
-        $prepare12 = $dbh -> prepare($query12);
-        $resultado12 = $prepare12->execute();
+        include_once '../../config.php';
 
-        $res12 =  $prepare12->fetch();
+		$id_usuario = $_SESSION['id'];
 
-        $imgPerfilMsg = $res12['img'];
+		$sql21 = "SELECT * FROM T_usuario WHERE idT_usuario = $idAmigo ";
+
+		$prepare21 = $dbh->prepare($sql21);
+
+		$prepare21->execute();
+
+		$res21 = $prepare21->fetchAll();
+
+		foreach ($res21 as $linha21) {
+			$id_usu_geral = $linha21["idT_usuario"];
+
+    $imgPerfilMsg = $linha21['foto'];
+}
         ?>
 
     <div class="d-flex justify-content-start mb-4">
@@ -250,6 +275,7 @@ include_once("../../config.php");
 						<div class="card-footer">
 							<form method="post" action="../../controller/enviar_msg.php">
 								<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
+								<input type="text" name="id_amigo" value="<?php echo $id_amigo ?>" style="display: none;">
 								<div class="input-group">
 									<div class="input-group-append">
 										<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
