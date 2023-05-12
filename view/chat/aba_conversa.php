@@ -50,8 +50,8 @@ include_once "../../controller/selecionar_conversa.php";
 
 								<?php
 
-								if (isset($_POST["id_conversa"])) {
-									$id_conversa = $_POST["id_conversa"];
+								if (isset($_GET["id_conversa"])) {
+									$id_conversa = $_GET["id_conversa"];
 									$idAmigo = $id_conversa;
 								}
 
@@ -84,7 +84,7 @@ include_once "../../controller/selecionar_conversa.php";
 										<div class="d-flex bd-highlight contato" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
 											<form method="post" action="../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>">
 												<input value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
-											</form>	
+											</form>
 
 											<script>
 
@@ -180,13 +180,117 @@ include_once "../../controller/selecionar_conversa.php";
 					<div id="card_body" class="card-body msg_card_body">
 
 						<!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
+						<?php
 
+						include_once("../../config.php");
+
+
+
+						$id = $_SESSION['id'];
+
+						if ($idAmigo != null) {
+
+							$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo OR remetente = $idAmigo AND destinatario = $id");
+							$loopMsg->execute();
+
+							$count10 = $loopMsg->rowCount();
+
+							$msg_mandadas = $count10;
+
+							$idChat = $_SESSION['id'];
+
+							if ($count10 == $msg_mandadas) {
+
+
+								$msg_mandadas = $count10;
+
+								$query9 = "SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo OR remetente = $idAmigo AND destinatario = $id ORDER BY idT_chat";
+								$prepare9 = $dbh->prepare($query9);
+								$resultado9 = $prepare9->execute();
+
+								$res9 =  $prepare9->fetchAll(PDO::FETCH_ASSOC);
+								$count9 = $prepare9->rowCount();
+
+								$i = 0;
+
+								foreach ($res9 as $linha9) {
+
+									$lugarMsg;
+									$imgPerfilMsg = "";
+
+									if ($linha9['remetente'] ==  $idChat) {
+
+										include_once '../../config.php';
+
+										$id_usuario = $_SESSION['id'];
+
+										$sql21 = "SELECT * FROM T_usuario WHERE idT_usuario = $id_usuario ";
+
+										$prepare21 = $dbh->prepare($sql21);
+
+										$prepare21->execute();
+
+										$res21 = $prepare21->fetchAll();
+
+										foreach ($res21 as $linha21) {
+											$id_usu_geral = $linha21["idT_usuario"];
+
+											$imgPerfilMsg = $linha21['foto'];
+										}
+
+						?>
+										<div class="d-flex justify-content-end mb-4">
+											<div class="img_cont_msg">
+												<img src="<?php echo "../" . $imgPerfilMsg ?>" alt="" class="rounded-circle user_img_msg">
+											</div>
+											<div class="msg_cotainer msg_cotainer_send"><?php echo $linha9['mensagem'] ?></div>
+										</div>
+
+									<?php
+
+									} else {
+
+										include_once '../../config.php';
+
+										$id_usuario = $_SESSION['id'];
+
+										$sql21 = "SELECT * FROM T_usuario WHERE idT_usuario = $idAmigo ";
+
+										$prepare21 = $dbh->prepare($sql21);
+
+										$prepare21->execute();
+
+										$res21 = $prepare21->fetchAll();
+
+										foreach ($res21 as $linha21) {
+											$id_usu_geral = $linha21["idT_usuario"];
+
+											$imgPerfilMsg = $linha21['foto'];
+										}
+									?>
+
+										<div class="d-flex justify-content-start mb-4">
+											<div class="img_cont_msg">
+												<img src="<?php echo "../" . $imgPerfilMsg ?>" alt="" class="rounded-circle user_img_msg">
+											</div>
+											<div class="msg_cotainer"><?php echo $linha9['mensagem'] ?></div>
+										</div>
+
+									<?php } ?>
+
+						<?php
+
+								}
+							}
+						}
+
+						?>
 					</div>
 
 					<!-- Input da Mensagem -->
 
 					<div class="card-footer">
-						<form method="post" action="../../controller/enviar_msg.php">
+						<form method="post" action="../../controller/enviar_msg.php?id_conversa=<?php echo $idAmigo ?>">
 							<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
 							<input type="text" name="id_amigo" value="<?php echo $id_amigo ?>" style="display: none;">
 							<div class="input-group">
