@@ -82,19 +82,9 @@ include_once "../../controller/selecionar_conversa.php";
 
 								?>
 										<div class="d-flex bd-highlight contato" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
-											<form method="post" action="../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>">
-												<input value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
-											</form>	
-
-											<script>
-
-												const contato<?php echo $linha19['idT_usuario'] ?> = document.getElementById("cont<?php echo $linha19['idT_usuario'] ?>");
-
-													contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click",()=>{
-														window.location = "../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>";
-													})
-
-											</script>
+											<form method="post">
+												<input value="<?php echo $linha19['idT_usuario'] ?>" type="button" class="input_contacts form_idConversa " name="id_conversa">
+											</form>
 
 											<div class="img_cont">
 
@@ -179,8 +169,6 @@ include_once "../../controller/selecionar_conversa.php";
 					</div>
 					<div id="card_body" class="card-body msg_card_body">
 
-						<!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
-
 					</div>
 
 					<!-- Input da Mensagem -->
@@ -209,30 +197,8 @@ include_once "../../controller/selecionar_conversa.php";
 
 	<p id="local_msg"></p>
 
-
-	<script type="module">
-		import {
-			criarMsg
-		} from '../../js_normal/chat.js';
-
-		const card_body = document.getElementById("card_body");
-
-		const scroll = () => {
-			card_body.scrollTop = card_body.scrollHeight - card_body.clientHeight;
-		}
-
-		setTimeout(scroll, 500);
-
-		let msg_mandadas;
-
-		const loopMsg = (e) => {
-
-			e.preventDefault();
-
-		}
-
-		setInterval(loopMg, 5000);
-	</script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	<script src="../../js_normal/master.js"></script>
 
 </body>
 
