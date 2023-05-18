@@ -51,7 +51,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 								if (isset($_GET["id_conversa"])) {
 									$id_conversa = $_GET["id_conversa"];
 									$idAmigo = $id_conversa;
-                                    $_SESSION['id_amigo'] = $_GET["id_conversa"];
 								}
 
 								include_once("../../config.php");
