@@ -20,12 +20,6 @@ body,html{
     overflow-y: auto;
     white-space: nowrap;
 }
-
-.contato{
-    cursor: pointer;
-    margin-bottom: 100px !important;
-}
-
 .msg_card_body{
     overflow-y: auto;
     scroll-behavior: smooth;

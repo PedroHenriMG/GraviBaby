@@ -23,6 +23,7 @@ if(($reslog) && $reslog->rowCount() != 0){
         $_SESSION['id'] = $linhalog['idT_usuario'];
         $_SESSION['nome'] = $linhalog['nomecompleto_usuario'];
         $_SESSION['n_usuario'] = $linhalog['n_usuario'];
+        $_SESSION['id_amigo'] = 0;
 
         $status_usu = $dbh->query("UPDATE T_usuario SET status = 1 WHERE idT_usuario = $id_temporario");
         $status_usu->execute();
