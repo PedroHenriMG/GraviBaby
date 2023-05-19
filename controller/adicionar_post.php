@@ -2,11 +2,10 @@
 
 include_once("../config.php");
 
-$titulo_postagem = $_POST['titulo_postagem'];
-
 $id_usuario = $_POST['id'];
-
-$likes = "0";
+$titulo_postagem = $_POST['titulo_postagem'];
+$descricao_postagem = $_POST['descricao_postagem'];
+$id_grupo = 0;
 
 if(isset($_FILES['arquivo'])){
 
@@ -33,10 +32,15 @@ if(isset($_FILES['arquivo'])){
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path );
 
     if($deu_certo){
-        $sql17 = "INSERT INTO T_publicacoes (idT_publicacao, titulo, foto, id_usuario) VALUES (null, :titulo_postagem, '$path', $id_usuario)";
+        $sql17 = "INSERT INTO T_publicacoes (foto, idT_publicacao, descricao, titulo, status, id_usuario, id_grupo) VALUES (:path, null, :descricao_postagem, :titulo_postagem, 0, :id_usuario, 1)";
         $prepare17 = $dbh->prepare($sql17);
+        $prepare17->bindParam(':path', $path);
+        $prepare17->bindParam(':descricao_postagem', $descricao_postagem);
         $prepare17->bindParam(':titulo_postagem', $titulo_postagem);
+        $prepare17->bindParam(':id_usuario', $id_usuario);
         $exec17 = $prepare17->execute();
     }
 
 }
+
+header("Location: ../view/adicionar_post.php");

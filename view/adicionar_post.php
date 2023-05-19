@@ -84,6 +84,7 @@ Perfil
             <label for="arquivo">Coloque seu post aqui</label>
             <input type="file" name="arquivo">
             <input style="max-width: 300px;" type="text" placeholder="Titulo do Post" name="titulo_postagem">
+            <input style="max-width: 300px;" type="text" placeholder="Descrição do Post" name="descricao_postagem">
             <button type="submit">Enviar</button>
             <input name="id" type="text" value="<?php echo $_SESSION['id'] ?>">
         </form>
