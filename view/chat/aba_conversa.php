@@ -85,13 +85,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 											</form>
 
 											<script>
-
 												const contato<?php echo $linha19['idT_usuario'] ?> = document.getElementById("cont<?php echo $linha19['idT_usuario'] ?>");
 
-													contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click",()=>{
-														window.location = "../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>";
-													})
-
+												contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click", () => {
+													window.location = "../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>";
+												})
 											</script>
 
 											<div class="img_cont">

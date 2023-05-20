@@ -14,11 +14,11 @@ $reslog->bindParam(':email', $email, PDO::PARAM_STR);
 
 $reslog->execute();
 
-if(($reslog) && $reslog->rowCount() != 0){
+if (($reslog) && $reslog->rowCount() != 0) {
     $linhalog = $reslog->fetch(PDO::FETCH_ASSOC);
-    
 
-    if($senhalog == $linhalog['senha']){
+
+    if ($senhalog == $linhalog['senha']) {
         $id_temporario = $linhalog['idT_usuario'];
         $_SESSION['id'] = $linhalog['idT_usuario'];
         $_SESSION['nome'] = $linhalog['nomecompleto_usuario'];
@@ -28,19 +28,17 @@ if(($reslog) && $reslog->rowCount() != 0){
         $status_usu = $dbh->query("UPDATE T_usuario SET status = 1 WHERE idT_usuario = $id_temporario");
         $status_usu->execute();
 
-        header("Location: ../view/dashboard.php");
-
-    }else{
+        header("Location: ../view/home/index.php");
+    } else {
         $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
         header("Location: ../index.php");
     }
-
-}else{
+} else {
     $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
     header("Location: ../index.php");
 }
 
-if(isset($_SESSION['msg'])){
+if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
 }

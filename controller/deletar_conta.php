@@ -10,4 +10,3 @@ $prepare = $dbh->prepare($sql);
 $res = $prepare->execute();
 
 include_once("./sair_sessao.php");
-

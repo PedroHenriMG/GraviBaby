@@ -10,19 +10,17 @@ $sql21 = $dbh->query("SELECT * FROM T_amigos WHERE id_amigo = '$id_amigo' AND id
 
 
 $res21 = $sql21->rowCount();
-    if($res21==null || $sql21==null){
+if ($res21 == null || $sql21 == null) {
 
-$sql20 = 'INSERT INTO T_amigos (id_amigo,id_usuario)' . 'VALUES(:id_amigo,:id_usuario)';
-$prepare20 = $dbh ->prepare($sql20);
-$prepare20->execute(Array(
-    ':id_amigo' => $id_amigo,
-    ':id_usuario' => $id_usuario,
-));
+    $sql20 = 'INSERT INTO T_amigos (id_amigo,id_usuario)' . 'VALUES(:id_amigo,:id_usuario)';
+    $prepare20 = $dbh->prepare($sql20);
+    $prepare20->execute(array(
+        ':id_amigo' => $id_amigo,
+        ':id_usuario' => $id_usuario,
+    ));
 
-        header("Location: ../view/dashboard.php");
+    header("Location: ../view/dashboard.php");
+} else {
 
-    }else{
-
-        header("Location: ../view/dashboard.php");
-
-    }
+    header("Location: ../view/dashboard.php");
+}

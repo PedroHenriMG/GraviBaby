@@ -36,7 +36,3 @@ $stmt->execute(Array(
 
 
 //Voltando a página de login
-
-
-
-?>

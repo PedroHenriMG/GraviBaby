@@ -6,6 +6,7 @@ include_once './config.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +16,11 @@ include_once './config.php';
     <link rel="stylesheet" href="./css_normal/login1.css">
     <title>login</title>
 </head>
+
 <body>
     <div class="login-card">
-        <h2 id="gravy">Gravi&#10084;</h2><h2 id="baby">Baby</h2>
+        <h2 id="gravy">Gravi&#10084;</h2>
+        <h2 id="baby">Baby</h2>
         <h3>Coloque suas credenciais</h3>
         <form method="POST" class="login-form" action="./controller/testar_login.php">
             <div class="credenciais">
@@ -49,4 +52,5 @@ include_once './config.php';
         </div>
     </div>
 </body>
+
 </html>

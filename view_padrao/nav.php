@@ -1,41 +1,33 @@
-<link rel="stylesheet" href="../css_normal/nav_padrao.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<style>
+    a{
+        text-decoration: none;
+        color: black;
+        font-size: 35px;
+    }
+</style>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<nav style="bottom: 0; position: fixed; width: 100vw;" class="navbar bg-light">
+  <div class="container-fluid">
+        <a href="../view/home/index.php" type="" name="home"  class="col-2 d-flex justify-content-start">
+            <span class="material-symbols-outlined">home</span>
+        </a> 
+        
+        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-start">
+            <span class="material-symbols-outlined">home</span>
+        </a> 
 
-<body>
-    <div>
-        <nav>
-            <ul>
-                <li> Chat <a href="../view/chat/index.php"> <span class="material-symbols-outlined">chat</span> </a> </li>
-                <li> Home <a href="../view/dashboard.php"> <span class="material-symbols-outlined">home</span> </a> </li>     
-                <li> Fórum <a href="/"> <span class="material-symbols-outlined">groups</span> </a> </li>
-                <li> Adicionar Post<a href="../view/adicionar_post.php"> <span class="material-symbols-outlined">add</span> </a> </li>
-                <li id="nav_li_perfil"> 
-                <p style="text-align: center; padding-top: 10px; padding-right: 10px"><?php echo $_SESSION['n_usuario']; ?></p>
-                    <div class="icon_perfil">
-                        <a href="../view/perfil.php" >
-                            <img  src="<?php 
+        <a href="../view/adicionar_post.php" type="button" name="add" class="col-2 d-flex justify-content-center">
+            <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
+        </a>
 
-                            $id = $_SESSION['id'];
+        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-end">
+            <span class="material-symbols-outlined">home</span>
+        </a> 
 
-                            include_once '../config.php';
-                            $sql24 = "SELECT foto FROM T_usuario WHERE idT_usuario = $id " ;
-                            $prepare24 = $dbh->prepare($sql24);
-                            $res24 = $prepare24->execute();
-                            $linha24 = $prepare24->fetch();  
-                            
-                            echo $linha24['foto'] ?>">  
-                        </a> 
-                    </div>
-                </li>
-            </ul>
-            
-        </nav>
-    </div>
-</body>
-
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> <!--entra no site ioicons io pra ver os icones -->
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+        <a href="./perfil.php" type="button" name="home" class="col-2 d-flex justify-content-end">
+            <span class="material-symbols-outlined">person</span>
+        </a>
+  </div>
+</nav>
 

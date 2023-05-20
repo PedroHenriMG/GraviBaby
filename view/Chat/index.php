@@ -82,16 +82,14 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 										<div class="d-flex bd-highlight contato" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
 											<form method="post" action="../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>">
 												<input value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
-											</form>	
+											</form>
 
 											<script>
-
 												const contato<?php echo $linha19['idT_usuario'] ?> = document.getElementById("cont<?php echo $linha19['idT_usuario'] ?>");
 
-													contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click",()=>{
-														window.location = "../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>";
-													})
-
+												contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click", () => {
+													window.location = "../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>";
+												})
 											</script>
 
 											<div class="img_cont">
