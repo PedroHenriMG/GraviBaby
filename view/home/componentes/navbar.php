@@ -25,7 +25,7 @@
             <span class="material-symbols-outlined">home</span>
         </a> 
 
-        <a href="./perfil.php" type="button" name="home" class="col-2 d-flex justify-content-end">
+        <a href="../../view/perfil.php" type="button" name="home" class="col-2 d-flex justify-content-end">
             <span class="material-symbols-outlined">person</span>
         </a>
   </div>

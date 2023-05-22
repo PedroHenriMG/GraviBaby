@@ -9,7 +9,6 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
