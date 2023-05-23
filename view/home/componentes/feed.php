@@ -51,9 +51,11 @@ foreach($resPostagens as $linha_post){
             </button>
         </form>    
 
-        <button type="button" name="comentario" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-center">
-            <span class="col-12 material-symbols-outlined justify-content-center">chat</span>
+        <button id="<?php echo $id_publicacao ?>" value="<?php echo $id_usuario_sessao ?>" type="button" name="comentario" style="border: none; background-color:transparent;" class="comentario col-1 d-flex justify-content-center">
+            <span id="<?php echo $id_publicacao ?>" value="<?php echo $id_usuario_sessao ?>" class="col-12 material-symbols-outlined justify-content-center">chat</span>
         </button>
+
+        <div id="res"></div>
 
         <button type="button" name="compartilhar" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-end">
             <span style="transform: rotate(330deg);" class="colo-12 material-symbols-rounded justify-content-end">send</span>
