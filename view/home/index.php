@@ -41,8 +41,9 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
 
         $(".comentario").click((e)=>{
             e.preventDefault();
-            const res =document.querySelector("#res");
-            res.style = "display: flex;"
+            console.log(e.target);
+            const res =document.querySelector(".caixaComentarios");
+            res.style = "background-color: black; display: flex; flex-direction: column; width:20vw; height: 40vw; position: fixed; right:40%; top:30%; color:white;"
             let idPost = e.target.id;
             var data= 
                 {

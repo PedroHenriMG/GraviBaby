@@ -9,3 +9,10 @@
 .paragrafo{
     font-size: 14px;
 }
+
+.caixaComentarios{
+    background-color: black;
+    width: 20vw;
+    height: 40vh;
+    
+}
