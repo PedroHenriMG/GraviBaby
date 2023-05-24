@@ -1,0 +1,22 @@
+#picture__input {
+    display: none;
+}
+  
+  .picture {
+    margin-top: 20px;
+    height: 500px;
+    width: 100vw;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    cursor: pointer;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+  
+  .picture__img {
+    max-width: 100%;
+    max-height: 100%;
+  }
