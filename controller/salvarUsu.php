@@ -32,6 +32,7 @@ $stmt->execute(Array(
    
 } else {
     echo "Conta já existe.";
+    header("Location: ../index.php");
 }
 
 

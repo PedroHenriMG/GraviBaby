@@ -34,7 +34,7 @@ if ($cout27 > 0) {
     $sql3 = "INSERT INTO T_like (idT_like,idT_publicacao, id_usuario) VALUES (null,$id_publi, $id_usuario)";
     $query28 =  $dbh->query($sql3);
     if ($query28 == TRUE) {
-        header("Location: ../view/home/index.php");
+        header("Location: ../view/home/home.php");
     } else {
         echo "Erro ao inserir registro na tabela T_like: " ;
     }

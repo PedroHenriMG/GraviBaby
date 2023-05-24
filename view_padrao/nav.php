@@ -9,7 +9,7 @@
 
 <nav style="bottom: 0; position: fixed; width: 100vw;" class="navbar bg-light">
   <div class="container-fluid">
-        <a href="../view/home/index.php" type="" name="home"  class="col-2 d-flex justify-content-start">
+        <a href="../view/home/home.php" type="" name="home"  class="col-2 d-flex justify-content-start">
             <span class="material-symbols-outlined">home</span>
         </a> 
         

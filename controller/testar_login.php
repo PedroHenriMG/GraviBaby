@@ -28,7 +28,7 @@ if (($reslog) && $reslog->rowCount() != 0) {
         $status_usu = $dbh->query("UPDATE T_usuario SET status = 1 WHERE idT_usuario = $id_temporario");
         $status_usu->execute();
 
-        header("Location: ../view/home/index.php");
+        header("Location: ../view/home/home.php");
     } else {
         $_SESSION['msg'] = 'Erro: Email ou senha incorretos';
         header("Location: ../index.php");
