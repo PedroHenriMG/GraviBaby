@@ -9,12 +9,12 @@
 
 </style>
 
-  <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-secondary">
-        <a href="../home/index.php" type="" name="home"  class="col-3 d-flex justify-content-end">
+  <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light">
+        <a href="../home/index.php" type="" name="home"  class="col-3 d-flex justify-content-center">
             <span class="material-symbols-outlined">home</span>
         </a> 
         
-        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-end">
+        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
             <span class="material-symbols-outlined">home</span>
         </a> 
 
@@ -22,11 +22,11 @@
             <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
         </a>
 
-        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-start">
+        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
             <span class="material-symbols-outlined">home</span>
         </a> 
 
-        <a href="../../view/perfil.php" type="button" name="home" class="col-3 d-flex justify-content-start">
+        <a href="../../view/perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
             <span class="material-symbols-outlined">person</span>
         </a>
   </div>

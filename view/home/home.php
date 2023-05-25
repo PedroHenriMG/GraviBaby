@@ -23,7 +23,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style>
         :root{
-            --altura-tamanho: 10vh;
+            --altura-tamanho: 7vh;
     }
     #Fixado{
         height: var(--altura-tamanho);
