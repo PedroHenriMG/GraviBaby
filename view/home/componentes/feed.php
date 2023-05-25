@@ -20,7 +20,7 @@ foreach($resPostagens as $linha_post){
 
 ?>
 
-<div class="row d-flex justify-content-center text-center align-items-center" >
+<div style="margin-top: var(--altura-tamanho); margin-bottom: var(--altura-tamanho);" class="row d-flex justify-content-center text-center align-items-center" >
     <div id="Card" class="row d-flex justify-content-center text-center col-xl-6" style='background-image: url("../<?php echo $linha_post['foto'] ?>");'>
         <div style="height: 30px;" class="mt-3 col-10 text-start">
             <p>Carlos_.fs</p>

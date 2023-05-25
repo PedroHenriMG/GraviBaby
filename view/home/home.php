@@ -21,20 +21,29 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-</head>
-<body style="padding-right: 2px">
-    <?php include_once './componentes/header.php' ?>
-    <main class="container-fluid">
-        <div class="col-12">
-            <?php include_once './componentes/feed.php'; ?>
-        </div>
-
+    <style>
+        :root{
+            --altura-tamanho: 10vh;
+    }
+    #Fixado{
+        height: var(--altura-tamanho);
         
+    }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-6 ">
+                <?php include_once './componentes/header.php' ?>
+                <?php include_once './componentes/feed.php'; ?>
+                <?php include_once './componentes/navbar.php' ?> 
+            </div>
+        </div>
+         
+    </div>
 
-    </main>
 
-    <?php include_once './componentes/navbar.php' ?>
 
     <script src="./bootstrap-5.2.3-dist/js/bootstrap.js"></script>
     <script>
