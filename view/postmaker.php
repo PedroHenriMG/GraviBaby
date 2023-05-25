@@ -1,3 +1,13 @@
+<?php
+session_start();
+ob_start();
+
+if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
+    header('Location: ../index.php');
+    $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -43,7 +53,7 @@
 
     <main class="container-fluid">
         <div class="row d-flex align-items-center">
-            <form action="post">
+            <form enctype="multipart/form-data" method="POST" action="../controller/adicionar_post.php">
                 <div class="row d-flex align-items-center">
                     <input type="file" id="picture__input" name="picture__input"></input>
                     <label class="picture" for="picture__input" tabIndex="0">
@@ -52,7 +62,7 @@
 
                     <div style="margin-top: 20px;" class="input-group mb-3">
                         <div class="form-floating">
-                            <textarea style="height: 100px;" class="form-control" id="usuarios_marcados" placeholder="Username"></textarea>
+                            <textarea name="descricao_postagem" style="height: 100px;" class="form-control" id="usuarios_marcados" placeholder="Username"></textarea>
                             <label for="usuarios_marcados">legenda</label>
                         </div>
                     </div>
@@ -77,6 +87,8 @@
                         </div>
                     </div>
 
+                    <input type="submit" class="btn btn-primary">
+                    <input style="display: none;" name="id" type="text" value="<?php echo $_SESSION['id'] ?>">
 
             </form>
         </div>

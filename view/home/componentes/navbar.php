@@ -17,7 +17,7 @@
             <span class="material-symbols-outlined">home</span>
         </a> 
 
-        <a href="../../postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
+        <a href="../postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
             <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
         </a>
 
