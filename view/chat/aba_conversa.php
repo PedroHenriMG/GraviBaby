@@ -104,11 +104,12 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 											<div class="user_info">
 												<span><?php echo $linha19['n_usuario'] ?></span>
 												<p>
-													<?php echo $linha19['n_usuario'] ?> <?php if ($linha19['status'] != 1) {
-																							echo "Offiline";
-																						} else {
-																							echo "Online";
-																						} ?>
+													<?php echo $linha19['n_usuario'] ?>
+													<?php if ($linha19['status'] != 1) {
+														echo "Offiline";
+													} else {
+														echo "Online";
+													} ?>
 												</p>
 											</div>
 										</div>

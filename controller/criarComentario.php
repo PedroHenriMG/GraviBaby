@@ -15,4 +15,4 @@ $exec29 = $prepare29->execute(array(
     ':id_comentando' => $id_comentando
 ));
 
-header("Location: ../view/home/index.php");
+header("Location: ../view/home/home.php");

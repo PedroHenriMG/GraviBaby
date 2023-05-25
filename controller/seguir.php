@@ -19,8 +19,8 @@ if ($res21 == null || $sql21 == null) {
         ':id_usuario' => $id_usuario,
     ));
 
-    header("Location: ../view/dashboard.php");
+    header("Location: ../view/home.php");
 } else {
 
-    header("Location: ../view/dashboard.php");
+    header("Location: ../view/home.php");
 }

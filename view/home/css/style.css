@@ -16,3 +16,10 @@
     height: 40vh;
     
 }
+
+@media screen {
+    #Card{
+        height: 30vh;
+        width: 30vw;
+    }
+}
