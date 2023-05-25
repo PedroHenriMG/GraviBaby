@@ -9,7 +9,7 @@
 </style>
     <div id="Fixado" class="row fixed-top bg-light p-1 ">
       <a style="margin-right: none; font-size: 17px;" class=" col-6 d-flex justify-content-center align-items-center " href="#">
-        <img style="width: 60px;" src="./img/logo.png" class="col-3 mx-2">
+        <img style="width: 35px;" src="./img/logo.png" class="col-3 mx-2">
         <strong class="col-9 d-flex justify-content-start align-items-center">Gravibaby</strong>
       </a>
 
@@ -24,7 +24,7 @@
           </a>
         </button>
 
-        <button class="button col-2 d-flex justify-content-end align-items-center" style="border: none; background-color:transparent;">
+        <button class="button col-2 d-flex justify-content-start align-items-center" style="border: none; background-color:transparent;">
           <a href="../../view/chat/index.php">
             <span class="material-symbols-outlined"> 
               <strong>

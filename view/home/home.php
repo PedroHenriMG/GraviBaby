@@ -23,7 +23,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style>
         :root{
-            --altura-tamanho: 10vh;
+            --altura-tamanho: 7vh;
     }
     #Fixado{
         height: var(--altura-tamanho);
@@ -34,7 +34,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
 <body>
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-6 ">
+            <div class="col-12 col-md-8 col-xl-6 col-xxl-4">
                 <?php include_once './componentes/header.php' ?>
                 <?php include_once './componentes/feed.php'; ?>
                 <?php include_once './componentes/navbar.php' ?> 
