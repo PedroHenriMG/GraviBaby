@@ -36,7 +36,20 @@ foreach($resPostagens as $linha_post){
     </div>
     <div class="row d-flex justify-content-between mt-2">
         <div class="col-6 text-start"><p><strong><?php echo $coutLikes ?> Likes</strong></p></div>
-        <div class="col-6 text-end"><p><strong>1m comentários</strong></p></div>
+
+
+        <?php
+
+        $sql30 = "SELECT * FROM T_comentarios WHERE idT_publicacao = $id_publicacao AND id_comentando = $id_usuario_sessao";
+
+        $prepare30 = $dbh->prepare($sql30);
+        $exec30 = $prepare30->execute();
+        $cout30 = $prepare30->rowCount();
+
+        ?>
+
+
+        <div class="col-6 text-end"><p><strong><?php echo $cout30 ?> Comentários</strong></p></div>
     </div>
     <div  class="row d-flex justify-content-between">
         <form class="col-1" method="GET" action="../../controller/adicionar_like.php">

@@ -31,7 +31,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     <script src="https://kit.fontawesome.com/349ee9c857.js" crossorigin="anonymous"></script>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link rel="stylesheet" href="../view/home/bootstrap-5.2.3-dist/css/bootstrap.css">
 
     <link rel="stylesheet" href="../css_normal/editar.css">
 

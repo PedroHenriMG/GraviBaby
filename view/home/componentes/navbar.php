@@ -10,7 +10,12 @@
 </style>
 
   <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-secondary">
-        <a href="../home/index.php" type="" name="home"  class="col-3 d-flex justify-content-end">
+        <a href="../home/index.php" type="" name="home"  class="col-3 d-flex justify-content-start">
+=======
+<nav style="bottom: 0; position: fixed; width: 100vw;" class="navbar bg-light">
+  <div class="container-fluid">
+        <a href="../home/home.php" type="" name="home"  class="col-2 d-flex justify-content-start">
+>>>>>>> 33f189840dc32e41723b8b23912286024040f1eb
             <span class="material-symbols-outlined">home</span>
         </a> 
         
@@ -18,7 +23,7 @@
             <span class="material-symbols-outlined">home</span>
         </a> 
 
-        <a href="../../postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
+        <a href="../postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
             <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
         </a>
 
