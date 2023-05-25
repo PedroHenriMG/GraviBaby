@@ -33,7 +33,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <!-- header -->
     <header class="bg-light fixed-top navbar">
         <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a class="col-2 justify-content-start" id="return" href="../index.php" style="font-size: 17px;">
+            <a class="col-2 justify-content-start" id="return" href="./home/home.php" style="font-size: 17px;">
                 <span class="material-symbols-outlined col-3">
                     <strong>
                         close

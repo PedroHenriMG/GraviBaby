@@ -23,7 +23,7 @@
           </a>
         </button>
 
-        <button class="button col-2 d-flex justify-content-end align-items-center" style="border: none; background-color:transparent;">
+        <button class="button col-2 d-flex justify-content-start align-items-center" style="border: none; background-color:transparent;">
           <a href="../../view/chat/index.php">
             <span class="material-symbols-outlined"> 
               <strong>

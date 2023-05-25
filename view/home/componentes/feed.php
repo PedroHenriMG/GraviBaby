@@ -14,10 +14,6 @@ foreach($resPostagens as $linha_post){
 
     $sqlLikes = "SELECT * FROM T_like WHERE idT_publicacao = $id_publicacao";
     $sqlusuario = "SELECT * FROM T_usuario WHERE idT_usuario = :Id";
-    $prepareusuario = $dbh->prepare($sqlusuario);
-    $queryusuario = $prepareusuario->execute(array(
-        ":Id" => $_SESSION['id'],
-    ));
 
     $prepareLikes = $dbh->prepare($sqlLikes);
     $execLikes = $prepareLikes->execute();
@@ -28,7 +24,7 @@ foreach($resPostagens as $linha_post){
 <div style="margin-top: var(--altura-tamanho); margin-bottom: var(--altura-tamanho);" class="row d-flex justify-content-center text-center align-items-center" >
     <div id="Card" class="row d-flex justify-content-center text-center col-xl-6" style='background-image: url("../<?php echo $linha_post['foto'] ?>"); width: 100%; height: 500px;'>
         <div style="height: 30px;" class="mt-3 col-10 text-start">
-            <p>Usuario <?php echo $linha_post['id_usuario'] ?></p>
+            <p> <?php echo $linha_post['id_usuario'] ?></p>
         </div>
         <svg style="height: 30px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mt-3 col-2 bi bi-three-dots-vertical" viewBox="0 0 16 16">
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
