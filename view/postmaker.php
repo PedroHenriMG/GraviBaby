@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 
-if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
+if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     header('Location: ../index.php');
     $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
 }
@@ -26,29 +26,33 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
             text-decoration: none;
             color: black;
         }
+
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
     <!-- header -->
-    <header class="bg-light fixed-top navbar">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a class="col-2 justify-content-start" id="return" href="../index.php" style="font-size: 17px;">
-                <span class="material-symbols-outlined col-3">
-                    <strong>
-                        close
-                    </strong>
-                </span>
-            </a>
+    <div class="row bg-light fixed-top align-items-center justify-content-center p-1">
 
-            <h1 style="font-size: 17px;" class="col-4 justify-content-center align-items-center">Publicação</h1>
+        <a id="return" class="col-2 d-flex justify-content-center align-items-center" href="./home/home.php" style="font-size: 17px;">
+            <span class="material-symbols-outlined">
+                <strong>
+                    close
+                </strong>
+            </span>
+        </a>
 
-            <a class="justify-content-end" style="font-size: 17px;" href="">
-                <span class="material-symbols-outlined col-3 ">
-                    <strong>arrow_forward_ios</strong>
-                </span>
-            </a>
-    </header>
+        <h1 class="col-8 d-flex justify-content-center align-items-center" style="font-size: 17px;">Publicação</h1>
+
+        <a class="col-2 d-flex justify-content-center align-items-center" class="" href="">
+            <span class="material-symbols-outlined">
+                <strong>arrow_forward_ios</strong>
+            </span>
+        </a>
+    </div>
     <!-- header -->
 
     <main class="container-fluid">

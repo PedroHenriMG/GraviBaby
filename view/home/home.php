@@ -43,10 +43,8 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
          
     </div>
 
-
-
     <script src="./bootstrap-5.2.3-dist/js/bootstrap.js"></script>
-    <script>
+    <!-- <script>
 
         $(".comentario").click((e)=>{
             e.preventDefault();
@@ -64,6 +62,6 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
                 });
         })
 
-    </script>
+    </script> -->
 </body>
 </html>
