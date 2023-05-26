@@ -19,7 +19,7 @@ if (isset($_FILES['picture__input'])) {
     $pasta = "../postagens/";
 
     $arquivo = $_FILES['picture__input'];
-    if ($arquivo['size'] > 2097000) {
+    if ($arquivo['size'] > 50097000) {
         die("arquivo muito grande max 2mb");
     }
     $nomeArquivo = $arquivo['name'];
@@ -28,7 +28,7 @@ if (isset($_FILES['picture__input'])) {
 
     $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
 
-    if ($extensao != "jpg" && $extensao != "png" && $extensao != "") {
+    if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg" && $extensao != "gif") {
         die();
     }
 
@@ -48,4 +48,4 @@ if (isset($_FILES['picture__input'])) {
     }
 }
 
-header("Location: ../view/postmaker.php");
+header("Location: ../view/home/home.php");
