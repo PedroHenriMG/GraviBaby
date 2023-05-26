@@ -1,3 +1,6 @@
+<?php include_once "../../config.php";?>
+
+
 <form method="POST" action="../../controller/criarComentario.php">
     <div class="row fixed-bottom bg-light d-flex justify-content-center align-items-center">
         <div class="col-10 justify-content-center align-items-center">
@@ -11,6 +14,6 @@
                 arrow_forward_ios
             </span>
         </label>
-        <input style="display: none;" id="btnComentario"  type="submit" name="btnComentario">
+        <button style="display: none;" name="btncomentario" id="btncomentario" type="submit" name="btnComentario">
     </div>
 </form>

@@ -66,7 +66,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
                     <div style="margin-top: 20px;" class="input-group mb-3">
                         <div class="form-floating">
-                            <textarea name="descricao_postagem" style="height: 100px;" class="form-control" id="usuarios_marcados" placeholder="Username"></textarea>
+                            <textarea name="descricao_postagem" style="height: 100px;" class="form-control" id="descicao_postagem" placeholder="Username"></textarea>
                             <label for="usuarios_marcados">legenda</label>
                         </div>
                     </div>

@@ -45,7 +45,7 @@ foreach ($res28 as $linha28) {
     </div>
     <div id="coment-box" class="col-10">
         <p class="col-12 rounded-end justify-content-center text-start align-items-center bg-success p-2 text-dark bg-opacity-10">
-            <strong><?php echo $linha28['conteudo'] ?></strong><br><?php echo $linha28['conteudo'] ?>
+            <strong><?php echo $linha28['conteudo'] ?></strong><br><?php echo $linha28['conteudo'] ?></strong>
         </p>
 
         <div class="row justify-content-top text-start">
