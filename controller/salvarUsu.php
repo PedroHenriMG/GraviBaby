@@ -28,7 +28,7 @@ $stmt->execute(Array(
     ':email_usuario' => $email_usuario,
     ':senha_usuario' => $senha_usuario,
 ));
-
+    header("Location: ../index.php");
    
 } else {
     echo "Conta já existe.";
