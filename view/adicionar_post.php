@@ -32,8 +32,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../css_normal/perfil1.css">
-
     <!-- Icone de direct  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Icone de direct  -->

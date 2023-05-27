@@ -31,10 +31,10 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     }
     </style>
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-12 col-md-8 col-xl-6 col-xxl-4">
+<body style="background-image: linear-gradient(to right, #BE408C, #4456A0);">
+    <div class="container-fluid" style="background: transparent;">
+        <div style="background: transparent;" class="row d-flex justify-content-center align-items-center">
+            <div style="background: transparent;" class="col-12 col-md-8 col-xl-6 col-xxl-4">
                 <?php include_once '../../componentes/header.php' ?>
                 <?php include_once '../../componentes/feed.php'; ?>
                 <?php include_once '../../componentes/navbar.php' ?> 

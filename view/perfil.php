@@ -22,17 +22,45 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
         Perfil
     </title>
     <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        a{
+
+            text-decoration: none;
+            color: black;
+            font-size: 35px;
+        }
+    </style>
 </head>
 
-<body class="g-sidenav-show">
-<div class="container-fluid">
+<body class="g-sidenav-show" style="background-image: linear-gradient(to right, #BE408C, #4456A0);">
+    <div class="container-fluid">
+        <?php include_once '../componentes/perfil.php' ?>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12 col-md-8 col-xl-6 col-xxl-4">
-                <?php include_once '../componentes/perfil.php' ?>
-                <?php include_once '../componentes/navbar.php' ?> 
+                <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light">
+                        <a href="./home/home.php" type="" name="home"  class="col-3 d-flex justify-content-center">
+                            <span class="material-symbols-outlined">home</span>
+                        </a> 
+                        
+                        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
+                            <span class="material-symbols-outlined">home</span>
+                        </a> 
+
+                        <a href="./postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
+                            <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
+                        </a>
+
+                        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
+                            <span class="material-symbols-outlined">home</span>
+                        </a> 
+
+                        <a href="./perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
+                            <span class="material-symbols-outlined">person</span>
+                        </a>
+                </div>
             </div>
         </div>
-         
     </div>
     <script src="../bootstrap-5.2.3-dist/js/bootstrap.js"></script>
 </body>
