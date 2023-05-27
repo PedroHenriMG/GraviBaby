@@ -23,7 +23,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-	<link rel="stylesheet" href="style_chat.css">
+	<link rel="stylesheet" href="style2.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
@@ -34,15 +35,18 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 				<div class="card mb-sm-3 mb-md-0 contacts_card">
 					<div class="card-header">
 						<div class="input-group">
-							<div class="btn_voltar"><a href="../perfil.php">Voltar</a></div>
+						<div class="row justify-content-center align-items-center mr-1"><a href="../../view/home/home.php"><span style="color:aliceblue;
+							" class="material-symbols-outlined">
+arrow_back
+</span></a></div>
 							<input type="text" placeholder="Search..." name="" class="form-control search">
 							<div class="input-group-prepend">
-								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+								<span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span>
 							</div>
 						</div>
 					</div>
-					<div class="card-body contacts_body">
-						<ui class="contacts">
+					<div class="card-body contacts_body bg-dark">
+						<ui class="contacts ">
 							<!-- Fazer um loop aqui com os dados do banco de dados -->
 							<li class="active">
 
@@ -65,9 +69,9 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								while ($linha11 = $prepare11->fetch(PDO::FETCH_ASSOC)) {
 
-									$id_amigo = $linha11['id_amigo'];
+									$id_amigo2 = $linha11['id_amigo'];
 
-									$sql19 = "SELECT * FROM T_usuario WHERE idT_usuario = $id_amigo AND idT_usuario != $idChat ";
+									$sql19 = "SELECT * FROM T_usuario WHERE idT_usuario = $id_amigo2 AND idT_usuario != $idChat ";
 
 									$prepare19 = $dbh->prepare($sql19);
 
@@ -79,9 +83,9 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 										$id_usu_geral = $linha19["idT_usuario"];
 
 								?>
-										<div class="d-flex bd-highlight contato" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
+										<div class="d-flex bd-highlight mb-4 contato" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
 											<form method="post" action="../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>">
-												<input value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
+												<input style="display: none;" value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
 											</form>
 
 											<script>
@@ -98,7 +102,9 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 															if ($linha19['foto'] != "") {
 																echo "../" . $linha19['foto'];
-															} ?>" class="rounded-circle user_img">
+															}else{
+																echo "../../fotos_perfil/padrao.jpg";
+															}  ?>" class="rounded-circle user_img">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -134,7 +140,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								$id_usuario = $_SESSION['id'];
 
-								$sql20 = "SELECT * FROM T_usuario WHERE idT_usuario = $idChat";
+								$sql20 = "SELECT * FROM T_usuario WHERE idT_usuario = $idAmigo";
 
 								$prepare20 = $dbh->prepare($sql20);
 
@@ -149,10 +155,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 									$img = $linha20['foto'];
 								} ?>
 								<img src="<?php
-
-											if ($img != "") {
-												echo "../" . $img;
-											} ?>" class="rounded-circle user_img">
+									if ($img != "") {
+										echo "../" . $img;
+									}else{
+										echo "../../fotos_perfil/padrao.jpg";
+									}   ?>" class="rounded-circle user_img">
 								<span class="online_icon"></span>
 							</div>
 							<div class="user_info">
@@ -160,11 +167,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 								<p>57 Mensagens</p>
 							</div>
 							<div class="video_cam">
-								<span><i class="fas fa-video"></i></span>
-								<span><i class="fas fa-phone"></i></span>
+								<span><i style="color: aliceblue;" class="fas fa-video"></i></span>
+								<span><i style="color: aliceblue;" class="fas fa-phone"></i></span>
 							</div>
 						</div>
-						<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+						<span id="action_menu_btn"><i style="color: aliceblue; display:none;" class="fas fa-arrow-left"></i></span>
 						<div class="action_menu">
 							<ul>
 								<li><i class="fas fa-user-circle"></i> View profile</li>
@@ -181,8 +188,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 						include_once("../../config.php");
 
-
-
 						$id = $_SESSION['id'];
 
 						if ($idAmigo != null) {
@@ -197,7 +202,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 							$idChat = $_SESSION['id'];
 
 							if ($count10 == $msg_mandadas) {
-
 
 								$msg_mandadas = $count10;
 
@@ -232,7 +236,13 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 										foreach ($res21 as $linha21) {
 											$id_usu_geral = $linha21["idT_usuario"];
 
-											$imgPerfilMsg = $linha21['foto'];
+											if($linha21['foto'] == ""){
+												$imgPerfilMsg = "../fotos_perfil/padrao.jpg";
+											}else{
+												$imgPerfilMsg = $linha21['foto'];
+											}
+
+											
 										}
 
 						?>
@@ -262,7 +272,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 										foreach ($res21 as $linha21) {
 											$id_usu_geral = $linha21["idT_usuario"];
 
-											$imgPerfilMsg = $linha21['foto'];
+											if($linha21['foto'] == ""){
+												$imgPerfilMsg = "../fotos_perfil/padrao.jpg";
+											}else{
+												$imgPerfilMsg = $linha21['foto'];
+											}
 										}
 									?>
 
@@ -290,9 +304,9 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 						<form method="post" action="../../controller/enviar_msg.php?id_conversa=<?php echo $idAmigo ?>">
 							<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
 							<input type="text" name="id_amigo" value="<?php echo $id_amigo ?>" style="display: none;">
-							<div class="input-group">
-								<div class="input-group-append">
-									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+							<div class="input-group "style="background-color:aliceblue; border-radius: 15px">
+								<div class="input-group-append" >
+									<span color:black" class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
 								</div>
 
 								<input id="input_msg" type="text" name="msg_usuario" class="form-control type_msg" placeholder="Escreva sua mensagem..."></input type="text">

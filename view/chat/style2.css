@@ -1,9 +1,11 @@
+*{
+    color: rgb(0, 0, 0);
+}
+
 body,html{
     height: 100%;
     margin: 0;
-    background: #7F7FD5;
-   background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background-color: rgb(109, 108, 106);
 }
 
 .chat{
@@ -11,14 +13,16 @@ body,html{
     margin-bottom: auto;
 }
 .card{
-    height: 500px;
+    height: 550px;
     border-radius: 15px !important;
-    background-color: rgba(0,0,0,0.4) !important;
+    background-color: rgba(248, 247, 247, 0.815) !important;
+    border: 2px solid black;
 }
 .contacts_body{
     padding:  0.75rem 0 !important;
     overflow-y: auto;
     white-space: nowrap;
+    border: 2px solid #343a40;
 }
 .msg_card_body{
     overflow-y: auto;
@@ -33,17 +37,20 @@ body,html{
 .card-header{
     border-radius: 15px 15px 0 0 !important;
     border-bottom: 0 !important;
+    background-color:  #343a40;
+    border-top: 4px solid  #343a40;
 }
 .card-footer{
 border-radius: 0 0 15px 15px !important;
     border-top: 0 !important;
+    background-color: #343a40;
 }
 .container{
     align-content: center;
 }
-.search{
+.search,#input_msg{
     border-radius: 15px 0 0 15px !important;
-    background-color: rgba(0,0,0,0.3) !important;
+    background-color:  aliceblue !important;
     border:0 !important;
     color:white !important;
 }
@@ -71,7 +78,7 @@ background-color: rgba(0,0,0,0.3) !important;
 }
 .send_btn{
 border-radius: 0 15px 15px 0 !important;
-background-color: rgba(0,0,0,0.3) !important;
+background-color: aliceblue!important;
     border:0 !important;
     color: white !important;
     cursor: pointer;
@@ -111,9 +118,7 @@ background-color: rgba(0,0,0,0.3) !important;
     padding: 5px 10px;
     margin-bottom: 15px !important;
 }
-.active{
-    background-color: rgba(0,0,0,0.3);
-}
+
 .user_img{
     height: 70px;
     width: 70px;
@@ -205,6 +210,7 @@ font-size: 10px;
 }
 .msg_head{
 position: relative;
+background-color:  #343a40;
 }
 #action_menu_btn{
 position: absolute;
@@ -242,6 +248,10 @@ padding-right: 10px;
 .action_menu ul li:hover{
 cursor: pointer;
 background-color: rgba(0,0,0,0.2);
+}
+
+.contacts_card{
+    border: 2px solid black;
 }
 @media(max-width: 576px){
 .contacts_card{
