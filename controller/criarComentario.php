@@ -15,4 +15,4 @@ $exec29 = $prepare29->execute(array(
     ':id_comentando' => $id_comentando
 ));
 
-header("Location: ../view/comentarios/coment_area.php");
+header("Location: ../view/comentarios/coment_area.php" . "?idpost=" . $_POST['idPost']);
