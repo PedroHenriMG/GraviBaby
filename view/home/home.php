@@ -16,7 +16,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../bootstrap-5.2.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -35,15 +35,15 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12 col-md-8 col-xl-6 col-xxl-4">
-                <?php include_once './componentes/header.php' ?>
-                <?php include_once './componentes/feed.php'; ?>
-                <?php include_once './componentes/navbar.php' ?> 
+                <?php include_once '../../componentes/header.php' ?>
+                <?php include_once '../../componentes/feed.php'; ?>
+                <?php include_once '../../componentes/navbar.php' ?> 
             </div>
         </div>
          
     </div>
 
-    <script src="./bootstrap-5.2.3-dist/js/bootstrap.js"></script>
+    <script src="../../bootstrap-5.2.3-dist/js/bootstrap.js"></script>
     <!-- <script>
 
         $(".comentario").click((e)=>{
