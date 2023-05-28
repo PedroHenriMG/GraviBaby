@@ -23,7 +23,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-	<link rel="stylesheet" href="style2.css">
+	<link rel="stylesheet" href="style4.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
@@ -39,10 +39,14 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 							" class="material-symbols-outlined">
 arrow_back
 </span></a></div>
-							<input type="text" placeholder="Search..." name="" class="form-control search">
+<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
+							<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
+								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
+						
 							<div class="input-group-prepend">
-								<span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span>
+								<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span></button>
 							</div>
+							</form>
 						</div>
 					</div>
 					<div class="card-body contacts_body bg-dark">

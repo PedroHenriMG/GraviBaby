@@ -41,11 +41,10 @@ arrow_back
 </span></a></div>
 
 
-							<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
+<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
 							<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
 								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
 						
-
 							<div class="input-group-prepend">
 							<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span></button>
 							</div>
@@ -68,18 +67,9 @@ arrow_back
 
 								include_once("../../config.php");
 
-								$idChat = $_SESSION['id'];
+									$input_pesquisa = $_POST['input_pesquisa'];
 
-								$sql11 = "SELECT * FROM T_amigos WHERE id_usuario = $idChat";
-
-								$prepare11 = $dbh->prepare($sql11);
-								$prepare11->execute();
-
-								while ($linha11 = $prepare11->fetch(PDO::FETCH_ASSOC)) {
-
-									$id_amigo2 = $linha11['id_amigo'];
-
-									$sql19 = "SELECT * FROM T_usuario WHERE idT_usuario = $id_amigo2 AND idT_usuario != $idChat ";
+									$sql19 = "SELECT * FROM T_usuario WHERE n_usuario LIKE '%$input_pesquisa%' OR nomecompleto_usuario LIkE '%$input_pesquisa%' ";
 
 									$prepare19 = $dbh->prepare($sql19);
 
@@ -128,7 +118,7 @@ arrow_back
 										</div>
 
 								<?php }
-								} ?>
+								 ?>
 
 							</li>
 						</ui>

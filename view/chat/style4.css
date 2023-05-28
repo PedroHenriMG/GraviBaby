@@ -52,7 +52,7 @@ border-radius: 0 0 15px 15px !important;
     border-radius: 15px 0 0 15px !important;
     background-color:  aliceblue !important;
     border:0 !important;
-    color:white !important;
+    color:rgb(0, 0, 0) !important;
 }
 .search:focus{
      box-shadow:none !important;
@@ -104,10 +104,11 @@ background-color: aliceblue!important;
 
 .search_btn{
     border-radius: 0 15px 15px 0 !important;
-    background-color: rgba(0,0,0,0.3) !important;
-    border:0 !important;
-    color: white !important;
+    border:none !important;
+    background-color: #343a40;
+    color: rgb(0, 0, 0) !important;
     cursor: pointer;
+    padding: 8px;
 }
 .contacts{
     list-style: none;
