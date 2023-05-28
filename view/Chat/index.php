@@ -27,7 +27,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	<link rel="stylesheet" href="style2.css">
 </head>
 
-<body>
+<body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">
 
 	<div class="container-fluid h-100">
 		<div class="row justify-content-center h-100">
