@@ -33,6 +33,21 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     </style>
 </head>
 
+<?php
+    include_once '../controller/util_php/infos_usuario.php';
+    include_once '../config.php';
+
+    $sqlperfil = "SELECT * FROM t_publicacoes";
+
+    $query = $dbh->prepare($sqlperfil);
+
+    $query->execute();
+
+    $totalposts = $query->rowCount();
+    
+
+?>
+
 <body class="g-sidenav-show" style="background-image: linear-gradient(to right, #BE408C, #4456A0);">
     <div class="container-fluid">
         <?php include_once '../componentes/perfil.php' ?>
