@@ -23,29 +23,29 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-	<link rel="stylesheet" href="style4.css">
+	<link rel="stylesheet" href="style6.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
 
-	<div class="container-fluid h-100">
-		<div class="row justify-content-center h-100">
-			<div class="col-md-4 col-xl-3 chat">
-				<div class="card mb-sm-3 mb-md-0 contacts_card">
+<div class="container-fluid h-100">
+		<div class="row justify-content-center container_chat" style="height: 90%;">
+		<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-4 chat">
+				<div class="card col-10 mt-0 bg-dark m-auto contacts_card">
 					<div class="card-header">
 						<div class="input-group">
-						<div class="row justify-content-center align-items-center mr-1"><a href="../../view/home/home.php"><span style="color:aliceblue;
+							<div class="row justify-content-center align-items-center mr-1"><a href="../../view/home/home.php"><span style="color:aliceblue;
 							" class="material-symbols-outlined">
-arrow_back
-</span></a></div>
-<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
-							<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
+										arrow_back
+									</span></a></div>
+							<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
+								<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
 								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
-						
-							<div class="input-group-prepend">
-								<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span></button>
-							</div>
+
+								<div class="input-group-prepend">
+									<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span></button>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -106,7 +106,7 @@ arrow_back
 
 															if ($linha19['foto'] != "") {
 																echo "../" . $linha19['foto'];
-															}else{
+															} else {
 																echo "../../fotos_perfil/padrao.jpg";
 															}  ?>" class="rounded-circle user_img">
 												<span class="online_icon"></span>
@@ -133,7 +133,7 @@ arrow_back
 					<div class="card-footer"></div>
 				</div>
 			</div>
-			<div class="col-md-8 col-xl-6 chat">
+			<div class="col-md-10 col-xl-6 chat">
 				<div class="card">
 					<div class="card-header msg_head">
 						<div class="d-flex bd-highlight">
@@ -159,11 +159,11 @@ arrow_back
 									$img = $linha20['foto'];
 								} ?>
 								<img src="<?php
-									if ($img != "") {
-										echo "../" . $img;
-									}else{
-										echo "../../fotos_perfil/padrao.jpg";
-									}   ?>" class="rounded-circle user_img">
+											if ($img != "") {
+												echo "../" . $img;
+											} else {
+												echo "../../fotos_perfil/padrao.jpg";
+											}   ?>" class="rounded-circle user_img">
 								<span class="online_icon"></span>
 							</div>
 							<div class="user_info">
@@ -240,13 +240,11 @@ arrow_back
 										foreach ($res21 as $linha21) {
 											$id_usu_geral = $linha21["idT_usuario"];
 
-											if($linha21['foto'] == ""){
+											if ($linha21['foto'] == "") {
 												$imgPerfilMsg = "../fotos_perfil/padrao.jpg";
-											}else{
+											} else {
 												$imgPerfilMsg = $linha21['foto'];
 											}
-
-											
 										}
 
 						?>
@@ -276,9 +274,9 @@ arrow_back
 										foreach ($res21 as $linha21) {
 											$id_usu_geral = $linha21["idT_usuario"];
 
-											if($linha21['foto'] == ""){
+											if ($linha21['foto'] == "") {
 												$imgPerfilMsg = "../fotos_perfil/padrao.jpg";
-											}else{
+											} else {
 												$imgPerfilMsg = $linha21['foto'];
 											}
 										}
@@ -308,8 +306,8 @@ arrow_back
 						<form method="post" action="../../controller/enviar_msg.php?id_conversa=<?php echo $idAmigo ?>">
 							<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
 							<input type="text" name="id_amigo" value="<?php echo $id_amigo ?>" style="display: none;">
-							<div class="input-group "style="background-color:aliceblue; border-radius: 15px">
-								<div class="input-group-append" >
+							<div class="input-group " style="background-color:aliceblue; border-radius: 15px">
+								<div class="input-group-append">
 									<span color:black" class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
 								</div>
 
