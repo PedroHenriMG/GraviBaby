@@ -1,6 +1,14 @@
 <?php
+
 include_once("../config.php");
-$id = $_SESSION['id'];
+
+if (isset($_GET["id_perfil"])) {
+     $id_conversa = $_GET["id_perfil"];
+     $id = $id_conversa;
+}else{
+     $id = $_SESSION['id'];
+}
+
 
 $query6 = "SELECT * FROM T_usuario WHERE idT_usuario = $id";
 $prepare6 = $dbh->prepare($query6);

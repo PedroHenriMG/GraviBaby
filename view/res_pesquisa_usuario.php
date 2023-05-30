@@ -24,7 +24,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-	<link rel="stylesheet" href="style6.css">
+	<link rel="stylesheet" href="../view/chat/style6.css">
 </head>
 
 <body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">
@@ -35,13 +35,13 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 				<div class="card col-10 mt-0 bg-dark m-auto contacts_card">
 					<div class="card-header">
 						<div class="input-group">
-							<div class="row justify-content-center align-items-center mr-1"><a href="../../view/home/home.php"><span style="color:aliceblue;
+							<div class="row justify-content-center align-items-center mr-1"><a href="../view/home/home.php"><span style="color:aliceblue;
 							" class="material-symbols-outlined">
 										arrow_back
 									</span></a></div>
 
 
-							<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
+							<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="./res_pesquisa_usuario.php">
 								<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
 								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
 
@@ -55,7 +55,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 						<ui class="contacts res_contacts">
 
 
-							<!-- Fazer um loop aqui com os dados do banco de dados -->
 							<li class="active">
 
 								<?php
@@ -65,22 +64,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 									$idAmigo = $id_conversa;
 								}
 
-								include_once("../../config.php");
+								include_once("../config.php");
 
 								$input_pesquisa = $_POST['input_pesquisa'];
 
-								$idChat = $_SESSION['id'];
-
-								$sql11 = "SELECT * FROM T_amigos WHERE id_usuario = $idChat";
-
-								$prepare11 = $dbh->prepare($sql11);
-								$prepare11->execute();
-
-								while ($linha11 = $prepare11->fetch(PDO::FETCH_ASSOC)) {
-
-									$id_amigo2 = $linha11['id_amigo'];
-
-									$sql19 = "SELECT * FROM T_usuario WHERE n_usuario LIKE '%$input_pesquisa%'  AND idT_usuario = $id_amigo2 OR nomecompleto_usuario LIkE '%$input_pesquisa%' AND idT_usuario = $id_amigo2";
+									$sql19 = "SELECT * FROM T_usuario WHERE n_usuario LIKE '%$input_pesquisa%' OR nomecompleto_usuario LIkE '%$input_pesquisa%' ";
 
 									$prepare19 = $dbh->prepare($sql19);
 
@@ -98,7 +86,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								?>
 										<div class="d-flex bd-highlight contato mb-4" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
-											<form method="post" action="../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>">
+											<form method="post" action="../view/perfil.php?id_perfil=<?php echo $linha19['idT_usuario'] ?>">
 												<input style="display: none;" value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
 											</form>
 
@@ -106,7 +94,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 												const contato<?php echo $linha19['idT_usuario'] ?> = document.getElementById("cont<?php echo $linha19['idT_usuario'] ?>");
 
 												contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click", () => {
-													window.location = "../chat/aba_conversa.php?id_conversa=<?php echo $linha19['idT_usuario'] ?>";
+													window.location = "../view/perfil.php?id_perfil=<?php echo $linha19['idT_usuario'] ?>";
 												})
 											</script>
 
@@ -115,9 +103,9 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 												<img src="<?php
 
 															if ($linha19['foto'] != "") {
-																echo "../" . $linha19['foto'];
+																echo "" . $linha19['foto'];
 															} else {
-																echo "../../fotos_perfil/padrao.jpg";
+																echo "../fotos_perfil/padrao.jpg";
 															}  ?>" class="rounded-circle user_img">
 												<span style="background-color:
 												
@@ -142,42 +130,10 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 										</div>
 
 								<?php }
-								}
 								?>
 
 							</li>
 						</ui>
-					</div>
-					<div class="card-footer"></div>
-				</div>
-			</div>
-			<div class="col-md-10 col-xl-6 chat">
-				<div class="card">
-
-					<div id="card_body" class="card-body msg_card_body">
-
-						<!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
-
-					</div>
-
-					<!-- Input da Mensagem -->
-
-					<div class="card-footer">
-						<form method="post" action="../../controller/enviar_msg.php?id_conversa=<?php echo $idAmigo ?>">
-							<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
-							<input type="text" name="id_amigo" value="<?php echo $id_amigo ?>" style="display: none;">
-							<div class="input-group " style="background-color:aliceblue; border-radius: 15px">
-								<div class="input-group-append">
-									<span style="color:black" class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-								</div>
-
-								<input id="input_msg" type="text" name="msg_usuario" class="form-control type_msg" placeholder="Escreva sua mensagem..."></input type="text">
-
-								<div class="input-group-append">
-									<button id="btn_msg" type="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-								</div>
-							</div>
-						</form>
 					</div>
 				</div>
 			</div>

@@ -9,8 +9,8 @@
         margin: 0 auto;
     }
 
-    .card{
-        border: 3px solid transparent; 
+    .card {
+        border: 3px solid transparent;
         background: transparent;
     }
 </style>
@@ -25,10 +25,10 @@
             <p class="col-6 text-center"> <strong>500</strong> <br> Seguindo</p>
             <?php  ?>
 
-            <?php  ?>        
+            <?php  ?>
         </div>
     </div>
-    
+
     <span class="material-symbols-outlined col-2 text-end">settings</span>
 </div>
 
@@ -36,11 +36,10 @@
     <p class="col-12 text-start">Postagens <?php echo $totalposts; ?></p>
     <div class="row col-12 d-flex mt-2 mb-5">
         <?php
-            while($dados = $query->fetch()){
-                echo $dados['foto'];
+        while ($dados = $query->fetch()) {
+
         ?>
-        
-        <img src="../imagens/164903.jpg" alt="" class="col-4 card">
+            <img src="<?php echo $dados['foto'] ?>" alt="" class="col-4 card">
         <?php } ?>
     </div>
 </div>

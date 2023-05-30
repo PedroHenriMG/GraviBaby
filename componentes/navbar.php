@@ -22,8 +22,8 @@
             <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
         </a>
 
-        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
-            <span class="material-symbols-outlined">home</span>
+        <a href="../../view/pesquisa_usuario.php" type="button" name="home"  class="col-2 d-flex justify-content-center">
+            <span class="material-symbols-outlined">search</span>
         </a> 
 
         <a href="../../view/perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">

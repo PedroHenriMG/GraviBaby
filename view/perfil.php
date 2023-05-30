@@ -2,13 +2,11 @@
 session_start();
 ob_start();
 
-
 if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     header('Location: ../index.php');
     $_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +35,15 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     include_once '../controller/util_php/infos_usuario.php';
     include_once '../config.php';
 
-    $sqlperfil = "SELECT * FROM t_publicacoes";
+    if (isset($_GET["id_perfil"])) {
+        $id_perfil = $_GET["id_perfil"];
+        $idUsu = $id_perfil;
+    }else{
+        $idUsu = $_SESSION['id'];
+    }
+
+
+    $sqlperfil = "SELECT * FROM t_publicacoes WHERE id_usuario = $idUsu ";
 
     $query = $dbh->prepare($sqlperfil);
 
@@ -45,7 +51,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
     $totalposts = $query->rowCount();
     
-
 ?>
 
 <body class="g-sidenav-show" style="background-image: linear-gradient(to right, #BE408C, #4456A0);">
@@ -66,8 +71,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
                             <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
                         </a>
 
-                        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
-                            <span class="material-symbols-outlined">home</span>
+                        <a href="./pesquisa_usuario.php" type="button" name="home"  class="col-2 d-flex justify-content-center">
+                            <span class="material-symbols-outlined">search</span>
                         </a> 
 
                         <a href="./perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
