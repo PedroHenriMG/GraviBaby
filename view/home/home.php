@@ -21,6 +21,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon" />
     <style>
         :root{
             --altura-tamanho: 7vh;

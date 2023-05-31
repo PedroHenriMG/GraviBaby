@@ -64,10 +64,12 @@ foreach($resPostagens as $linha_post){
                 <span style="color: <?php if($cout29 > 0){ echo "blue";}else{echo"";} ?>;" class="col-12 material-symbols-outlined d-flex justify-content-start">thumb_up</span>
             </button>
         </form>    
-<form class="col-1" action="../comentarios/coment_area.php">
-    <button id="<?php echo $id_publicacao ?>" value="<?php echo $id_usuario_sessao ?>" type="submit" name="comentario" style="border: none; background-color:transparent;" class="comentario col-1 d-flex justify-content-center">
-            <span id="<?php echo $id_publicacao ?>" value="<?php echo $id_usuario_sessao ?>" class="col-12 material-symbols-outlined justify-content-center">chat</span>
-        </button>
+<form method="post" class="col-1" action="../comentarios/coment_area.php">
+    <input type="text" value="<?php echo $id_publicacao ?>" name="coment" style="display: none;">
+    <input type="text" name="idUsu" value="<?php echo $id_usuario_sessao ?>" style="display: none;">
+        <button type="submit" style="border: none; background-color:transparent;" class="comentario col-1 d-flex justify-content-center">
+                <span class="col-12 material-symbols-outlined justify-content-center">chat</span>
+            </button>
 </form>
         
         <button type="button" name="compartilhar" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-end">

@@ -25,6 +25,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 	<link rel="stylesheet" href="../view/chat/style6.css">
+	<link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon" />
 </head>
 
 <body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">

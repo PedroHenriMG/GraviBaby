@@ -14,7 +14,8 @@ include_once './config.php';
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="fonts/css/all.min.css">
     <link rel="stylesheet" href="./css_normal/login1.css">
-    <title>login</title>
+    <link rel="shortcut icon" href="./imagens/favicon.ico" type="image/x-icon" />
+    <title>Login</title>
 </head>
 
 <body>

@@ -16,6 +16,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon" />
     <title>
         Perfil
     </title>
@@ -64,7 +65,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
                         </a> 
                         
                         <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
-                            <span class="material-symbols-outlined">home</span>
+                            <span class="material-symbols-outlined">groups</span>
                         </a> 
 
                         <a href="./postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">

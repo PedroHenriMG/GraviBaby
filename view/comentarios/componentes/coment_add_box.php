@@ -2,7 +2,7 @@
     <div class="row fixed-bottom bg-light d-flex justify-content-center align-items-center">
         <div class="col-10 justify-content-center align-items-center">
             <input class="form-control" type="text" placeholder="Digite seu comentário" name="inputComentario">
-            <input style="display: none;" name="idUsu" type="text" value="<?php echo $_SESSION['id'] ?>">
+            <input style="display: none;" name="idUsu" type="text" value="<?php echo $idUsu ?>">
             <input style="display: none;" name="idPost" type="text" value="<?php echo $idPost ?>">
         </div>
 

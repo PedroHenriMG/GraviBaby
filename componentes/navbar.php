@@ -15,7 +15,7 @@
         </a> 
         
         <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
-            <span class="material-symbols-outlined">home</span>
+            <span class="material-symbols-outlined">groups</span>
         </a> 
 
         <a href="../postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">

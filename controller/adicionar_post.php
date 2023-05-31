@@ -33,13 +33,14 @@ if (isset($_FILES['picture__input'])) {
     }
 
     $path = $pasta . $novoNomeArquivo . "." . $extensao;
+    $caminho = $path;
 
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
     if ($deu_certo) {
         $sql17 = "INSERT INTO T_publicacoes (foto, idT_publicacao, descricao, titulo, status, id_usuario, id_grupo) VALUES (:caminho, null, :descricao_postagem, :titulo_postagem, :statuspost, :id_usuario, 1)";
         $prepare17 = $dbh->prepare($sql17);
-        $prepare17->bindParam(':caminho', $path);
+        $prepare17->bindParam(':caminho', $caminho);
         $prepare17->bindParam(':descricao_postagem', $descricao_postagem);
         $prepare17->bindParam(':titulo_postagem', $titulo_postagem);
         $prepare17->bindParam(':statuspost', $statuspost);

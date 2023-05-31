@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -8,7 +7,7 @@
     <link rel="stylesheet" href="../home/bootstrap-5.2.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <link rel="stylesheet" href="../../bootstrap-5.2.3-dist/css/bootstrap.css">
     <style>
         h1 {
             margin-bottom: 0;
