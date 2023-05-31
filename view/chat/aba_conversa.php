@@ -172,7 +172,15 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 											} else {
 												echo "../../fotos_perfil/padrao.jpg";
 											}   ?>" class="rounded-circle user_img">
-								<span class="online_icon"></span>
+								<span  style="background-color:
+												
+												<?php if ($linha19['status'] != 1) {
+														echo "gray";
+													} else {
+														echo "green";
+													} ?>
+												
+												;"  class="online_icon"></span>
 							</div>
 							<div class="user_info">
 								<span><?php echo $n_usuario ?></span>
