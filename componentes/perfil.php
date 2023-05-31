@@ -21,7 +21,11 @@
 
 ?>
 <div class="row d-flex justify-content-center pt-2">
-    <div class="col-2"></div>
+    <div class="col-2">
+        <form action="../controller/sair_sessao.php">
+            <button type="submit"></button>
+        </form>
+    </div>
     <div class="mt-5 col-8 text-center d-flex flex-column justify-content-center align-items-center">
         <div class="hexagon"></div>
         <h1><strong><?php echo $nomeCompleto_usuario; ?></strong></h1>
