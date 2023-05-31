@@ -14,6 +14,12 @@
         background: transparent;
     }
 </style>
+
+<?php 
+
+
+
+?>
 <div class="row d-flex justify-content-center pt-2">
     <div class="col-2"></div>
     <div class="mt-5 col-8 text-center d-flex flex-column justify-content-center align-items-center">
@@ -24,8 +30,15 @@
             <p class="col-6 text-center"> <strong>1k</strong> <br> Seguidores</p>
             <p class="col-6 text-center"> <strong>500</strong> <br> Seguindo</p>
             <?php  ?>
-
-            <?php  ?>
+                <form action="../controller/adicionaramigo.php" method="post" class="col-12 d-flex justify-content-center">
+                    <div class="col-6">
+                        <button value="<?php $idUsu ?>" style="background-color: #BE408C;" type="button" class="btn">Seguir</button>
+                    </div>
+                    <div class="col-6">
+                        <button style="background-color: #4456A0;" type="button" class="btn">Mensagem</button>
+                    </div>
+                </form>
+            <?php ?>
         </div>
     </div>
 
@@ -36,7 +49,7 @@
     <p class="col-12 text-start">Postagens <?php echo $totalposts; ?></p>
     <div class="row col-12 d-flex mt-2 mb-5">
         <?php
-        while ($dados = $query->fetch()) {
+            while ($dados = $query->fetch()) {
 
         ?>
             <img src="<?php echo $dados['foto'] ?>" alt="" class="col-4 card">

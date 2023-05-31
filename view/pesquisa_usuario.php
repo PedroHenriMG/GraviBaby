@@ -29,7 +29,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 <body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">
 
-	<div class="container-fluid h-100">
+	<div class="container-fluid ">
 		<div class="row justify-content-center container_chat" style="height: 90%;">
 			<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-4 chat">
 				<div class="card col-10 mt-0 bg-dark m-auto contacts_card">
@@ -55,9 +55,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 						<ui class="contacts res_contacts">
 
 
-							
-
-								
 						</ui>
 					</div>
 				</div>

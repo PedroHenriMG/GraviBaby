@@ -103,6 +103,7 @@
 
  function criarAmigos(){
     const tabela_amigos = document.querySelector(".active");
+    
 
     const card_amigo = document.createElement('div');
     card_amigo.classList.add('d-flex');
@@ -118,17 +119,6 @@
     span_msg.innerHTML = '<?php echo $res9[$i][\'mensagem\'] ?>';
     span_msg.style.display = 'none';
     body.appendChild(span_msg);
+
+    tabela_amigos.id = "Teste";
 }
-
-export {criarMsg, criarAmigos}
-
-
-
-
-
-
-
-
-
-
-
