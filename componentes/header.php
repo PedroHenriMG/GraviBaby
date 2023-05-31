@@ -7,7 +7,7 @@
     
   }
 </style>
-    <div style="min-height: 9vh;" id="Fixado" class="row fixed-top bg-light p-1 ">
+    <div style="min-height: 7vh;" id="Fixado" class="row fixed-top bg-light p-1 ">
       <a style="margin-right: none; font-size: 17px;" class=" col-6 d-flex justify-content-center align-items-center " href="#">
         <img style="width: 35px;" src="./img/logo.png" class="col-3 mx-2">
         <strong class="col-9 d-flex justify-content-start align-items-center">Gravibaby</strong>

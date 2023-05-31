@@ -31,9 +31,9 @@ foreach ($resComentarios as $comentarios) {
         <div class="row justify-content-center text-center align-items-center" style="margin-top: 5vh;">
             <div class="col-2 align-self-start">
                 <img src="<?php if ($nome['foto'] != "") {
-                                echo "../../" . $nome['foto'];
+                                echo "../" . $nome['foto'];
                             } else {
-                                echo "../fotos_perfil/padrao.jpg";
+                                echo "../../fotos_perfil/padrao.jpg";
                             } ?>" alt="">
             </div>
             <div id=" coment-box" class="col-10">

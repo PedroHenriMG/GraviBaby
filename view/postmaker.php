@@ -48,9 +48,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
         <h1 class="col-8 d-flex justify-content-center align-items-center" style="font-size: 17px;">Publicação</h1>
 
         <a class="col-2 d-flex justify-content-center align-items-center" class="" href="">
-            <span class="material-symbols-outlined">
-                <strong>arrow_forward_ios</strong>
-            </span>
         </a>
     </div>
     <!-- header -->

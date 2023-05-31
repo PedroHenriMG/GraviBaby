@@ -23,4 +23,5 @@ $nomeCompleto_usuario = $res6['nomecompleto_usuario'];
 $n_usuario = $res6['n_usuario'];
 $email = $res6['email'];
 $senha = $res6['senha'];
+$foto = $res6['foto'];
      // Usuario
