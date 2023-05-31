@@ -33,7 +33,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     </style>
 </head>
 
-<body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">
+<body style="height: 100vh; width: 100vw;">
     <!-- header -->
     <div class="row bg-light fixed-top align-items-center justify-content-center p-1">
 
