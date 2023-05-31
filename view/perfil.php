@@ -43,6 +43,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
         $idUsu = $_SESSION['id'];
     }
 
+    $id_padrao = $_SESSION['id'];
+
 
     $sqlperfil = "SELECT * FROM t_publicacoes WHERE id_usuario = $idUsu ";
 

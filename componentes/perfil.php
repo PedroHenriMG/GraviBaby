@@ -23,7 +23,7 @@
 <div class="row d-flex justify-content-center pt-2">
     <div class="col-2">
         <form action="../controller/sair_sessao.php">
-            <button type="submit"></button>
+            <button class="btn btn-danger" type="submit">X</button>
         </form>
     </div>
     <div class="mt-5 col-8 text-center d-flex flex-column justify-content-center align-items-center">
@@ -34,9 +34,11 @@
             <p class="col-6 text-center"> <strong>1k</strong> <br> Seguidores</p>
             <p class="col-6 text-center"> <strong>500</strong> <br> Seguindo</p>
             <?php  ?>
-                <form action="../controller/adicionaramigo.php" method="post" class="col-12 d-flex justify-content-center">
+                <form action="../controller/seguir.php" method="post" class="col-12 d-flex justify-content-center">
                     <div class="col-6">
-                        <button value="<?php $idUsu ?>" style="background-color: #BE408C;" type="button" class="btn">Seguir</button>
+                        <button type="submit" style="background-color: #BE408C;" type="button" class="btn">Seguir</button>
+                        <input style="display: none;" name="id_usuario" type="text" value="<?php echo $id_padrao ?>">
+                        <input style="display: none;" name="id_amigo" type="text" value="<?php echo $idUsu ?>">
                     </div>
                     <div class="col-6">
                         <button style="background-color: #4456A0;" type="button" class="btn">Mensagem</button>
