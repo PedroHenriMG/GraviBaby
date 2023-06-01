@@ -2,7 +2,7 @@
 
 include_once("../config.php");
 
-$id_usuario = $_GET['id'];
+$id_usuario = $_POST['id'];
 
 if (isset($_FILES['arquivo'])) {
 
@@ -12,6 +12,7 @@ if (isset($_FILES['arquivo'])) {
 
     $arquivo = $_FILES['arquivo'];
     if ($arquivo['size'] > 30097000) {
+        echo 'deu certo';
         die("arquivo muito grande max 2mb");
     }
     $nomeArquivo = $arquivo['name'];
@@ -22,6 +23,7 @@ if (isset($_FILES['arquivo'])) {
 
     if ($extensao != "jpg" && $extensao != "png" && $extensao != "" && $extensao != "gif" && $extensao != "jpeg") {
         die();
+        
     }
 
     $path = $pasta . $novoNomeArquivo . "." . $extensao;
@@ -33,3 +35,4 @@ if (isset($_FILES['arquivo'])) {
     }
 }
 
+header("Location: ../view/perfil.php");

@@ -28,11 +28,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	<link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon" />
 </head>
 
-<body style="background-color: white; height: 100vh; width: 100vw;">
+<body>
 
 	<div class="container-fluid">
-		<div class="row justify-content-center container_chat" style="height: 90%;">
-			<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-4 chat">
+		<div class="row justify-content-center">
+			<div class="">
 				<div class="card col-12 mt-0 bg-dark m-auto contacts_card">
 					<div class="card-header">
 						<div class="input-group">
@@ -61,7 +61,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 				</div>
 			</div>
 		</div>
-	</div>
 
 	<p id="local_msg"></p>
 

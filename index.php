@@ -34,23 +34,6 @@ include_once './config.php';
             </div>
             <button type="submit" name="enviar">LOGIN</button>
         </form>
-        <div class="login-icons">
-            <h3>Entrar com:</h3>
-            <ul>
-                <li>
-                    <a href="#" id="icons"><i class="fa-brands fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="#" id="icons"><i class="fa-brands fa-google"></i></a>
-                </li>
-                <li>
-                    <a href="#" id="icons"><i class="fa-brands fa-linkedin"></i></a>
-                </li>
-                <li>
-                    <a href="#" id="icons"><i class="fa-brands fa-apple"></i></a>
-                </li>
-            </ul>
-        </div>
     </div>
 </body>
 

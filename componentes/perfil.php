@@ -30,7 +30,7 @@ include_once '../controller/util_php/infos_usuario.php';
         </form>
     </div>
     <div class="mt-5 col-8 text-center d-flex flex-column justify-content-center align-items-center">
-        <form class="col-12" action="../controller/editar_perfil.php">
+        <form method="post" class="col-12" action="../controller/editar_perfil.php">
             <input style="display: none;" type="file" id="arquivo" name="arquivo"></input>
             <label class="hexagon" for="arquivo">
                 <img style="width: 200px;
