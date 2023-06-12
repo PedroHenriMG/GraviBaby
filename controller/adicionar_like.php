@@ -24,8 +24,8 @@ if ($cout27 > 0) {
 
     $query27 =  $dbh->query($sql2);
     if ($query27 == TRUE) {
-        echo "Linha excluída com sucesso da tabela T_like.";
-        header("Location: ../view/home/index.php");
+        
+        // header("Location: ../view/home/index.php");
     } else {
         echo "Erro ao excluir linha da tabela T_like: " ; 
     }
@@ -34,8 +34,23 @@ if ($cout27 > 0) {
     $sql3 = "INSERT INTO T_like (idT_like,idT_publicacao, id_usuario) VALUES (null,$id_publi, $id_usuario)";
     $query28 =  $dbh->query($sql3);
     if ($query28 == TRUE) {
-        header("Location: ../view/home/home.php");
+        // header("Location: ../view/home/home.php");
     } else {
         echo "Erro ao inserir registro na tabela T_like: " ;
     }
 }
+
+$sqlLikes = "SELECT * FROM T_like WHERE idT_publicacao = $id_publi";
+   
+
+    $prepareLikes = $dbh->prepare($sqlLikes);
+    $execLikes = $prepareLikes->execute();
+    $coutLikess = $prepareLikes->rowCount();
+
+$response = array(
+    'status' => 'success',
+    'countLikes' => $coutLikess,
+  );
+  
+  // Envie a resposta de volta para a requisição AJAX
+  echo json_encode($response);

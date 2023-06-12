@@ -45,24 +45,6 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     </div>
 
     <script src="../../bootstrap-5.2.3-dist/js/bootstrap.js"></script>
-    <script>
-
-        $("#icon_like").click((e)=>{
-            e.preventDefault();
-            console.log(e.target);
-            const res =document.querySelector(".caixaComentarios");
-            res.style = "background-color: black; display: flex; flex-direction: column; width:20vw; height: 40vw; position: fixed; right:40%; top:30%; color:white;"
-            let idPost = e.target.id;
-            var data= 
-                {
-                    idPost : idPost,
-                };
-
-                $.post("processo.php",data, function(result){
-                    $("#res").html(result);
-                });
-        })
-
-    </script>
+    
 </body>
 </html>

@@ -39,7 +39,7 @@ foreach ($resPostagens as $linha_post) {
         </div>
         <div class=" row d-flex justify-content-between mt-2">
             <div class="col-5 text-start">
-                <p id="cont_likes"><strong><?php echo $coutLikes ?> Likes</strong></p>
+                <p id="cont_likes_<?php echo $id_publicacao; ?>"><strong><?php echo $coutLikes ?> Likes</strong></p>
             </div>
 
             <?php
@@ -57,7 +57,7 @@ foreach ($resPostagens as $linha_post) {
             </div>
         </div>
         <div class="row d-flex justify-content-between">
-            <form class="col-1" method="GET" action="../../controller/adicionar_like.php">
+            <form class="col-1 like-form_<?php echo $id_publicacao ?>" method="post" action="../../controller/adicionar_like.php">
                 <button id="icon_like" type="submit" name="curtida" value="<?php echo $id_publicacao ?>" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-start">
 
                     <?php
@@ -91,6 +91,35 @@ foreach ($resPostagens as $linha_post) {
             <p class="col-12 text-start"> <strong><?php echo $linha_usu_post['n_usuario'] ?></strong> <?php echo $linha_post['descricao'] ?> </p>
         </div>
     </div>
+    <script>
+$(document).on('click', '.like-form_<?php echo $id_publicacao ?> button', function(e) {
+    e.preventDefault();
+    
+    var id_publicacao = $(this).val();
+    var likesParagraph = $(this).closest('.row').find('.col-5 #cont_likes');
+    
+    $.ajax({
+    type: 'GET',
+    url: '../../controller/adicionar_like.php?curtida=<?php echo $id_publicacao ?>',
+    data: {
+        curtida: id_publicacao
+    },
+    dataType: 'json',
+    success: function(response) {
+        if (response.status === 'success') {
+            // Atualizar a contagem de likes
+            $("#cont_likes_<?php echo $id_publicacao ?>").html('<strong>' + response.countLikes + ' Likes</strong>');
+            console.log(response.countLikes);
+        }
+    },
+    error: function(xhr, status, error) {
+        console.log('Erro na requisição AJAX:', error,xhr,status);
+    }
+});
+
+});
+
+</script>
 <?php }} ?>
 
 
