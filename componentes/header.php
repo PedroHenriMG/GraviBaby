@@ -18,7 +18,7 @@
           <a id="buttons" href="#">
             <span class="material-symbols-outlined">
               <strong>
-                notifications
+              <i class="bi bi-bell"></i>
               </strong>
             </span>
           </a>
@@ -28,7 +28,7 @@
           <a href="../../view/chat/index.php">
             <span class="material-symbols-outlined"> 
               <strong>
-                chat
+              <i class="bi bi-chat-dots"></i>
               </strong>
             </span>
           </a>

@@ -16,6 +16,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fazer um post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -40,7 +41,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
         <a id="return" class="col-2 d-flex justify-content-center align-items-center" href="./home/home.php" style="font-size: 17px;">
             <span class="material-symbols-outlined">
                 <strong>
-                    close
+                <i class="bi bi-x-lg"></i>
                 </strong>
             </span>
         </a>
@@ -49,7 +50,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
         <a class="col-2 d-flex justify-content-center align-items-center" class="" href="">
             <span class="material-symbols-outlined">
-                <strong>arrow_forward_ios</strong>
+                
             </span>
         </a>
     </div>
@@ -67,7 +68,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
                     <div style="margin-top: 20px;" class="input-group mb-3">
                         <div class="form-floating">
                             <textarea name="descricao_postagem" style="height: 100px;" class="form-control" id="usuarios_marcados" placeholder="Username"></textarea>
-                            <label for="usuarios_marcados">legenda</label>
+                            <label for="usuarios_marcados">Legenda</label>
                         </div>
                     </div>
 
@@ -75,7 +76,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
                         <span class="input-group-text">@</span>
                         <div class="form-floating">
                             <input type="text" class="form-control" id="usuarios_marcados" placeholder="Username">
-                            <label for="usuarios_marcados">marcar amigos</label>
+                            <label for="usuarios_marcados">Marcar amigos</label>
                         </div>
                     </div>
 

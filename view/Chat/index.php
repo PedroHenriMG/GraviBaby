@@ -18,6 +18,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 <head>
 	<title>Chat</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -37,22 +38,22 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 						<div class="input-group">
 							<div class="row justify-content-center align-items-center mr-1"><a href="../../view/home/home.php"><span style="color:aliceblue;
 							" class="material-symbols-outlined">
-										arrow_back
+										<i style="color:aliceblue;" class=" bi bi-arrow-left"></i>
 									</span></a></div>
 
 
-							<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
+							<form class="m-0 d-flex col-11" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
 								<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
 								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
 
 
 								<div class="input-group-prepend">
-									<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span></button>
+									<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="bi bi-search"></i></span></button>
 								</div>
 							</form>
 						</div>
 					</div>
-					<div class="card-body col-10 bg-dark contacts_body">
+					<div class="card-body col-12 bg-dark contacts_body">
 						<ui class="contacts res_contacts">
 
 

@@ -18,6 +18,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 <head>
 	<title>Chat</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -32,29 +33,27 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 	<div class="container-fluid h-100">
 		<div class="row justify-content-center container_chat" style="height: 90%;">
-			<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-4 chat">
-				<div class="card col-10 mt-0 bg-dark m-auto contacts_card">
+			<div class=" col-12 chat">
+				<div style="height: 80%;" class="card col-10 mt-0 bg-dark m-auto contacts_card">
 					<div class="card-header">
-						<div class="input-group">
-							<div class="row justify-content-center align-items-center mr-1"><a href="../view/home/home.php"><span style="color:aliceblue;
+						<div class="input-group row">
+							<div class="row justify-content-center align-items-center mr-1 col-2"><a href="../view/home/home.php"><span style="color:aliceblue;
 							" class="material-symbols-outlined">
-										arrow_back
+										<i style="color:aliceblue;" class=" bi bi-arrow-left"></i>
 									</span></a></div>
 
-
-							<form class="m-0 d-flex" method="POST" id="form_pesquisa" action="./res_pesquisa_usuario.php">
+							<form class="m-0 d-flex col-10" method="POST" id="form_pesquisa" action="./res_pesquisa_usuario.php">
 								<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
 								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
 
-								<div class="input-group-prepend">
-									<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="fas fa-search"></i></span></button>
+								<div class="input-group-prepend ">
+									<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="bi bi-search"></i></span></button>
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="card-body bg-dark contacts_body">
 						<ui class="contacts res_contacts">
-
 
 							<li class="active">
 
@@ -101,7 +100,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 											<div class="img_cont">
 
-												<img src="<?php
+												<img style="width: 4rem; height:4rem;" src="<?php
 
 															if ($linha19['foto'] != "") {
 																echo "" . $linha19['foto'];
@@ -111,16 +110,16 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 												<span style="background-color:
 												
 												<?php if ($linha19['status'] != 1) {
-														echo "gray";
+														echo "#D6D1A4";
 													} else {
-														echo "green";
+														echo "#21D701";
 													} ?>
 												
-												;"  class="online_icon"></span>
+												; width: 1rem;"  class="online_icon"></span>
 											</div>
 											<div class="user_info">
-												<span><?php echo $linha19['n_usuario'] ?></span>
-												<p>
+												<span style="font-size: 1.2rem;"><?php echo $linha19['n_usuario'] ?></span>
+												<p class="display-1" style="color: #C6C8BF; font-size: 0.8rem;">
 													<?php echo $linha19['n_usuario'] ?> <?php if ($linha19['status'] != 1) {
 																							echo "Offiline";
 																						} else {

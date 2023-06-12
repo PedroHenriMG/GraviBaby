@@ -20,7 +20,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon" />
     <style>
         :root{
@@ -34,10 +34,10 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
 </head>
 <body style="height: 100vh; width: 100vw;">
     <div class="container-fluid" style="background: transparent;">
-        <div style="background: transparent;" class="row d-flex justify-content-center align-items-center">
+        <div style="background: #959595 ;" class="row d-flex justify-content-center align-items-center">
             <div style="background: transparent;" class="col-12 col-md-8 col-xl-6 col-xxl-4">
                 <?php include_once '../../componentes/header.php' ?>
-                <?php include_once '../../componentes/feed.php'; ?>
+                <div class="bg-dark p-3"><?php include_once '../../componentes/feed.php'; ?></div>
                 <?php include_once '../../componentes/navbar.php' ?> 
             </div>
         </div>
@@ -45,9 +45,9 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     </div>
 
     <script src="../../bootstrap-5.2.3-dist/js/bootstrap.js"></script>
-    <!-- <script>
+    <script>
 
-        $(".comentario").click((e)=>{
+        $("#icon_like").click((e)=>{
             e.preventDefault();
             console.log(e.target);
             const res =document.querySelector(".caixaComentarios");
@@ -63,6 +63,6 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
                 });
         })
 
-    </script> -->
+    </script>
 </body>
 </html>

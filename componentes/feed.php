@@ -19,30 +19,28 @@ foreach ($resPostagens as $linha_post) {
     $execLikes = $prepareLikes->execute();
     $coutLikes = $prepareLikes->rowCount();
 
-
 ?>
 
-    <div style="margin-top: var(--altura-tamanho); margin-bottom: var(--altura-tamanho);" class="row d-flex justify-content-center text-center align-items-center">
-        <div id="Card" class="row d-flex justify-content-center text-center col-xl-6" style='background-image: url("../<?php echo $linha_post['foto'] ?>"); width: 100%; height: 500px;'>
-            <div style="height: 30px;" class="mt-3 col-10 text-start">
-            <?php
-            $idUsuPost = $linha_post['id_usuario'];
-            $queryUsuPost = $dbh->query("SELECT * FROM T_usuario WHERE idT_usuario = $idUsuPost");
-            $resUsuPost = $queryUsuPost->fetchAll();
-            foreach($resUsuPost as $linha_usu_post){
-            
-            ?>
-                <p> <?php echo $linha_usu_post['n_usuario'] ?></p>
+    <div style="margin-top: var(--altura-tamanho); margin-bottom: var(--altura-tamanho); " class="bg-white p-5 m-1 mt-5 row d-flex justify-content-center text-center align-items-center col-12">
+        <div id="Card" class="row d-flex justify-content-center text-center col-xl-6 img-fluid" style='background-image: url("../<?php echo $linha_post['foto'] ?>"); background-size: cover; width:100%; height:500px;'>
+            <div style="height: 30px; background-color: rgba(240, 248, 255, 0.705);" class="mt-3 col-12 text-start">
+                <?php
+                $idUsuPost = $linha_post['id_usuario'];
+                $queryUsuPost = $dbh->query("SELECT * FROM T_usuario WHERE idT_usuario = $idUsuPost");
+                $resUsuPost = $queryUsuPost->fetchAll();
+                foreach($resUsuPost as $linha_usu_post){
+                
+                ?>
+                    <p> <?php echo "@" .  $linha_usu_post['n_usuario'] ?></p>
             </div>
-            <svg style="height: 30px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mt-3 col-2 bi bi-three-dots-vertical" viewBox="0 0 16 16">
+            <!-- <svg style="height: 30px; text-align: end;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class=" d-flex justify-content-end mt-3 col-10 bi bi-three-dots-vertical" viewBox="0 0 16 16">
                 <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-            </svg>
+            </svg> -->
         </div>
-        <div class="row d-flex justify-content-between mt-2">
-            <div class="col-6 text-start">
-                <p><strong><?php echo $coutLikes ?> Likes</strong></p>
+        <div class=" row d-flex justify-content-between mt-2">
+            <div class="col-5 text-start">
+                <p id="cont_likes"><strong><?php echo $coutLikes ?> Likes</strong></p>
             </div>
-
 
             <?php
 
@@ -54,14 +52,13 @@ foreach ($resPostagens as $linha_post) {
 
             ?>
 
-
-            <div class="col-6 text-end">
+            <div class="col-7 text-start">
                 <p><strong><?php echo $cout30 ?> Comentários</strong></p>
             </div>
         </div>
         <div class="row d-flex justify-content-between">
             <form class="col-1" method="GET" action="../../controller/adicionar_like.php">
-                <button type="submit" name="curtida" value="<?php echo $id_publicacao ?>" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-start">
+                <button id="icon_like" type="submit" name="curtida" value="<?php echo $id_publicacao ?>" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-start">
 
                     <?php
 
@@ -73,20 +70,20 @@ foreach ($resPostagens as $linha_post) {
 
                     ?>
 
-                    <span style="color: <?php if ($cout29 > 0) {
+                    <span  style="color: <?php if ($cout29 > 0) {
                                             echo "blue";
                                         } else {
                                             echo "";
-                                        } ?>;" class="col-12 material-symbols-outlined d-flex justify-content-start">thumb_up</span>
+                                        } ?>;" class="col-12 material-symbols-outlined d-flex justify-content-start"><i class="bi bi-hand-thumbs-up"></i></span>
                 </button>
             </form>
             <form class="col-1" action="../comentarios/coment_area.php">
                 <button id="<?php echo  $id_usuario_sessao?>" value="<?php echo $id_publicacao ?>" type="submit" name="idpost" style="border: none; background-color:transparent;" class="comentario col-1 d-flex justify-content-center">
-                    <span id="<?php echo  $id_usuario_sessao?>" value="<?php echo  $id_publicacao?>" class="col-12 material-symbols-outlined justify-content-center">chat</span>
+                    <span id="<?php echo  $id_usuario_sessao?>" value="<?php echo  $id_publicacao?>" class="col-12 material-symbols-outlined justify-content-center"><i class="bi bi-chat-left-text"></i></span>
                 </button>
             </form>
             <button type="button" name="compartilhar" style="border: none; background-color:transparent;" class="col-1 d-flex justify-content-end">
-                <span style="transform: rotate(330deg);" class="colo-12 material-symbols-rounded justify-content-end">send</span>
+                <span style="transform: rotate(330deg);" class="colo-12 material-symbols-rounded justify-content-end"><i class="bi bi-share"></i></span>
             </button>
 
         </div>
