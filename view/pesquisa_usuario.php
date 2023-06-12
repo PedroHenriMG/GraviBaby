@@ -29,12 +29,19 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	<link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon" />
 </head>
 
-<body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">
+<body>
+
 
 	<div class="container-fluid ">
 		<div class="row justify-content-center container_chat" style="height: 90%;">
 			<div class="col-12 chat">
 				<div style="height: 80%;" class="card col-10 mt-0 bg-dark m-auto contacts_card">
+
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="">
+				<div class="card col-12 mt-0 bg-dark m-auto contacts_card">
+
 					<div class="card-header">
 						<div class="input-group row">
 							<div class="row justify-content-center align-items-center mr-1 col-2"><a href="../view/home/home.php"><span style="color:aliceblue;
@@ -52,7 +59,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 							</form>
 						</div>
 					</div>
-					<div class="card-body bg-dark contacts_body">
+					<div class="card-body contacts_body">
 						<ui class="contacts res_contacts">
 
 
@@ -61,7 +68,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 				</div>
 			</div>
 		</div>
-	</div>
 
 	<p id="local_msg"></p>
 

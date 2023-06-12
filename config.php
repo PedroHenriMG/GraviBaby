@@ -3,7 +3,7 @@
 $servidor = "localhost";
 $banco = "limaseducar_gravibaby";
 $userbanco ="root";
-$Senha = "root";
+$Senha = 20032005;
 
 try {
     $dbh = new PDO("mysql:host=$servidor;dbname=$banco",$userbanco,$Senha);

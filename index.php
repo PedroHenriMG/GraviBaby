@@ -34,6 +34,7 @@ include_once './config.php';
             </div>
             <button type="submit" name="enviar">LOGIN</button>
         </form>
+
         <div class="login-icons">
             <!-- <h3>Entrar com:</h3> -->
             <ul>
@@ -51,6 +52,7 @@ include_once './config.php';
                 </li>
             </ul>
         </div>
+
     </div>
 </body>
 

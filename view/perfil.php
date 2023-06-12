@@ -30,6 +30,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
             font-size: 35px;
         }
     </style>
+
+    <link rel="stylesheet" href="../css_normal/perfil.css">
 </head>
 
 <?php
@@ -57,7 +59,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 ?>
 
 <body class="g-sidenav-show">
-    <div class="container-fluid">
+    <div style="height: 80%;" class="container-fluid">
         <?php include_once '../componentes/perfil.php' ?>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12 col-md-8 col-xl-6 col-xxl-4">
