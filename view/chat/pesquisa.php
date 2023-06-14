@@ -3,6 +3,7 @@ session_start();
 ob_start();
 
 
+
 if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	header('Location: ../index.php');
 	$_SESSION['msg'] = '<p>Erro: Você tem que está logado para acessar o site</p>';

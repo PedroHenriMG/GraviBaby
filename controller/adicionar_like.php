@@ -9,8 +9,12 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 include_once "../config.php";
 
+// Pegando o id da publicação e do usuario que vai curtir
+
 $id_publi = $_GET['curtida'];
 $id_usuario = $_SESSION['id'];
+
+// Verificando se já deu like
 
 $sql = "SELECT * FROM T_like WHERE idT_publicacao = $id_publi AND id_usuario = $id_usuario";
 
@@ -39,6 +43,8 @@ if ($cout27 > 0) {
         echo "Erro ao inserir registro na tabela T_like: " ;
     }
 }
+
+// Pegando a quantidade de likes e voltando como json para mudar lá sem recarregar a página
 
 $sqlLikes = "SELECT * FROM T_like WHERE idT_publicacao = $id_publi";
    

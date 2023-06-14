@@ -29,7 +29,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	<link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon" />
 </head>
 
-<body style="background-image: linear-gradient(to right, #BE408C, #4456A0); height: 100vh; width: 100vw;">
+<body style="height: 100vh; width: 100vw; background-color:rgb(109, 108, 106);">
 
 	<div class="container-fluid h-100">
 		<div class="row justify-content-center container_chat" style="height: 90%;">

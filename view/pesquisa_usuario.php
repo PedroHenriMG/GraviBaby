@@ -35,11 +35,11 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	<div class="container-fluid ">
 		<div class="row justify-content-center container_chat" style="height: 90%;">
 			<div class="col-12 chat">
-				<div style="height: 80%;" class="card col-10 mt-0 bg-dark m-auto contacts_card">
+				<div style="height: 100%;" class=" col-10 mt-0  m-auto ">
 
 	<div class="container-fluid">
 		<div class="row justify-content-center">
-			<div class="">
+			<div class="col-12 mt-5">
 				<div class="card col-12 mt-0 bg-dark m-auto contacts_card">
 
 					<div class="card-header">

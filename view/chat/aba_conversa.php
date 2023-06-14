@@ -2,6 +2,7 @@
 session_start();
 ob_start();
 
+// Essa é aba que aparece quando a pessoa clica em alguém pra conversar
 
 if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 	header('Location: ../index.php');
@@ -55,10 +56,12 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 					</div>
 					<div class="card-body contacts_body bg-dark">
 						<ui class="contacts ">
-							<!-- Fazer um loop aqui com os dados do banco de dados -->
+			
 							<li class="active">
 
 								<?php
+
+								// Pegando o id do amigo pelo metodo get
 
 								if (isset($_GET["id_conversa"])) {
 									$id_conversa = $_GET["id_conversa"];
@@ -97,6 +100,9 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 											</form>
 
 											<script>
+
+												// Script simples pra quando clicar na pessoa ir para aba_converso só que passando o id dela
+
 												const contato<?php echo $linha19['idT_usuario'] ?> = document.getElementById("cont<?php echo $linha19['idT_usuario'] ?>");
 
 												contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click", () => {
@@ -128,7 +134,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 												<p>
 													<?php echo $linha19['n_usuario'] ?>
 													<?php if ($linha19['status'] != 1) {
-														echo "Offiline";
+														echo "Offline";
 													} else {
 														echo "Online";
 													} ?>
@@ -154,6 +160,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								include_once '../../config.php';
 
+								// Pegando informações do amigo para fazer o card dele
+
 								$id_usuario = $_SESSION['id'];
 
 								$sql20 = "SELECT * FROM T_usuario WHERE idT_usuario = $idAmigo";
@@ -163,6 +171,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 								$prepare20->execute();
 
 								$res20 = $prepare20->fetchAll();
+
+								// Loop para criar o card do topo 
 
 								foreach ($res20 as $linha20) {
 
@@ -207,14 +217,17 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 					</div>
 					<div id="card_body" class="card-body msg_card_body">
 
-						<!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
 						<?php
 
 						include_once("../../config.php");
 
 						$id = $_SESSION['id'];
 
+						// Verificando se o metodo get mandou algum id
+
 						if ($idAmigo != null) {
+
+							// Pegando todas as mensagens mandadas entre vc e o amigo selecionado
 
 							$loopMsg = $dbh->query("SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo OR remetente = $idAmigo AND destinatario = $id");
 							$loopMsg->execute();
@@ -229,6 +242,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								$msg_mandadas = $count10;
 
+								// Pegando todas as mensagens mandadas entre vc e o amigo selecionado e ordenando pelo id
+
 								$query9 = "SELECT * FROM T_chat WHERE remetente = $id AND destinatario = $idAmigo OR remetente = $idAmigo AND destinatario = $id ORDER BY idT_chat";
 								$prepare9 = $dbh->prepare($query9);
 								$resultado9 = $prepare9->execute();
@@ -238,10 +253,14 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								$i = 0;
 
+								// Fazendo loop para criar os cards das mensagens
+
 								foreach ($res9 as $linha9) {
 
 									$lugarMsg;
 									$imgPerfilMsg = "";
+
+									// Vendo o lugar onde vai aparecer cada mensagem
 
 									if ($linha9['remetente'] ==  $idChat) {
 
@@ -320,7 +339,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 						?>
 					</div>
 
-					<!-- Input da Mensagem -->
+					<!-- Form para mandar mensagem -->
 
 					<div class="card-footer">
 						<form method="post" action="../../controller/enviar_msg.php?id_conversa=<?php echo $idAmigo ?>">
@@ -348,11 +367,10 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 
 	<script type="module">
-		import {
-			criarMsg
-		} from '../../js_normal/chat.js';
-
+		
 		const card_body = document.getElementById("card_body");
+
+		// Script para descer o scroll das mensagens
 
 		const scroll = () => {
 			card_body.scrollTop = card_body.scrollHeight - card_body.clientHeight;
@@ -360,15 +378,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 		setTimeout(scroll, 500);
 
-		let msg_mandadas;
-
-		const loopMsg = (e) => {
-
-			e.preventDefault();
-
-		}
-
-		setInterval(loopMg, 5000);
 	</script>
 
 </body>

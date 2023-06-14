@@ -2,6 +2,8 @@
 
 include_once("../config.php");
 
+// Pegando o id do usuário do perfil
+
 $id_usuario = $_POST['id'];
 
 if (isset($_FILES['arquivo'])) {
@@ -31,6 +33,9 @@ if (isset($_FILES['arquivo'])) {
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
     if ($deu_certo) {
+
+        // Query de atualizar o perfil
+
         $dbh->query("UPDATE T_usuario SET foto = '$path' WHERE idT_usuario = $id_usuario");
     }
 }

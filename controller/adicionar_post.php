@@ -2,9 +2,13 @@
 
 include_once("../config.php");
 
+// Pegando informações do post
+
 $id_usuario = $_POST['id'];
 $titulo_postagem = "post";
 $descricao_postagem = $_POST['descricao_postagem'];
+
+// Verificando se o botão de publico setá apertado ou não
 
 if (isset($_POST['status']) && $_POST['status'] == 'on'){
     $statuspost = 0;

@@ -1,5 +1,7 @@
 <?php
 
+// PHP para pegar informações do usuário da sessão
+
 include_once("../config.php");
 
 if (isset($_GET["id_perfil"])) {

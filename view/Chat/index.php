@@ -41,6 +41,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 										<i style="color:aliceblue;" class=" bi bi-arrow-left"></i>
 									</span></a></div>
 
+									<!-- Form para pesquisar somente entre os seus amigos -->
 
 							<form class="m-0 d-flex col-11" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
 								<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
@@ -56,8 +57,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 					<div class="card-body col-12 bg-dark contacts_body">
 						<ui class="contacts res_contacts">
 
-
-							<!-- Fazer um loop aqui com os dados do banco de dados -->
+							<!-- Loop com os seus amigos -->
 							<li class="active">
 
 								<?php
@@ -150,16 +150,14 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 					<div id="card_body" class="card-body msg_card_body">
 
-						<!-- Exemplo de conversa abaixo, mas da pra fazer loop com dados do banco de dados -->
-
 					</div>
 
 					<!-- Input da Mensagem -->
 
 					<div class="card-footer">
-						<form method="post" action="../../controller/enviar_msg.php?id_conversa=<?php echo $idAmigo ?>">
-							<input type="text" name="idUsu" value="<?php echo $_SESSION['id'] ?>" style="display: none;">
-							<input type="text" name="id_amigo" value="<?php echo $id_amigo ?>" style="display: none;">
+						<form method="post" action="">
+							<input type="text" name="idUsu"  style="display: none;">
+							<input type="text" name="id_amigo"  style="display: none;">
 							<div class="input-group " style="background-color:aliceblue; border-radius: 15px">
 								<div class="input-group-append">
 									<span style="color:black" class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
