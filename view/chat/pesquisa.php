@@ -89,8 +89,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 									$res19 = $prepare19->fetchAll();
 
-									if ($prepare19->rowCount() == 0) {
-										echo "<h3>Pesquisa não encontrada</h3>";
+									if ($prepare19->rowCount() == 0 ) {
+										
 										die;
 									}
 

@@ -11,23 +11,27 @@
 </style>
 
   <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light">
-        <a href="./home.php" type="" name="home"  class="col-3 d-flex justify-content-center">
+        <a style="flex-direction: column; align-items: center;" href="./home.php" type="" name="home"  class="col-3 d-flex flex-collumn justify-content-center">
             <span class="material-symbols-outlined"><i class="bi bi-house"></i></span>
+            <span style="font-size: 1rem;" class="">home</span>
         </a> 
         
-        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
+        <a style="flex-direction: column; align-items: center;" href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
             <span class="material-symbols-outlined"><i class="bi bi-person-vcard"></i></span>
+            <span style="font-size: 1rem;" class="">fórum</span>
         </a> 
 
         <a href="../postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
             <span style="font-size: 45px;" class="material-symbols-outlined"><i class="bi bi-plus-lg"></i></span>
         </a>
 
-        <a href="../../view/pesquisa_usuario.php" type="button" name="home"  class="col-2 d-flex justify-content-center">
+        <a style="flex-direction: column; align-items: center;" href="../../view/pesquisa_usuario.php" type="button" name="home"  class="col-2 d-flex justify-content-center">
             <span class="material-symbols-outlined"><i class="bi bi-search"></i></span>
+            <span style="font-size: 1rem;" class="">explorar</span>
         </a> 
 
-        <a href="../../view/perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
+        <a style="flex-direction: column; align-items: center;" href="../../view/perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
             <span class="material-symbols-outlined"><i class="bi bi-person"></i></span>
+            <span style="font-size: 1rem;" class="">perfil</span>
         </a>
   </div>

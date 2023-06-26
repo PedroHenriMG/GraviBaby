@@ -6,7 +6,7 @@ $id_usuario_sessao = $_SESSION['id'];
 
     //Selecionado publicações
 
-$sqlPostagens = "SELECT * FROM T_publicacoes";
+$sqlPostagens = "SELECT * FROM T_publicacoes ORDER BY CASE WHEN id_usuario = $id_usuario_sessao THEN 0 ELSE 1 END, id_usuario";
 $preparePostagens = $dbh->prepare($sqlPostagens);
 $preparePostagens->execute();
 $resPostagens = $preparePostagens->fetchAll();
