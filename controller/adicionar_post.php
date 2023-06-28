@@ -23,7 +23,7 @@ if (isset($_FILES['picture__input'])) {
     $pasta = "../postagens/";
 
     $arquivo = $_FILES['picture__input'];
-    if ($arquivo['size'] > 10097000) {
+    if ($arquivo['size'] > 100097000) {
         die("arquivo muito grande max 10mb");
     }
     $nomeArquivo = $arquivo['name'];

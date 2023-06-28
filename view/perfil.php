@@ -22,21 +22,28 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     </title>
     <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <style>
-        a{
+        #Barra a{
 
             text-decoration: none;
             color: black;
             font-size: 35px;
         }
     </style>
-
-    <link rel="stylesheet" href="../css_normal/perfil.css">
+    
+    <link rel="stylesheet" href="../css_normal/style.css">
 </head>
 
 <?php
     include_once '../controller/util_php/infos_usuario.php';
     include_once '../config.php';
+
+    $segue = false;
 
     if (isset($_GET["id_perfil"])) {
         $id_perfil = $_GET["id_perfil"];
@@ -54,37 +61,39 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
     $query->execute();
 
-    $totalposts = $query->rowCount();
+    $seguidores = 600;
+    $seguindo = 200;
     
 ?>
 
 <body class="g-sidenav-show">
     <div style="height: 80%;" class="container-fluid">
         <?php include_once '../componentes/perfil.php' ?>
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-12 col-md-8 col-xl-6 col-xxl-4">
-                <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light">
-                        <a href="./home/home.php" type="" name="home"  class="col-3 d-flex justify-content-center">
-                            <span class="material-symbols-outlined">home</span>
-                        </a> 
-                        
-                        <a href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
-                            <span class="material-symbols-outlined">groups</span>
-                        </a> 
 
-                        <a href="./postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
-                            <span style="font-size: 45px;" class="material-symbols-outlined">add</span>
-                        </a>
+        <div id="Barra" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light">
+              <a style="flex-direction: column; align-items: center;" href="./home/home.php" type="" name="home"  class="col-3 d-flex flex-collumn justify-content-center">
+                  <span class="material-symbols-outlined"><i class="bi bi-house"></i></span>
+                  <span style="font-size: 1rem;" class="">home</span>
+              </a> 
 
-                        <a href="./pesquisa_usuario.php" type="button" name="home"  class="col-2 d-flex justify-content-center">
-                            <span class="material-symbols-outlined">search</span>
-                        </a> 
+              <a style="flex-direction: column; align-items: center;" href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
+                  <span class="material-symbols-outlined"><i class="bi bi-person-vcard"></i></span>
+                  <span style="font-size: 1rem;" class="">fórum</span>
+              </a> 
 
-                        <a href="./perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
-                            <span class="material-symbols-outlined">person</span>
-                        </a>
-                </div>
-            </div>
+              <a href="./postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
+                  <span style="font-size: 45px;" class="material-symbols-outlined"><i class="bi bi-plus-lg"></i></span>
+              </a>
+
+              <a style="flex-direction: column; align-items: center;" href="../view/pesquisa_usuario.php" type="button" name="home"  class="col-2 d-flex justify-content-center">
+                  <span class="material-symbols-outlined"><i class="bi bi-search"></i></span>
+                  <span style="font-size: 1rem;" class="">explorar</span>
+              </a> 
+
+              <a style="flex-direction: column; align-items: center;" href="../view/perfil.php" type="button" name="home" class="col-3 d-flex justify-content-center">
+                  <span class="material-symbols-outlined"><i class="bi bi-person"></i></span>
+                  <span style="font-size: 1rem;" class="">perfil</span>
+              </a>
         </div>
     </div>
     <script src="../bootstrap-5.2.3-dist/js/bootstrap.js"></script>
