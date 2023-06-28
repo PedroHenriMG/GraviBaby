@@ -44,6 +44,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     include_once '../config.php';
 
     $segue = false;
+    $controle = false;
 
     if (isset($_GET["id_perfil"])) {
         $id_perfil = $_GET["id_perfil"];

@@ -49,7 +49,13 @@ include_once '../controller/util_php/infos_usuario.php';
             
         
         ?>" alt="">
+        <?php 
+            if($controle == false){
+         ?>
+
         <div id="Edite" onclick="x()"><img src="../imagens/brush-fill.svg" alt=""></div>
+
+        <?php } ?>
     </div>
     <div id="caixa-box-4" class="col-12 d-flex flex-column justify-content-center align-items-center">
         <h1><?php echo $nomeCompleto_usuario; ?></h1>
@@ -58,6 +64,9 @@ include_once '../controller/util_php/infos_usuario.php';
             <p class="text-center"><strong><?php echo $seguidores; ?> <br> Seguidores</strong></p>
             <p class="text-center"><strong><?php echo $seguindo; ?> <br> Seguindo</strong></p>
         </div>
+        <?php 
+            if($controle == true){
+         ?>
         <form method="post" action="../controller/seguir.php" class="col-6 d-flex justify-content-around">
             
             <input style="display: none;" name="id_usuario" type="text" value="<?php echo $id_padrao ?>">
@@ -71,6 +80,8 @@ include_once '../controller/util_php/infos_usuario.php';
             <a class="Botao" href="#" style="background-color: cadetblue; text-decoration: none;"><strong>Mensagem</strong></a>
             
         </form>
+
+        <?php } ?>
 
         <form method="post" action="../controller/editar_perfil.php">
             <input id="inputUpload" name="arquivo" style="display: none;" type="file">
