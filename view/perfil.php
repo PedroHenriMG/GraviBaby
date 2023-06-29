@@ -29,7 +29,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
     <style>
         #Barra a{
-
             text-decoration: none;
             color: black;
             font-size: 35px;
@@ -80,7 +79,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
               <a style="flex-direction: column; align-items: center;" href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
                   <span class="material-symbols-outlined"><i class="bi bi-person-vcard"></i></span>
                   <span style="font-size: 1rem;" class="">fórum</span>
-              </a> 
+              </a>
 
               <a href="./postmaker.php" type="button" name="add" class="col-2 d-flex justify-content-center">
                   <span style="font-size: 45px;" class="material-symbols-outlined"><i class="bi bi-plus-lg"></i></span>

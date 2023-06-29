@@ -6,18 +6,20 @@ include_once("../config.php");
 
 $id_usuario = $_POST['id'];
 
-if (isset($_FILES['arquivo'])) {
 
+
+if (isset($_FILES['arquivo'])) {
     $arquivo = $_FILES['arquivo'];
 
     $pasta = "../fotos_perfil/";
 
     $arquivo = $_FILES['arquivo'];
     if ($arquivo['size'] > 30097000) {
-        echo 'deu certo';
         die("arquivo muito grande max 2mb");
     }
     $nomeArquivo = $arquivo['name'];
+
+    
 
     $novoNomeArquivo = uniqid();
 
@@ -32,12 +34,15 @@ if (isset($_FILES['arquivo'])) {
 
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
+    
+
     if ($deu_certo) {
 
         // Query de atualizar o perfil
 
         $dbh->query("UPDATE T_usuario SET foto = '$path' WHERE idT_usuario = $id_usuario");
     }
+
+    header("Location: ../view/perfil.php");
 }
 
-header("Location: ../view/perfil.php");

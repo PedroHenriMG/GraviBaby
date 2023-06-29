@@ -88,7 +88,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 								?>
 										<div class="d-flex bd-highlight contato mb-4" id="cont<?php echo $linha19['idT_usuario'] ?>" style="cursor: pointer">
-											<form method="post" action="../view/perfil.php?id_perfil=<?php echo $linha19['idT_usuario'] ?>">
+											<form method="post" action="../view/perfilamigo.php?id_perfil=<?php echo $linha19['idT_usuario'] ?>">
 												<input style="display: none;" value="<?php echo $linha19['idT_usuario'] ?>" type="submit" class="input_contacts" name="id_conversa">
 											</form>
 
@@ -96,7 +96,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 												const contato<?php echo $linha19['idT_usuario'] ?> = document.getElementById("cont<?php echo $linha19['idT_usuario'] ?>");
 
 												contato<?php echo $linha19['idT_usuario'] ?>.addEventListener("click", () => {
-													window.location = "../view/perfil.php?id_perfil=<?php echo $linha19['idT_usuario'] ?>";
+													window.location = "../view/perfilamigo.php?id_perfil=<?php echo $linha19['idT_usuario'] ?>";
 												})
 											</script>
 

@@ -15,7 +15,7 @@ include_once '../controller/util_php/infos_usuario.php';
         input.click();
 
         input.addEventListener('change', function(event) {
-            let files = event.target.files; // Obtém a lista de arquivos selecionados
+            let files = event.target.files; 
 
             if (files.length > 0) {
                 envia.click();
@@ -83,9 +83,9 @@ include_once '../controller/util_php/infos_usuario.php';
 
         <?php } ?>
 
-        <form method="post" action="../controller/editar_perfil.php">
+        <form method="post" action="../controller/editar_perfil.php" enctype="multipart/form-data">
             <input id="inputUpload" name="arquivo" style="display: none;" type="file">
-            <button id="Foto" style="display: none;" type="submit"></button>
+            <button id="Foto" name="id" value="<?php echo $idUsu ?>" style="display: none;" type="submit"></button>
         </form>
     </div>
     <div id="caixa-box-4" class="col-12 d-flex flex-wrap mt-5">

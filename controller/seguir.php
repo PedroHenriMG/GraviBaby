@@ -23,7 +23,8 @@ if ($res21 == null || $sql21 == null) {
     ));
 
     header("Location: ../view/home/home.php");
-} else {
 
+} else {
+    
     header("Location: ../view/home/home.php");
 }

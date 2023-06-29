@@ -43,7 +43,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     include_once '../controller/util_php/infos_usuario.php';
     include_once '../config.php';
 
-    $segue = false;
+    
     $controle = true;
 
     if (isset($_GET["id_perfil"])) {
@@ -57,10 +57,21 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
 
     $sqlperfil = "SELECT * FROM t_publicacoes WHERE id_usuario = $idUsu ";
-
     $query = $dbh->prepare($sqlperfil);
-
     $query->execute();
+    
+
+    $sqlamigo = "SELECT * FROM t_amigos WHERE id_usuario = $idUsu AND id_amigo = $id_perfil";
+    $queryamigo = $dbh->prepare($sqlamigo);
+    $queryamigo->execute();
+
+
+    if($queryamigo->fetch() == null){
+       $segue = false; 
+    }else{
+        $segue = true; 
+    }
+    
 
     $seguidores = 600;
     $seguindo = 200;
@@ -68,6 +79,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 ?>
 
 <body class="g-sidenav-show">
+    
     <div style="height: 80%;" class="container-fluid">
         <?php include_once '../componentes/perfil.php' ?>
 
@@ -76,7 +88,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
                   <span class="material-symbols-outlined"><i class="bi bi-house"></i></span>
                   <span style="font-size: 1rem;" class="">home</span>
               </a> 
-
               <a style="flex-direction: column; align-items: center;" href="#" type="button" name="home"  class="col-2 d-flex justify-content-center">
                   <span class="material-symbols-outlined"><i class="bi bi-person-vcard"></i></span>
                   <span style="font-size: 1rem;" class="">fórum</span>
