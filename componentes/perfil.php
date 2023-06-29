@@ -45,7 +45,6 @@ include_once '../controller/util_php/infos_usuario.php';
         <span class="material-symbols-outlined d-flex justify-content-center align-items-center">settings</span>
     </div>
     <div id="caixa-box-3" class="col-12 d-flex justify-content-center">
-    <?php echo "<h1>" . $foto . "</h1>" ?>
         <img id="hexagon" src="<?php
             if($foto != ""){
                 echo $foto;
