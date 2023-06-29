@@ -64,11 +64,13 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 									$idAmigo = $id_conversa;
 								}
 
+								$id_geral = $_SESSION['id'];
+
 								include_once("../config.php");
 
 								$input_pesquisa = $_POST['input_pesquisa'];
 
-									$sql19 = "SELECT * FROM T_usuario WHERE n_usuario LIKE '%$input_pesquisa%' OR nomecompleto_usuario LIkE '%$input_pesquisa%' ";
+									$sql19 = "SELECT * FROM T_usuario WHERE n_usuario LIKE '%$input_pesquisa%' AND idT_usuario != $id_geral OR nomecompleto_usuario LIkE '%$input_pesquisa%' AND idT_usuario != $id_geral ";
 
 									$prepare19 = $dbh->prepare($sql19);
 

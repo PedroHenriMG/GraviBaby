@@ -32,7 +32,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
     }
     </style>
 </head>
-<body style="height: 100vh; width: 100vw;">
+<body class="m-0 container-fluid p-0">
     <div class="container-fluid" style="background: transparent;">
         <div style="background: #959595 ;" class="row d-flex justify-content-center align-items-center">
             <div style="background: transparent;" class="col-12 col-md-8 col-xl-6 col-xxl-4">

@@ -10,7 +10,7 @@
 
 </style>
 
-  <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light">
+  <div id="Fixado" class="row fixed-bottom d-flex justify-content-beteewen align-items-center bg-light pb-3">
         <a style="flex-direction: column; align-items: center;" href="./home.php" type="" name="home"  class="col-3 d-flex flex-collumn justify-content-center">
             <span class="material-symbols-outlined"><i class="bi bi-house"></i></span>
             <span style="font-size: 1rem;" class="">home</span>
