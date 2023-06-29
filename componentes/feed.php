@@ -28,6 +28,15 @@ foreach ($resPostagens as $linha_post) {
 
 ?>
 
+<style>
+    .like_azul{
+        color: blue;
+    }
+    .like_preto{
+        color: black;
+    }
+</style>
+
     <!-- Criando um card para cada publicação -->
 
     <div style="margin-top: var(--altura-tamanho); margin-bottom: var(--altura-tamanho); " class="bg-white p-5 m-1 mt-5 row d-flex justify-content-center text-center align-items-center col-12">
@@ -90,11 +99,7 @@ foreach ($resPostagens as $linha_post) {
 
                     ?>
 
-                    <span  style="color: <?php if ($cout29 > 0) {
-                                            echo "blue";
-                                        } else {
-                                            echo "";
-                                        } ?>;" class="col-12 material-symbols-outlined d-flex justify-content-start"><i class="bi bi-hand-thumbs-up"></i></span>
+                    <span id="icon_like_<?php echo $id_publicacao ?>" class="col-12 material-symbols-outlined d-flex justify-content-start"><i class="bi bi-hand-thumbs-up"></i></span>
                 </button>
             </form>
 
@@ -135,7 +140,14 @@ $(document).on('click', '.like-form_<?php echo $id_publicacao ?> button', functi
         if (response.status === 'success') {
             // Atualizar a contagem de likes
             $("#cont_likes_<?php echo $id_publicacao ?>").html('<strong>' + response.countLikes + ' Likes</strong>');
-            console.log(response.countLikes);
+            console.log(response.deulike);
+            if(response.deulike){
+                $("#icon_like_<?php echo $id_publicacao ?>").removeClass('like_preto');
+                $("#icon_like_<?php echo $id_publicacao ?>").addClass('like_azul');
+            }else{
+                $("#icon_like_<?php echo $id_publicacao ?>").removeClass('like_azul');
+                $("#icon_like_<?php echo $id_publicacao ?>").addClass('like_preto');
+            }
         }
     },
     error: function(xhr, status, error) {
