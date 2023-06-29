@@ -43,7 +43,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 									</span></a></div>
 
 
-							<form class="m-0 d-flex col-11" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
+							<form style="display: none;" class="m-0 col-11" method="POST" id="form_pesquisa" action="../chat/pesquisa.php">
 								<input style="display: none;" value="<?php echo  $_SESSION['id'] ?>" name="idUsu" id="idUsuPes">
 								<input type="text" placeholder="Pesquisar" id="input_pesquisa" name="input_pesquisa" class="form-control search" style="color:black; background-color: black;">
 
@@ -52,6 +52,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 									<button style="border-radius: 0 15px 15px 0; background-color: #343a40;" type="submit"><span class="input-group-text search_btn"><i style="color: aliceblue;" class="bi bi-search"></i></span></button>
 								</div>
 							</form>
+							<h2>Amigos</h2>
 						</div>
 					</div>
 					<div class="card-body contacts_body bg-dark">

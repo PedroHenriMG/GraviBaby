@@ -33,8 +33,13 @@ include_once '../controller/util_php/infos_usuario.php';
 
 <div id="caixa-box-1" class="row d-flex justify-content-center">
     <div id="caixa-box-2" class="col-12 col-md-10 d-flex justify-content-between mt-3">
+        <?php if($idUsu == $id_padrao){
+            $voce = "display: flex;";
+        }else{
+            $voce = "display: none;";
+        } ?>
         <form method="post" action="../controller/sair_sessao.php">
-            <button class="btn btn-danger" type="submit">X</button>
+            <button style="<?php echo $voce ?>" class="btn btn-danger" type="submit">X</button>
         </form>
 
         <span class="material-symbols-outlined d-flex justify-content-center align-items-center">settings</span>
@@ -53,7 +58,15 @@ include_once '../controller/util_php/infos_usuario.php';
             if($controle == false){
          ?>
 
-        <div id="Edite" onclick="x()"><img src="../imagens/brush-fill.svg" alt=""></div>
+         <?php if($idUsu != $id_padrao){
+            $display_edit = "display: none;";
+         }else{
+            $display_edit = "display: flex;";
+            $controle = true;
+         }
+            ?>
+            <div id="Edite" style="<?php echo $display_edit ?>" onclick="x()"><img src="../imagens/brush-fill.svg" alt=""></div>
+         
 
         <?php } ?>
     </div>
@@ -65,10 +78,11 @@ include_once '../controller/util_php/infos_usuario.php';
             <p class="text-center"><strong><?php echo $seguindo; ?> <br> Seguindo</strong></p>
         </div>
         <?php 
-            if($controle == true){
+            if($controle == false){
          ?>
+         
         <form method="post" action="../controller/seguir.php" class="col-6 d-flex justify-content-around">
-            
+
             <input style="display: none;" name="id_usuario" type="text" value="<?php echo $id_padrao ?>">
             <input style="display: none;" name="id_amigo" type="text" value="<?php echo $idUsu ?>">
             
@@ -84,6 +98,8 @@ include_once '../controller/util_php/infos_usuario.php';
         <?php } ?>
 
         <form method="post" action="../controller/editar_perfil.php" enctype="multipart/form-data">
+        <form enctype="multipart/form-data" method="post" action="../controller/editar_perfil.php">
+         <input style="display: none;" name="id" type="text" value="<?php echo $id_padrao ?>">
             <input id="inputUpload" name="arquivo" style="display: none;" type="file">
             <button id="Foto" name="id" value="<?php echo $idUsu ?>" style="display: none;" type="submit"></button>
         </form>
