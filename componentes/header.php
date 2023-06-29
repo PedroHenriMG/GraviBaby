@@ -16,7 +16,7 @@
       <div class="col-6 d-flex justify-content-between align-items-center">
         <button class="button col-8 d-flex justify-content-end align-items-center" style="border: none; background-color:transparent;">
           <a style="display: flex; flex-direction: column; justify-content: center; align-items: center;" id="buttons" href="#">
-            <span class="material-symbols-outlined">
+            <span style="font-size: 1.2rem;" class="material-symbols-outlined">
               <strong>
               <i class="bi bi-bell"></i>
               </strong>
@@ -27,7 +27,7 @@
 
         <button class="button col-2 d-flex justify-content-start align-items-center" style="border: none; background-color:transparent;">
           <a style="display: flex; flex-direction: column; justify-content: center; align-items: center;"  href="../../view/chat/index.php">
-            <span class="material-symbols-outlined"> 
+            <span style="font-size: 1.2rem;" class="material-symbols-outlined"> 
               <strong>
               <i class="bi bi-chat-dots"></i>
               </strong>

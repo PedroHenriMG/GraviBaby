@@ -43,7 +43,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
     include_once '../controller/util_php/infos_usuario.php';
     include_once '../config.php';
 
-    $segue = false;
+    $segue = true;
     $controle = false;
 
     if (isset($_GET["id_perfil"])) {
@@ -55,6 +55,23 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['nome'])) {
 
     $id_padrao = $_SESSION['id'];
 
+    if($id_padrao == $idUsu){
+        $segue = false;
+    }else{
+        $sqlsegue = "SELECT * FROM T_amigos WHERE id_usuario = $id_padrao AND id_amigo = $idUsu ";
+
+        $query2= $dbh->prepare($sqlsegue);
+
+        $query2->execute();
+
+        $res26 = $query2->rowCount();
+
+        if($res26 == 1){
+            $segue = true;
+        }else{
+            $segue = false;
+        }
+    }
 
     $sqlperfil = "SELECT * FROM t_publicacoes WHERE id_usuario = $idUsu ";
 
