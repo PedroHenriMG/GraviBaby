@@ -37,7 +37,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['nome'] )){
         <div style="background: #959595 ;" class="row d-flex justify-content-center align-items-center">
             <div style="background: transparent;" class="col-12 col-md-8 col-xl-6 col-xxl-4">
                 <?php include_once '../../componentes/header.php' ?>
-                <div class="bg-dark p-3"><?php include_once '../../componentes/feed.php'; ?></div>
+                <div><?php include_once '../../componentes/feed.php'; ?></div>
                 <?php include_once '../../componentes/navbar.php' ?> 
             </div>
         </div>
